@@ -1,0 +1,4 @@
+node_modules/
+.next/
+functions/src/p-queue/*
+functions/src/p-timeout/*
