@@ -210,6 +210,7 @@
 			})
 		);
 		minted = `https://cloudflare-ipfs.com/ipfs/${cid.toString()}`;
+		console.log(minted);
 	}
 
 	async function getNFTUrl(metedataURI: string) {
@@ -227,6 +228,7 @@
 	{#if minted}
 		{#await getNFTUrl(minted) then src}
 			<img {src} alt="" />
+			<span class="metedata-url">{minted}</span>
 		{/await}
 	{:else}
 		{#await getSvg($values) then src}
@@ -278,5 +280,9 @@
 	}
 	button {
 		margin-top: 1rem;
+	}
+
+	.metedata-url {
+		margin-top: 2rem;
 	}
 </style>
