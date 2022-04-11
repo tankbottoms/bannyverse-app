@@ -1,3 +1,16 @@
+# bannyVerse
+
+<p align="center">
+  <img src="./static/characters/01.png" width=300px/>
+</p>
+
+### overview
+
+The BannyVerse App is a dynamic user composition tool for decking out your Banana.
+
+[Overview Specification](https://docs.google.com/document/d/1jTq9510VmEELzu9j5MXkoLErgd_c4nLI-0t09NW8hpI/edit?usp=sharing)
+[BannyVerse Ancestry and Token Mechanics](https://www.notion.so/ae9b6d6565114c5ea9807b07c3fdff47?v=391e86c54b3347a3999dfe69b448a5d0)
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);

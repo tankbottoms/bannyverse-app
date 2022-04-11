@@ -4,7 +4,6 @@
 
 <script lang="ts">
 	import { getSvg } from '$lib/getSvg';
-
 	import { IPFS } from '$lib/ipfs';
 	import Store from '$utils/Store';
 
@@ -192,6 +191,18 @@
 
 	let minted = '';
 
+	/*
+		* should we make a cloud function which would generate the character, metadata and push to IPFS?
+		* we will need the minter contract to operate effectively like the Tiles saving the CID in a mapping of tokenId and owner address
+		* certain accessories are incompatible with others how to encode?
+		* certain accessories are rarer than others how to encode?
+		* add ETH pricing per accessory left, right, hat, both hands
+		* whichever character  you have in your wallet you are allowed to mint from that character backwards
+		* each character has a "naked" version which retains the core feature of the character directory structure in production 
+			see page Banny Assets https://www.figma.com/file/p2oVgTPz0DxC1iv7LvrhdM/JBX%2FMove-DAO-Components?node-id=1487%3A23333
+		* 
+	*/
+
 	async function upload() {
 		const ipfs = await IPFS.create({
 			repo: 'ipfs-' + Math.random()
@@ -221,7 +232,7 @@
 </script>
 
 <svelte:head>
-	<title>veBanny</title>
+	<title>BannyVerse</title>
 </svelte:head>
 
 <section>
@@ -249,6 +260,9 @@
 			{/each}
 		</div>
 
+		<p>
+
+		</p>
 		<button on:click={upload}>Upload to IPFS</button>
 	{/if}
 </section>

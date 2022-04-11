@@ -1,7 +1,7 @@
 export async function getSvg(values: Record<string, string>) {
 	let str = `<svg
-		width="400"
-		height="400"
+		width="300"
+		height="300"
 		viewBox="0 0 290 290"
 		xmlns="http://www.w3.org/2000/svg"
 		xmlns:xlink="http://www.w3.org/1999/xlink"
