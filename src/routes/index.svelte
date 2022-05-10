@@ -3,6 +3,8 @@
 </script>
 
 <script lang="ts">
+	import { fade } from 'svelte/transition';
+	import Background from '$lib/Background.svelte';
 	import { getSvg } from '$lib/getSvg';
 	import { IPFS } from '$lib/ipfs';
 	import Store from '$utils/Store';
@@ -242,9 +244,20 @@
 			<span class="metedata-url">{minted}</span>
 		{/await}
 	{:else}
-		{#await getSvg($values) then src}
-			{@html src}
-		{/await}
+		<Background>
+			{#await getSvg($values) then layers}
+				{#each layers as layer}
+					<image
+						in:fade
+						xlink:href={layer}
+						x="50%"
+						y="50%"
+						width="250"
+						style="transform: translate(-125px, -125px);"
+					/>
+				{/each}
+			{/await}
+		</Background>
 
 		<div class="controls">
 			{#each Object.entries(form) as [key, options]}
@@ -260,9 +273,7 @@
 			{/each}
 		</div>
 
-		<p>
-
-		</p>
+		<p />
 		<button on:click={upload}>Upload to IPFS</button>
 	{/if}
 </section>
