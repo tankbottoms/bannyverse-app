@@ -1,4 +1,5 @@
 export async function getSvg(values: Record<string, string>) {
+	console.log(values)
 	let layers = [];
 	for (const [key, value] of Object.entries(values)) {
 		if (!value) continue;
@@ -16,4 +17,21 @@ export async function getSvg(values: Record<string, string>) {
 		});
 	}
 	return layers;
+}
+
+export async function getSvgForKey({ key, value }: { key: string; value: string }) {
+	// TODO where tf is the get http://localhost:3000/undefined coming from that gets ogged to console?!
+	if (!key || !value) return;
+	const src = `/veBanny/${key}/${value}.png`;
+	if (!src) return;
+	const response = await fetch(src);
+
+	var reader = new FileReader();
+	reader.readAsDataURL(await response.blob());
+	return await new Promise((resolve) => {
+		reader.onloadend = function () {
+			const base64data = reader.result;
+			resolve(base64data);
+		};
+	});
 }

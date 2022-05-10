@@ -5,180 +5,12 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
 	import Background from '$lib/Background.svelte';
-	import { getSvg } from '$lib/getSvg';
+	import { getSvg, getSvgForKey } from '$lib/getSvg';
 	import { IPFS } from '$lib/ipfs';
 	import Store from '$utils/Store';
+	import { options as layers } from '$lib/layerOptions';
 
-	const form = {
-		Body: ['Green', 'Pink', 'Red', 'Yellow'],
-		Choker: ['Choker', 'Christmas_Lights', 'No_Choker'],
-		Face: [
-			'Alien',
-			'Buddha_Face',
-			'Bunny_Eyes',
-			'Eye_Mouth',
-			'Harley_Quinn',
-			'No_Face',
-			'Peach_Face',
-			'Wonder_Woman'
-		],
-		Headgear: [
-			'Assassin_Headgear',
-			'Cowboy_Hat',
-			'Green_Cap',
-			'Kill_Bill',
-			'Pirate',
-			'Sakura',
-			'Viking',
-			'Astronaut_Helmet',
-			'Cyberpunk_Glasses',
-			'Hannible_Lector',
-			'Mario',
-			'Playboy',
-			'Samurai_Ribbon',
-			'Witchcraft',
-			'Batman',
-			'Dorthy',
-			'Harley_Quinn',
-			'Narutohead',
-			'Princess_Leia',
-			'Shining',
-			'Wonder_Woman',
-			'Blondie',
-			'Elf',
-			'Harry_Potter',
-			'No_Hat',
-			'Professor',
-			'Smoking_Glasses',
-			'Boba',
-			'Farmer',
-			'Headphones',
-			'Obiwan',
-			'Raggae',
-			'Spock',
-			'Brown_Hair',
-			'Feather_Hat',
-			'Ironman_Helmet',
-			'Peach',
-			'Rave_Glasses',
-			'The_Mask_Hat',
-			'Chef_Hat',
-			'Fisherman',
-			'Jesus',
-			'Pharaoh',
-			'Red_Hair',
-			'Tinkerbell',
-			'Clown',
-			'Geisha',
-			'Jinx_Hair',
-			'Pink_Hat',
-			'Robinhood_Hat',
-			'Vampire'
-		],
-		Left_Hand: [
-			'Cyberpunk_Weapon',
-			'Holy_Wine',
-			'Nothing',
-			'Pirate_Sword',
-			'Pitchfork',
-			'Samurai_Katana',
-			'Shark_v2',
-			'Surf_Board',
-			'Viking_Shield'
-		],
-		Lower_Accessory: [
-			'Black_Shoes',
-			'Christmas_Boots',
-			'No_Shoes',
-			'Robinhood_Boots',
-			'Sandals',
-			'Wonder_Shoes'
-		],
-		Oral_Fixation: ['Mouthstraw', 'Nothing'],
-		Outfit: [
-			'Assasin',
-			'Dolly',
-			'Harry_Potter',
-			'Pharaoh',
-			'Robinhood',
-			'The_Mask',
-			'Astronaut',
-			'Dorthy',
-			'Iron_Man',
-			'Pink_Dress',
-			'Sakura',
-			'Tinkerbell',
-			'Banana_Givi',
-			'Dr.Manhattan',
-			'Jesus',
-			'Pink_Girl',
-			'Samurai',
-			'Vampire',
-			'Batman',
-			'Elf',
-			'Jinx',
-			'Pirate',
-			'Satan',
-			'Vampire_Girl',
-			'Boba_Fett',
-			'Farmer',
-			'Kill_Bill',
-			'Playboy',
-			'Shiningbody',
-			'Witchbelt',
-			'Chef',
-			'Fisherman_Vest',
-			'Mario',
-			'Princess_Leia',
-			'Smalls',
-			'Wonder_Woman_Dress',
-			'Chokha',
-			'Geisha',
-			'Musketeer',
-			'Princess_Peach',
-			'Smoking',
-			'Cowboy',
-			"Guardians_of_Gaalaxy's_Gamora",
-			'Naruto',
-			'Professor',
-			'Spock',
-			'Cyberpunk',
-			'Hannible_Lector',
-			'No_Outfit',
-			'Punk',
-			'Surfer_T-shirt',
-			'Deadpool',
-			'Harley_Quinn',
-			'Obiwan',
-			'Rave',
-			'Tao_of_Banana_Buddha_Robe'
-		],
-		Right_Hand: [
-			'Anch',
-			'Dagger',
-			'Harley',
-			'Lollipop',
-			'Pistol',
-			'Wagasa',
-			'Butcher_Knife',
-			'Dorthy_Basket',
-			'Katana',
-			'Musketeer_Rapier',
-			'Robinhood_Dagger',
-			'Witchbroom',
-			'Christmas_Lights',
-			'Fishing_Pole',
-			'Lightsaber',
-			'Nothing',
-			'Viking_Axe',
-			'Wonder_Woman'
-		],
-		Background: ['1000_Days', '100_Days', '10_Days', '500_Days', '50_Days']
-	};
-
-	let svgElement: SVGElement;
-
-	const values = new Store<Record<string, string>>({
+	const layerOptions = {
 		Background: '',
 		Body: '',
 		Choker: '',
@@ -189,10 +21,13 @@
 		Oral_Fixation: '',
 		Outfit: '',
 		Right_Hand: ''
-	});
+	};
+
+	const values = new Store<Record<string, string>>(layerOptions);
 
 	let minted = '';
 
+	// TODO where tf is the get http://localhost:3000/undefined coming from that gets logged to console?!
 	/*
 		* should we make a cloud function which would generate the character, metadata and push to IPFS?
 		* we will need the minter contract to operate effectively like the Tiles saving the CID in a mapping of tokenId and owner address
@@ -245,22 +80,23 @@
 		{/await}
 	{:else}
 		<Background>
-			{#await getSvg($values) then layers}
-				{#each layers as layer}
+			{#each Object.keys(layerOptions) as key}
+				{#await getSvgForKey({ key, value: $values[key]}) then href}
 					<image
-						in:fade
-						xlink:href={layer}
+						in:fade={{ duration: 50 }}
+						out:fade={{duration: 250}}
+						xlink:href={href}
 						x="50%"
 						y="50%"
 						width="250"
 						style="transform: translate(-125px, -125px);"
 					/>
-				{/each}
-			{/await}
+				{/await}
+			{/each}
 		</Background>
 
 		<div class="controls">
-			{#each Object.entries(form) as [key, options]}
+			{#each Object.entries(layers) as [key, options]}
 				<div class="control">
 					<label for={key}>{key}</label>
 					<select name={key} bind:value={$values[key]}>
