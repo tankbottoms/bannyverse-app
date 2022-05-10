@@ -98,11 +98,11 @@
 		<div class="controls">
 			{#each Object.entries(layers) as [key, options]}
 				<div class="control">
-					<label for={key}>{key}</label>
+					<label for={key}>{key.replace("_", " ")}</label>
 					<select name={key} bind:value={$values[key]}>
 						<option value="">None</option>
 						{#each options as option}
-							<option value={option}>{option}</option>
+							<option value={option}>{option.replace("_", " ")}</option>
 						{/each}
 					</select>
 				</div>

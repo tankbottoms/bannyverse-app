@@ -20,7 +20,6 @@ export async function getSvg(values: Record<string, string>) {
 }
 
 export async function getSvgForKey({ key, value }: { key: string; value: string }) {
-	// TODO where tf is the get http://localhost:3000/undefined coming from that gets ogged to console?!
 	if (!key || !value) return;
 	const src = `/veBanny/${key}/${value}.png`;
 	if (!src) return;
