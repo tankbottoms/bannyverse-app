@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - I made this synthwave background in CSS (except for the mountains)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="overlays" style="--start: 20;">
+  <div class="overlay" id="overlay_sky"></div>
+  <div class="overlay" id="overlay_stars"></div>
+  <div class="overlay overlay_sun" id="overlay_sun">
+    <div class="overlay_sun-sun" id="overlay_sun-sun"></div>
+  </div>
+  <div class="overlay overlay_sun" id="overlay_sun2">
+    <div class="overlay_sun-sun" id="overlay_sun2-sun"></div>
+  </div>
+  <div class="overlay overlay_sun" id="overlay_sun3">
+    <div class="overlay_sun-sun" id="overlay_sun3-sun"></div>
+  </div>
+  <div class="overlay" id="overlay_floor">
+    <div id="overlay_floor-color"></div>
+    <div id="overlay_floor-grid"></div>
+    <div id="overlay_floor-horizon"></div>
+    <div id="overlay_floor-horizon2"></div>
+  </div>
+  <div class="overlay overlay_mountain" id="overlay_mountain">
+    <div class="overlay_mountain-mountain" id="overlay_mountain-mountain"></div>
+  </div>
+  <div class="overlay" id="overlay_overlay"></div>
+</div>
+<style>
+  html *, html *:before, html *:after {
+  	animation: var(--annie, none);
+  }
+  @keyframes --a {
+  	0%, 5% { filter: hue-rotate(30deg); }
+  	95%, 100% { filter: hue-rotate(-120deg); }
+  }
+</style>
+<!-- partial -->
+  <script src='https://tomhodgins.github.io/cssomtools/index.es5.min.js'></script>
+<script src='https://gist.githack.com/RockStarwind/bacf4446fb7d68898027d0f894ef2b5b/raw/e8b2f27be351c78c31e95aedec568e309430970c/cothas.js'></script>
+<script src='https://rockstarwind.github.io/codepen-footer/main.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+.overlays(style=`--start: ${Math.floor(Math.random() * 60)};`)
+	.overlay#overlay_sky
+	.overlay#overlay_stars
+	.overlay.overlay_sun#overlay_sun
+		.overlay_sun-sun#overlay_sun-sun
+	.overlay.overlay_sun#overlay_sun2
+		.overlay_sun-sun#overlay_sun2-sun
+	.overlay.overlay_sun#overlay_sun3
+		.overlay_sun-sun#overlay_sun3-sun
+	.overlay#overlay_floor
+		#overlay_floor-color
+		#overlay_floor-grid
+		#overlay_floor-horizon
+		#overlay_floor-horizon2
+	.overlay.overlay_mountain#overlay_mountain
+		.overlay_mountain-mountain#overlay_mountain-mountain
+	.overlay#overlay_overlay
+	
+style.
+	html *, html *:before, html *:after {
+		animation: var(--annie, none);
+	}
+	@keyframes --a {
+		0%, 5% { filter: hue-rotate(30deg); }
+		95%, 100% { filter: hue-rotate(-120deg); }
+	}
