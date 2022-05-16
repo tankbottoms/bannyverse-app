@@ -1,5 +1,5 @@
 export async function getSvg(values: Record<string, string>) {
-	console.log(values)
+	console.log(values);
 	let layers = [];
 	for (const [key, value] of Object.entries(values)) {
 		if (!value) continue;

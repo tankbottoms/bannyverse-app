@@ -27,8 +27,8 @@ export default class FileStore {
 					filename: file.name,
 					lastmodified: `${file.lastModified}`,
 					size: `${file.size}`,
-					type: `${file.type}`,
-				}),
+					type: `${file.type}`
+				})
 			})
 		);
 		return key;
@@ -38,7 +38,7 @@ export default class FileStore {
 		const response = await cache.match(new Request(`/${key}`));
 		return new File([await response.blob()], response.headers.get('filename') || 'untitled', {
 			lastModified: Number(response.headers.get('lastmodified') || 0) || undefined,
-			type: response.headers.get('type') || undefined,
+			type: response.headers.get('type') || undefined
 		});
 	}
 }

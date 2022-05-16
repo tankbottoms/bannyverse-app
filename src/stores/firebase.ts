@@ -7,7 +7,13 @@ import { CollectionReference, Query, query, QueryConstraint } from 'firebase/fir
 import { initializeApp } from 'firebase/app';
 import { collection, doc, getDoc, getDocs, getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
-import { getAuth, signInWithPopup, signOut, TwitterAuthProvider, onAuthStateChanged } from 'firebase/auth';
+import {
+	getAuth,
+	signInWithPopup,
+	signOut,
+	TwitterAuthProvider,
+	onAuthStateChanged
+} from 'firebase/auth';
 import type { User } from 'firebase/auth';
 import { connectedAccount } from './web3';
 import { browser } from '$app/env';
@@ -21,19 +27,19 @@ export const firebaseApp = initializeApp(firebaseConfig);
 export const firestore = getFirestore(firebaseApp);
 export const storage = getStorage(firebaseApp);
 export const user = new Store<User & Record<string, any>>();
-export const userdata = derived(user, $user =>
+export const userdata = derived(user, ($user) =>
 	$user
 		? {
 				username: $user?.reloadUserInfo?.screenName,
 				name: $user?.displayName,
-				profile_image_url: $user?.reloadUserInfo?.photoUrl,
+				profile_image_url: $user?.reloadUserInfo?.photoUrl
 		  }
 		: null
 );
 
 if (browser) {
 	const auth = getAuth(firebaseApp);
-	onAuthStateChanged(auth, _user => {
+	onAuthStateChanged(auth, (_user) => {
 		if (_user?.uid) user.set(_user);
 		else user.set(null);
 	});
@@ -78,7 +84,7 @@ export async function getDocuments(
 			coll = query(coll as CollectionReference, queryConstraints);
 		}
 		const snap = await getDocs(coll);
-		return Object.fromEntries(snap.docs.map(snap => [snap.id, snap.data()]));
+		return Object.fromEntries(snap.docs.map((snap) => [snap.id, snap.data()]));
 	} catch (err) {
 		console.error(err.message || err);
 		return;

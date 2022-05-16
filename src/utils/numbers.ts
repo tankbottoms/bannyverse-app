@@ -51,9 +51,9 @@ export function pastTimeReader(time: number): string {
 		ms / msInAnHour,
 		ms / msInAMinute,
 		ms / msInASecond,
-		ms,
+		ms
 	];
-	const index = values.findIndex(value => value > 1);
+	const index = values.findIndex((value) => value > 1);
 	let unit = units[index] || 'second';
 	if (Math.floor(values[index]) !== 1) unit += 's';
 	return `${Math.floor(values[index])} ${unit} ago`;

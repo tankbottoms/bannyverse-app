@@ -36,7 +36,10 @@ export function getTotalString(fee: string, value: string, coin: string): string
 		return `$${numberWithCommas(Number((total * $ethPrice).toFixed(2)), 2)}`;
 	} else if (coin === 'DAI') {
 		if ($daiPrice && $ethPrice && fee) {
-			return `$${numberWithCommas(Number((Number(value) * $daiPrice + Number(fee) * $ethPrice).toFixed(2)), 2)}`;
+			return `$${numberWithCommas(
+				Number((Number(value) * $daiPrice + Number(fee) * $ethPrice).toFixed(2)),
+				2
+			)}`;
 		}
 	}
 	return '';

@@ -1,4 +1,38 @@
-import{L as K,S as U,i as Y,s as q,k as M,e as I,K as $,d as h,m as x,c as k,a as v,b as L,g as b,E as f,M as X,N as e0,O as D,t as S,h as H,P as t0,J as w,Q as j,R as E,T as V,U as Q,l as G,V as a0,W as l0,X as W,j as n0}from"../chunks/index-f52b3be9.js";import{w as o0}from"../chunks/index-9be6da39.js";async function N(t){let e=`<svg
+import {
+	L as K,
+	S as U,
+	i as Y,
+	s as q,
+	k as M,
+	e as I,
+	K as $,
+	d as h,
+	m as x,
+	c as k,
+	a as v,
+	b as L,
+	g as b,
+	E as f,
+	M as X,
+	N as e0,
+	O as D,
+	t as S,
+	h as H,
+	P as t0,
+	J as w,
+	Q as j,
+	R as E,
+	T as V,
+	U as Q,
+	l as G,
+	V as a0,
+	W as l0,
+	X as W,
+	j as n0
+} from '../chunks/index-f52b3be9.js';
+import { w as o0 } from '../chunks/index-9be6da39.js';
+async function N(t) {
+	let e = `<svg
 		width="300"
 		height="300"
 		viewBox="0 0 290 290"
@@ -96,13 +130,29 @@ import{L as K,S as U,i as Y,s as q,k as M,e as I,K as $,d as h,m as x,c as k,a a
 			fill="rgba(0,0,0,0)"
 			stroke="rgba(255,255,255,0.2)"
 		/>
-        `;for(const[a,n]of Object.entries(t)){if(!n)continue;const s=`/veBanny/${a}/${n}.png`,o=await fetch(s);var l=new FileReader;l.readAsDataURL(await o.blob()),await new Promise(i=>{l.onloadend=function(){var d=l.result;e+=`<image
+        `;
+	for (const [a, n] of Object.entries(t)) {
+		if (!n) continue;
+		const s = `/veBanny/${a}/${n}.png`,
+			o = await fetch(s);
+		var l = new FileReader();
+		l.readAsDataURL(await o.blob()),
+			await new Promise((i) => {
+				l.onloadend = function () {
+					var d = l.result;
+					(e += `<image
 				        xlink:href="${d}"
 				        x="50%"
 				        y="50%"
 				        width="250"
 				        style="transform: translate(-125px, -125px);"
-				    />`,i(!0)}})}return e+=`
+				    />`),
+						i(!0);
+				};
+			});
+	}
+	return (
+		(e += `
 		<path
 			style="transform:translate(226px, 226px) scale(0.1)"
 			id="Selection"
@@ -163,4 +213,560 @@ import{L as K,S as U,i as Y,s as q,k as M,e as I,K as $,d as h,m as x,c as k,a a
 				/>
 			</g>
 		</g>
-	</svg>`,e.replace(/[\s\n]+/g," ")}const s0=window.IpfsCore;class i0{constructor(e=void 0){const{set:l,subscribe:a,update:n}=o0(e);this.set=l,this.subscribe=a,this.update=n}get(){return K(this)}}function z(t,e,l){const a=t.slice();return a[8]=e[l][0],a[9]=e[l][1],a[10]=e,a[11]=l,a}function T(t,e,l){const a=t.slice();return a[12]=e[l],a}function r0(t){let e,l,a,n,s,o,i,d,C,B,m={ctx:t,current:null,token:null,hasCatch:!1,pending:f0,then:u0,catch:h0,value:7};D(e=N(t[1]),m);let A=Object.entries(t[2]),p=[];for(let r=0;r<A.length;r+=1)p[r]=R(z(t,A,r));return{c(){m.block.c(),l=M(),a=I("div");for(let r=0;r<p.length;r+=1)p[r].c();n=M(),s=I("p"),o=M(),i=I("button"),d=S("Upload to IPFS"),this.h()},l(r){m.block.l(r),l=x(r),a=k(r,"DIV",{class:!0});var c=v(a);for(let y=0;y<p.length;y+=1)p[y].l(c);c.forEach(h),n=x(r),s=k(r,"P",{});var _=v(s);_.forEach(h),o=x(r),i=k(r,"BUTTON",{class:!0});var u=v(i);d=H(u,"Upload to IPFS"),u.forEach(h),this.h()},h(){L(a,"class","controls svelte-16bcuil"),L(i,"class","svelte-16bcuil")},m(r,c){m.block.m(r,m.anchor=c),m.mount=()=>l.parentNode,m.anchor=l,b(r,l,c),b(r,a,c);for(let _=0;_<p.length;_+=1)p[_].m(a,null);b(r,n,c),b(r,s,c),b(r,o,c),b(r,i,c),w(i,d),C||(B=E(i,"click",t[4]),C=!0)},p(r,c){if(t=r,m.ctx=t,c&2&&e!==(e=N(t[1]))&&D(e,m)||Q(m,t,c),c&6){A=Object.entries(t[2]);let _;for(_=0;_<A.length;_+=1){const u=z(t,A,_);p[_]?p[_].p(u,c):(p[_]=R(u),p[_].c(),p[_].m(a,null))}for(;_<p.length;_+=1)p[_].d(1);p.length=A.length}},d(r){m.block.d(r),m.token=null,m=null,r&&h(l),r&&h(a),V(p,r),r&&h(n),r&&h(s),r&&h(o),r&&h(i),C=!1,B()}}}function c0(t){let e,l,a={ctx:t,current:null,token:null,hasCatch:!1,pending:p0,then:d0,catch:_0,value:7};return D(l=F(t[0]),a),{c(){e=G(),a.block.c()},l(n){e=G(),a.block.l(n)},m(n,s){b(n,e,s),a.block.m(n,a.anchor=s),a.mount=()=>e.parentNode,a.anchor=e},p(n,s){t=n,a.ctx=t,s&1&&l!==(l=F(t[0]))&&D(l,a)||Q(a,t,s)},d(n){n&&h(e),a.block.d(n),a.token=null,a=null}}}function h0(t){return{c:f,l:f,m:f,p:f,d:f}}function u0(t){let e,l=t[7]+"",a;return{c(){e=new a0,a=G(),this.h()},l(n){e=l0(n),a=G(),this.h()},h(){e.a=a},m(n,s){e.m(l,n,s),b(n,a,s)},p(n,s){s&2&&l!==(l=n[7]+"")&&e.p(l)},d(n){n&&h(a),n&&e.d()}}}function f0(t){return{c:f,l:f,m:f,p:f,d:f}}function O(t){let e,l=t[12]+"",a,n;return{c(){e=I("option"),a=S(l),this.h()},l(s){e=k(s,"OPTION",{});var o=v(e);a=H(o,l),o.forEach(h),this.h()},h(){e.__value=n=t[12],e.value=e.__value},m(s,o){b(s,e,o),w(e,a)},p:f,d(s){s&&h(e)}}}function R(t){let e,l,a=t[8]+"",n,s,o,i,d,C,B,m,A,p,r=t[9],c=[];for(let u=0;u<r.length;u+=1)c[u]=O(T(t,r,u));function _(){t[5].call(i,t[8])}return{c(){e=I("div"),l=I("label"),n=S(a),o=M(),i=I("select"),d=I("option"),C=S("None");for(let u=0;u<c.length;u+=1)c[u].c();m=M(),this.h()},l(u){e=k(u,"DIV",{class:!0});var y=v(e);l=k(y,"LABEL",{for:!0,class:!0});var g=v(l);n=H(g,a),g.forEach(h),o=x(y),i=k(y,"SELECT",{name:!0});var P=v(i);d=k(P,"OPTION",{});var Z=v(d);C=H(Z,"None"),Z.forEach(h);for(let J=0;J<c.length;J+=1)c[J].l(P);P.forEach(h),m=x(y),y.forEach(h),this.h()},h(){L(l,"for",s=t[8]),L(l,"class","svelte-16bcuil"),d.__value="",d.value=d.__value,L(i,"name",B=t[8]),t[1][t[8]]===void 0&&t0(_),L(e,"class","control svelte-16bcuil")},m(u,y){b(u,e,y),w(e,l),w(l,n),w(e,o),w(e,i),w(i,d),w(d,C);for(let g=0;g<c.length;g+=1)c[g].m(i,null);j(i,t[1][t[8]]),w(e,m),A||(p=E(i,"change",_),A=!0)},p(u,y){if(t=u,y&4){r=t[9];let g;for(g=0;g<r.length;g+=1){const P=T(t,r,g);c[g]?c[g].p(P,y):(c[g]=O(P),c[g].c(),c[g].m(i,null))}for(;g<c.length;g+=1)c[g].d(1);c.length=r.length}y&6&&j(i,t[1][t[8]])},d(u){u&&h(e),V(c,u),A=!1,p()}}}function _0(t){return{c:f,l:f,m:f,p:f,d:f}}function d0(t){let e,l,a,n,s;return{c(){e=I("img"),a=M(),n=I("span"),s=S(t[0]),this.h()},l(o){e=k(o,"IMG",{src:!0,alt:!0}),a=x(o),n=k(o,"SPAN",{class:!0});var i=v(n);s=H(i,t[0]),i.forEach(h),this.h()},h(){W(e.src,l=t[7])||L(e,"src",l),L(e,"alt",""),L(n,"class","metedata-url svelte-16bcuil")},m(o,i){b(o,e,i),b(o,a,i),b(o,n,i),w(n,s)},p(o,i){i&1&&!W(e.src,l=o[7])&&L(e,"src",l),i&1&&n0(s,o[0])},d(o){o&&h(e),o&&h(a),o&&h(n)}}}function p0(t){return{c:f,l:f,m:f,p:f,d:f}}function g0(t){let e,l;function a(o,i){return o[0]?c0:r0}let n=a(t),s=n(t);return{c(){e=M(),l=I("section"),s.c(),this.h()},l(o){$('[data-svelte="svelte-x44elq"]',document.head).forEach(h),e=x(o),l=k(o,"SECTION",{class:!0});var d=v(l);s.l(d),d.forEach(h),this.h()},h(){document.title="BannyVerse Forge",L(l,"class","svelte-16bcuil")},m(o,i){b(o,e,i),b(o,l,i),s.m(l,null)},p(o,[i]){n===(n=a(o))&&s?s.p(o,i):(s.d(1),s=n(o),s&&(s.c(),s.m(l,null)))},i:f,o:f,d(o){o&&h(e),o&&h(l),s.d()}}}const C0=!0;async function F(t){return(await(await fetch(t)).json()).image}function m0(t,e,l){let a;const n={Body:["Green","Pink","Red","Yellow"],Choker:["Choker","Christmas_Lights","No_Choker"],Face:["Alien","Buddha_Face","Bunny_Eyes","Eye_Mouth","Harley_Quinn","No_Face","Peach_Face","Wonder_Woman"],Headgear:["Assassin_Headgear","Cowboy_Hat","Green_Cap","Kill_Bill","Pirate","Sakura","Viking","Astronaut_Helmet","Cyberpunk_Glasses","Hannible_Lector","Mario","Playboy","Samurai_Ribbon","Witchcraft","Batman","Dorthy","Harley_Quinn","Narutohead","Princess_Leia","Shining","Wonder_Woman","Blondie","Elf","Harry_Potter","No_Hat","Professor","Smoking_Glasses","Boba","Farmer","Headphones","Obiwan","Raggae","Spock","Brown_Hair","Feather_Hat","Ironman_Helmet","Peach","Rave_Glasses","The_Mask_Hat","Chef_Hat","Fisherman","Jesus","Pharaoh","Red_Hair","Tinkerbell","Clown","Geisha","Jinx_Hair","Pink_Hat","Robinhood_Hat","Vampire"],Left_Hand:["Cyberpunk_Weapon","Holy_Wine","Nothing","Pirate_Sword","Pitchfork","Samurai_Katana","Shark_v2","Surf_Board","Viking_Shield"],Lower_Accessory:["Black_Shoes","Christmas_Boots","No_Shoes","Robinhood_Boots","Sandals","Wonder_Shoes"],Oral_Fixation:["Mouthstraw","Nothing"],Outfit:["Assasin","Dolly","Harry_Potter","Pharaoh","Robinhood","The_Mask","Astronaut","Dorthy","Iron_Man","Pink_Dress","Sakura","Tinkerbell","Banana_Givi","Dr.Manhattan","Jesus","Pink_Girl","Samurai","Vampire","Batman","Elf","Jinx","Pirate","Satan","Vampire_Girl","Boba_Fett","Farmer","Kill_Bill","Playboy","Shiningbody","Witchbelt","Chef","Fisherman_Vest","Mario","Princess_Leia","Smalls","Wonder_Woman_Dress","Chokha","Geisha","Musketeer","Princess_Peach","Smoking","Cowboy","Guardians_of_Gaalaxy's_Gamora","Naruto","Professor","Spock","Cyberpunk","Hannible_Lector","No_Outfit","Punk","Surfer_T-shirt","Deadpool","Harley_Quinn","Obiwan","Rave","Tao_of_Banana_Buddha_Robe"],Right_Hand:["Anch","Dagger","Harley","Lollipop","Pistol","Wagasa","Butcher_Knife","Dorthy_Basket","Katana","Musketeer_Rapier","Robinhood_Dagger","Witchbroom","Christmas_Lights","Fishing_Pole","Lightsaber","Nothing","Viking_Axe","Wonder_Woman"],Background:["1000_Days","100_Days","10_Days","500_Days","50_Days"]},s=new i0({Background:"",Body:"",Choker:"",Face:"",Headgear:"",Left_Hand:"",Lower_Accessory:"",Oral_Fixation:"",Outfit:"",Right_Hand:""});X(t,s,C=>l(1,a=C));let o="";async function i(){const C=await s0.create({repo:"ipfs-"+Math.random()}),{cid:B}=await C.add(JSON.stringify({name:`Juicebox #${1}`,attributes:[{trait_type:"Color",value:"White"},{trait_type:"Distortion Scale",value:11},{trait_type:"Rings",value:6},{trait_type:"Frequency Multiple",value:2}],description:"Distortion is a fully hand-typed 100% on-chain art collection.",image:`data:image/svg+xml;base64,${btoa(await N(a))}`}));l(0,o=`https://cloudflare-ipfs.com/ipfs/${B.toString()}`),console.log(o)}function d(C){a[C]=e0(this),s.set(a),l(2,n)}return[o,a,n,s,i,d]}class I0 extends U{constructor(e){super(),Y(this,e,m0,g0,q,{})}}export{I0 as default,C0 as prerender};
+	</svg>`),
+		e.replace(/[\s\n]+/g, ' ')
+	);
+}
+const s0 = window.IpfsCore;
+class i0 {
+	constructor(e = void 0) {
+		const { set: l, subscribe: a, update: n } = o0(e);
+		(this.set = l), (this.subscribe = a), (this.update = n);
+	}
+	get() {
+		return K(this);
+	}
+}
+function z(t, e, l) {
+	const a = t.slice();
+	return (a[8] = e[l][0]), (a[9] = e[l][1]), (a[10] = e), (a[11] = l), a;
+}
+function T(t, e, l) {
+	const a = t.slice();
+	return (a[12] = e[l]), a;
+}
+function r0(t) {
+	let e,
+		l,
+		a,
+		n,
+		s,
+		o,
+		i,
+		d,
+		C,
+		B,
+		m = {
+			ctx: t,
+			current: null,
+			token: null,
+			hasCatch: !1,
+			pending: f0,
+			then: u0,
+			catch: h0,
+			value: 7
+		};
+	D((e = N(t[1])), m);
+	let A = Object.entries(t[2]),
+		p = [];
+	for (let r = 0; r < A.length; r += 1) p[r] = R(z(t, A, r));
+	return {
+		c() {
+			m.block.c(), (l = M()), (a = I('div'));
+			for (let r = 0; r < p.length; r += 1) p[r].c();
+			(n = M()), (s = I('p')), (o = M()), (i = I('button')), (d = S('Upload to IPFS')), this.h();
+		},
+		l(r) {
+			m.block.l(r), (l = x(r)), (a = k(r, 'DIV', { class: !0 }));
+			var c = v(a);
+			for (let y = 0; y < p.length; y += 1) p[y].l(c);
+			c.forEach(h), (n = x(r)), (s = k(r, 'P', {}));
+			var _ = v(s);
+			_.forEach(h), (o = x(r)), (i = k(r, 'BUTTON', { class: !0 }));
+			var u = v(i);
+			(d = H(u, 'Upload to IPFS')), u.forEach(h), this.h();
+		},
+		h() {
+			L(a, 'class', 'controls svelte-16bcuil'), L(i, 'class', 'svelte-16bcuil');
+		},
+		m(r, c) {
+			m.block.m(r, (m.anchor = c)),
+				(m.mount = () => l.parentNode),
+				(m.anchor = l),
+				b(r, l, c),
+				b(r, a, c);
+			for (let _ = 0; _ < p.length; _ += 1) p[_].m(a, null);
+			b(r, n, c),
+				b(r, s, c),
+				b(r, o, c),
+				b(r, i, c),
+				w(i, d),
+				C || ((B = E(i, 'click', t[4])), (C = !0));
+		},
+		p(r, c) {
+			if (((t = r), (m.ctx = t), (c & 2 && e !== (e = N(t[1])) && D(e, m)) || Q(m, t, c), c & 6)) {
+				A = Object.entries(t[2]);
+				let _;
+				for (_ = 0; _ < A.length; _ += 1) {
+					const u = z(t, A, _);
+					p[_] ? p[_].p(u, c) : ((p[_] = R(u)), p[_].c(), p[_].m(a, null));
+				}
+				for (; _ < p.length; _ += 1) p[_].d(1);
+				p.length = A.length;
+			}
+		},
+		d(r) {
+			m.block.d(r),
+				(m.token = null),
+				(m = null),
+				r && h(l),
+				r && h(a),
+				V(p, r),
+				r && h(n),
+				r && h(s),
+				r && h(o),
+				r && h(i),
+				(C = !1),
+				B();
+		}
+	};
+}
+function c0(t) {
+	let e,
+		l,
+		a = {
+			ctx: t,
+			current: null,
+			token: null,
+			hasCatch: !1,
+			pending: p0,
+			then: d0,
+			catch: _0,
+			value: 7
+		};
+	return (
+		D((l = F(t[0])), a),
+		{
+			c() {
+				(e = G()), a.block.c();
+			},
+			l(n) {
+				(e = G()), a.block.l(n);
+			},
+			m(n, s) {
+				b(n, e, s), a.block.m(n, (a.anchor = s)), (a.mount = () => e.parentNode), (a.anchor = e);
+			},
+			p(n, s) {
+				(t = n), (a.ctx = t), (s & 1 && l !== (l = F(t[0])) && D(l, a)) || Q(a, t, s);
+			},
+			d(n) {
+				n && h(e), a.block.d(n), (a.token = null), (a = null);
+			}
+		}
+	);
+}
+function h0(t) {
+	return { c: f, l: f, m: f, p: f, d: f };
+}
+function u0(t) {
+	let e,
+		l = t[7] + '',
+		a;
+	return {
+		c() {
+			(e = new a0()), (a = G()), this.h();
+		},
+		l(n) {
+			(e = l0(n)), (a = G()), this.h();
+		},
+		h() {
+			e.a = a;
+		},
+		m(n, s) {
+			e.m(l, n, s), b(n, a, s);
+		},
+		p(n, s) {
+			s & 2 && l !== (l = n[7] + '') && e.p(l);
+		},
+		d(n) {
+			n && h(a), n && e.d();
+		}
+	};
+}
+function f0(t) {
+	return { c: f, l: f, m: f, p: f, d: f };
+}
+function O(t) {
+	let e,
+		l = t[12] + '',
+		a,
+		n;
+	return {
+		c() {
+			(e = I('option')), (a = S(l)), this.h();
+		},
+		l(s) {
+			e = k(s, 'OPTION', {});
+			var o = v(e);
+			(a = H(o, l)), o.forEach(h), this.h();
+		},
+		h() {
+			(e.__value = n = t[12]), (e.value = e.__value);
+		},
+		m(s, o) {
+			b(s, e, o), w(e, a);
+		},
+		p: f,
+		d(s) {
+			s && h(e);
+		}
+	};
+}
+function R(t) {
+	let e,
+		l,
+		a = t[8] + '',
+		n,
+		s,
+		o,
+		i,
+		d,
+		C,
+		B,
+		m,
+		A,
+		p,
+		r = t[9],
+		c = [];
+	for (let u = 0; u < r.length; u += 1) c[u] = O(T(t, r, u));
+	function _() {
+		t[5].call(i, t[8]);
+	}
+	return {
+		c() {
+			(e = I('div')),
+				(l = I('label')),
+				(n = S(a)),
+				(o = M()),
+				(i = I('select')),
+				(d = I('option')),
+				(C = S('None'));
+			for (let u = 0; u < c.length; u += 1) c[u].c();
+			(m = M()), this.h();
+		},
+		l(u) {
+			e = k(u, 'DIV', { class: !0 });
+			var y = v(e);
+			l = k(y, 'LABEL', { for: !0, class: !0 });
+			var g = v(l);
+			(n = H(g, a)), g.forEach(h), (o = x(y)), (i = k(y, 'SELECT', { name: !0 }));
+			var P = v(i);
+			d = k(P, 'OPTION', {});
+			var Z = v(d);
+			(C = H(Z, 'None')), Z.forEach(h);
+			for (let J = 0; J < c.length; J += 1) c[J].l(P);
+			P.forEach(h), (m = x(y)), y.forEach(h), this.h();
+		},
+		h() {
+			L(l, 'for', (s = t[8])),
+				L(l, 'class', 'svelte-16bcuil'),
+				(d.__value = ''),
+				(d.value = d.__value),
+				L(i, 'name', (B = t[8])),
+				t[1][t[8]] === void 0 && t0(_),
+				L(e, 'class', 'control svelte-16bcuil');
+		},
+		m(u, y) {
+			b(u, e, y), w(e, l), w(l, n), w(e, o), w(e, i), w(i, d), w(d, C);
+			for (let g = 0; g < c.length; g += 1) c[g].m(i, null);
+			j(i, t[1][t[8]]), w(e, m), A || ((p = E(i, 'change', _)), (A = !0));
+		},
+		p(u, y) {
+			if (((t = u), y & 4)) {
+				r = t[9];
+				let g;
+				for (g = 0; g < r.length; g += 1) {
+					const P = T(t, r, g);
+					c[g] ? c[g].p(P, y) : ((c[g] = O(P)), c[g].c(), c[g].m(i, null));
+				}
+				for (; g < c.length; g += 1) c[g].d(1);
+				c.length = r.length;
+			}
+			y & 6 && j(i, t[1][t[8]]);
+		},
+		d(u) {
+			u && h(e), V(c, u), (A = !1), p();
+		}
+	};
+}
+function _0(t) {
+	return { c: f, l: f, m: f, p: f, d: f };
+}
+function d0(t) {
+	let e, l, a, n, s;
+	return {
+		c() {
+			(e = I('img')), (a = M()), (n = I('span')), (s = S(t[0])), this.h();
+		},
+		l(o) {
+			(e = k(o, 'IMG', { src: !0, alt: !0 })), (a = x(o)), (n = k(o, 'SPAN', { class: !0 }));
+			var i = v(n);
+			(s = H(i, t[0])), i.forEach(h), this.h();
+		},
+		h() {
+			W(e.src, (l = t[7])) || L(e, 'src', l),
+				L(e, 'alt', ''),
+				L(n, 'class', 'metedata-url svelte-16bcuil');
+		},
+		m(o, i) {
+			b(o, e, i), b(o, a, i), b(o, n, i), w(n, s);
+		},
+		p(o, i) {
+			i & 1 && !W(e.src, (l = o[7])) && L(e, 'src', l), i & 1 && n0(s, o[0]);
+		},
+		d(o) {
+			o && h(e), o && h(a), o && h(n);
+		}
+	};
+}
+function p0(t) {
+	return { c: f, l: f, m: f, p: f, d: f };
+}
+function g0(t) {
+	let e, l;
+	function a(o, i) {
+		return o[0] ? c0 : r0;
+	}
+	let n = a(t),
+		s = n(t);
+	return {
+		c() {
+			(e = M()), (l = I('section')), s.c(), this.h();
+		},
+		l(o) {
+			$('[data-svelte="svelte-x44elq"]', document.head).forEach(h),
+				(e = x(o)),
+				(l = k(o, 'SECTION', { class: !0 }));
+			var d = v(l);
+			s.l(d), d.forEach(h), this.h();
+		},
+		h() {
+			(document.title = 'BannyVerse Forge'), L(l, 'class', 'svelte-16bcuil');
+		},
+		m(o, i) {
+			b(o, e, i), b(o, l, i), s.m(l, null);
+		},
+		p(o, [i]) {
+			n === (n = a(o)) && s ? s.p(o, i) : (s.d(1), (s = n(o)), s && (s.c(), s.m(l, null)));
+		},
+		i: f,
+		o: f,
+		d(o) {
+			o && h(e), o && h(l), s.d();
+		}
+	};
+}
+const C0 = !0;
+async function F(t) {
+	return (await (await fetch(t)).json()).image;
+}
+function m0(t, e, l) {
+	let a;
+	const n = {
+			Body: ['Green', 'Pink', 'Red', 'Yellow'],
+			Choker: ['Choker', 'Christmas_Lights', 'No_Choker'],
+			Face: [
+				'Alien',
+				'Buddha_Face',
+				'Bunny_Eyes',
+				'Eye_Mouth',
+				'Harley_Quinn',
+				'No_Face',
+				'Peach_Face',
+				'Wonder_Woman'
+			],
+			Headgear: [
+				'Assassin_Headgear',
+				'Cowboy_Hat',
+				'Green_Cap',
+				'Kill_Bill',
+				'Pirate',
+				'Sakura',
+				'Viking',
+				'Astronaut_Helmet',
+				'Cyberpunk_Glasses',
+				'Hannible_Lector',
+				'Mario',
+				'Playboy',
+				'Samurai_Ribbon',
+				'Witchcraft',
+				'Batman',
+				'Dorthy',
+				'Harley_Quinn',
+				'Narutohead',
+				'Princess_Leia',
+				'Shining',
+				'Wonder_Woman',
+				'Blondie',
+				'Elf',
+				'Harry_Potter',
+				'No_Hat',
+				'Professor',
+				'Smoking_Glasses',
+				'Boba',
+				'Farmer',
+				'Headphones',
+				'Obiwan',
+				'Raggae',
+				'Spock',
+				'Brown_Hair',
+				'Feather_Hat',
+				'Ironman_Helmet',
+				'Peach',
+				'Rave_Glasses',
+				'The_Mask_Hat',
+				'Chef_Hat',
+				'Fisherman',
+				'Jesus',
+				'Pharaoh',
+				'Red_Hair',
+				'Tinkerbell',
+				'Clown',
+				'Geisha',
+				'Jinx_Hair',
+				'Pink_Hat',
+				'Robinhood_Hat',
+				'Vampire'
+			],
+			Left_Hand: [
+				'Cyberpunk_Weapon',
+				'Holy_Wine',
+				'Nothing',
+				'Pirate_Sword',
+				'Pitchfork',
+				'Samurai_Katana',
+				'Shark_v2',
+				'Surf_Board',
+				'Viking_Shield'
+			],
+			Lower_Accessory: [
+				'Black_Shoes',
+				'Christmas_Boots',
+				'No_Shoes',
+				'Robinhood_Boots',
+				'Sandals',
+				'Wonder_Shoes'
+			],
+			Oral_Fixation: ['Mouthstraw', 'Nothing'],
+			Outfit: [
+				'Assasin',
+				'Dolly',
+				'Harry_Potter',
+				'Pharaoh',
+				'Robinhood',
+				'The_Mask',
+				'Astronaut',
+				'Dorthy',
+				'Iron_Man',
+				'Pink_Dress',
+				'Sakura',
+				'Tinkerbell',
+				'Banana_Givi',
+				'Dr.Manhattan',
+				'Jesus',
+				'Pink_Girl',
+				'Samurai',
+				'Vampire',
+				'Batman',
+				'Elf',
+				'Jinx',
+				'Pirate',
+				'Satan',
+				'Vampire_Girl',
+				'Boba_Fett',
+				'Farmer',
+				'Kill_Bill',
+				'Playboy',
+				'Shiningbody',
+				'Witchbelt',
+				'Chef',
+				'Fisherman_Vest',
+				'Mario',
+				'Princess_Leia',
+				'Smalls',
+				'Wonder_Woman_Dress',
+				'Chokha',
+				'Geisha',
+				'Musketeer',
+				'Princess_Peach',
+				'Smoking',
+				'Cowboy',
+				"Guardians_of_Gaalaxy's_Gamora",
+				'Naruto',
+				'Professor',
+				'Spock',
+				'Cyberpunk',
+				'Hannible_Lector',
+				'No_Outfit',
+				'Punk',
+				'Surfer_T-shirt',
+				'Deadpool',
+				'Harley_Quinn',
+				'Obiwan',
+				'Rave',
+				'Tao_of_Banana_Buddha_Robe'
+			],
+			Right_Hand: [
+				'Anch',
+				'Dagger',
+				'Harley',
+				'Lollipop',
+				'Pistol',
+				'Wagasa',
+				'Butcher_Knife',
+				'Dorthy_Basket',
+				'Katana',
+				'Musketeer_Rapier',
+				'Robinhood_Dagger',
+				'Witchbroom',
+				'Christmas_Lights',
+				'Fishing_Pole',
+				'Lightsaber',
+				'Nothing',
+				'Viking_Axe',
+				'Wonder_Woman'
+			],
+			Background: ['1000_Days', '100_Days', '10_Days', '500_Days', '50_Days']
+		},
+		s = new i0({
+			Background: '',
+			Body: '',
+			Choker: '',
+			Face: '',
+			Headgear: '',
+			Left_Hand: '',
+			Lower_Accessory: '',
+			Oral_Fixation: '',
+			Outfit: '',
+			Right_Hand: ''
+		});
+	X(t, s, (C) => l(1, (a = C)));
+	let o = '';
+	async function i() {
+		const C = await s0.create({ repo: 'ipfs-' + Math.random() }),
+			{ cid: B } = await C.add(
+				JSON.stringify({
+					name: `Juicebox #${1}`,
+					attributes: [
+						{ trait_type: 'Color', value: 'White' },
+						{ trait_type: 'Distortion Scale', value: 11 },
+						{ trait_type: 'Rings', value: 6 },
+						{ trait_type: 'Frequency Multiple', value: 2 }
+					],
+					description: 'Distortion is a fully hand-typed 100% on-chain art collection.',
+					image: `data:image/svg+xml;base64,${btoa(await N(a))}`
+				})
+			);
+		l(0, (o = `https://cloudflare-ipfs.com/ipfs/${B.toString()}`)), console.log(o);
+	}
+	function d(C) {
+		(a[C] = e0(this)), s.set(a), l(2, n);
+	}
+	return [o, a, n, s, i, d];
+}
+class I0 extends U {
+	constructor(e) {
+		super(), Y(this, e, m0, g0, q, {});
+	}
+}
+export { I0 as default, C0 as prerender };

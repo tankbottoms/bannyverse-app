@@ -19,13 +19,15 @@ export const provider = new Store<providers.Web3Provider>();
 export const connectedAccount = new Store('');
 export const chainId = new Store<number>(0);
 
-walletName.subscribe(name => browser && localStorage.setItem('wallet-name', name));
+walletName.subscribe((name) => browser && localStorage.setItem('wallet-name', name));
 
 export async function walletConnect(startup = false): Promise<void> {
 	if (walletName.get() === 'walletconnect') {
-		const WalletConnectWeb3Provider = (await import('@walletconnect/web3-provider/dist/umd/index.min')).default;
+		const WalletConnectWeb3Provider = (
+			await import('@walletconnect/web3-provider/dist/umd/index.min')
+		).default;
 		const wc = new (WalletConnectWeb3Provider as typeof WalletConnectWeb3ProviderType)({
-			infuraId: environment.VITE_INFURA_API_KEY,
+			infuraId: environment.VITE_INFURA_API_KEY
 		});
 		try {
 			if (startup) wc.connector.accounts.length && wc.enable();
@@ -61,7 +63,10 @@ export async function initialize(_provider = browser && window['ethereum']): Pro
 		(window as any).provider = provider.get();
 	}
 	chainId.set(Number(_provider.chainId));
-	if (walletName.get() === 'walletconnect' && !coins[0].networks.find(net => net.chainId === chainId.get())) {
+	if (
+		walletName.get() === 'walletconnect' &&
+		!coins[0].networks.find((net) => net.chainId === chainId.get())
+	) {
 		toasts.add({
 			title: 'Wrong Network',
 			description: 'please connect to eth mainnet',
@@ -75,11 +80,11 @@ export async function initialize(_provider = browser && window['ethereum']): Pro
 			onRemove: () => {
 				_provider.disconnect();
 				window.location.reload();
-			},
+			}
 		});
 		return;
 	}
-	provider.get().on('network', network => {
+	provider.get().on('network', (network) => {
 		chainId.set(Number(network.chainId));
 	});
 	if (walletName.get() === 'walletconnect') {
@@ -97,10 +102,10 @@ export async function initialize(_provider = browser && window['ethereum']): Pro
 			console.log('not connected');
 		}
 	}
-	_provider.on('chainChanged', chainId => {
+	_provider.on('chainChanged', (chainId) => {
 		window.location.reload();
 	});
-	_provider.on('accountsChanged', accounts => {
+	_provider.on('accountsChanged', (accounts) => {
 		window.location.reload();
 	});
 }

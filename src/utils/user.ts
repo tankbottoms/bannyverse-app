@@ -11,7 +11,7 @@ function getActivityTitle(activity: Any) {
 	let str = type
 		.replace(/[^a-zA-Z0-9]/g, ' ')
 		.split(' ')
-		.map(w => `${w[0].toUpperCase()}${w.slice(1)}`)
+		.map((w) => `${w[0].toUpperCase()}${w.slice(1)}`)
 		.join(' ');
 
 	if (['purchase', 'back_movement'].includes(activity.type)) {
@@ -20,12 +20,18 @@ function getActivityTitle(activity: Any) {
 	return str;
 }
 
-export async function getActivites(ethAddress = connectedAccount.get(), handle = ''): Promise<Record<string, Any>[]> {
+export async function getActivites(
+	ethAddress = connectedAccount.get(),
+	handle = ''
+): Promise<Record<string, Any>[]> {
 	let activities = [];
 	let _activities = [];
 	if (ethAddress) {
 		const condition = where('created_by', '==', ethAddress);
-		const _acts = (await getDocuments(getFirestorePath('activities'), condition)) as unknown as Any[];
+		const _acts = (await getDocuments(
+			getFirestorePath('activities'),
+			condition
+		)) as unknown as Any[];
 		_activities = { ..._activities, ..._acts };
 	}
 	if (handle) {
@@ -50,8 +56,8 @@ export async function getActivites(ethAddress = connectedAccount.get(), handle =
 				title: getActivityTitle(activity),
 				created_at_string: dateString,
 				refId: activity?.ref ? refDoc.id : undefined,
-				ref: activity?.ref ? refDoc.data() : undefined,
-			},
+				ref: activity?.ref ? refDoc.data() : undefined
+			}
 		];
 	}
 	for (const activity of activities) {
@@ -94,7 +100,7 @@ export async function checkAccount(): Promise<Any> {
 		data: '',
 		id: '',
 		name: '',
-		username: '',
+		username: ''
 	};
 
 	await setDoc(doc(firestore, `${environment.BACKEND_API}-users/${connectedData}`), account);

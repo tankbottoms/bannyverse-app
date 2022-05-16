@@ -81,10 +81,10 @@
 	{:else}
 		<Background>
 			{#each Object.keys(layerOptions) as key}
-				{#await getSvgForKey({ key, value: $values[key]}) then href}
+				{#await getSvgForKey({ key, value: $values[key] }) then href}
 					<image
 						in:fade={{ duration: 50 }}
-						out:fade={{duration: 250}}
+						out:fade={{ duration: 250 }}
 						xlink:href={href}
 						x="50%"
 						y="50%"
@@ -98,11 +98,11 @@
 		<div class="controls">
 			{#each Object.entries(layers) as [key, options]}
 				<div class="control">
-					<label for={key}>{key.replace("_", " ")}</label>
+					<label for={key}>{key.replace('_', ' ')}</label>
 					<select name={key} bind:value={$values[key]}>
 						<option value="">None</option>
 						{#each options as option}
-							<option value={option}>{option.replace("_", " ")}</option>
+							<option value={option}>{option.replace('_', ' ')}</option>
 						{/each}
 					</select>
 				</div>

@@ -7,7 +7,7 @@ export function hslToHex(h, s, l) {
 	const lightness = l / 100;
 	const a = (s * Math.min(lightness, 1 - lightness)) / 100;
 
-	const convert = n => {
+	const convert = (n) => {
 		const k = (n + h / 30) % 12;
 		const color = lightness - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
 
@@ -24,7 +24,7 @@ export function hexToRgbVars(hex: string, prefix = '--') {
 	const name = ['r', 'g', 'b', 'a'];
 	const [r, g, b, a] = rgba.match(/\d+/g).map((n, i) => `${prefix}${name[i]}:${n};`);
 	return [r, g, b, a].join('');
-};
+}
 
 export function setRGBProperties(colorVars: string) {
 	if (!browser) {
@@ -33,9 +33,9 @@ export function setRGBProperties(colorVars: string) {
 
 	const $html = document.documentElement as HTMLElement;
 	const [rString, gString, bString] = colorVars.split(';');
-	const colors = [rString, gString, bString].map(color => color.split(':'));
+	const colors = [rString, gString, bString].map((color) => color.split(':'));
 
-	colors.forEach(color => {
+	colors.forEach((color) => {
 		$html.style.setProperty(color[0], color[1]);
 	});
 }
@@ -47,7 +47,7 @@ export function setDefaultRGBProperties() {
 
 	const $html = document.documentElement as HTMLElement;
 
-	DEFAULT_RGB_COLOR.forEach(color => {
+	DEFAULT_RGB_COLOR.forEach((color) => {
 		$html.style.removeProperty(color[0]);
 	});
 }
