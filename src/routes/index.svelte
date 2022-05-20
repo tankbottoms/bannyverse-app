@@ -4,6 +4,7 @@
 
 <script lang="ts">
 	import Composer from '$lib/Composer';
+	import Landing from '$lib/Composer/Landing.svelte';
 
 	import { minted } from '$stores';
 
@@ -31,29 +32,20 @@
 	<title>BannyVerse</title>
 </svelte:head>
 
-<section>
-	<!-- TODO put this back in later -->
-	<!-- {#if minted}
+<!-- TODO put this back in later, somewhere -->
+<!-- {#if minted}
 		{#await getNFTUrl($minted) then src}
 			<img {src} alt="" />
 			<span class="metedata-url">{minted}</span>
 		{/await}
 	{:else} -->
-	<Composer />
-	<!-- {/if} -->
-</section>
+<Landing />
+<Composer />
 
+<!-- {/if} -->
 <style>
-	section {
-		/* display: flex;
-		flex-direction: row;
-		justify-content: space-around;
-		align-items: center;
-		flex: 1; */
-		height: 100vh;
-	}
-
+	/* 
 	.metedata-url {
 		margin-top: 2rem;
-	}
+	} */
 </style>
