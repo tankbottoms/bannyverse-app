@@ -3,29 +3,9 @@
 </script>
 
 <script lang="ts">
-	import { fade } from 'svelte/transition';
-	import Background from '$lib/Background.svelte';
-	import { getSvg, getSvgForKey } from '$lib/getSvg';
-	import { IPFS } from '$lib/ipfs';
-	import Store from '$utils/Store';
-	import { options as layers } from '$lib/layerOptions';
+	import Composer from '$lib/Composer';
 
-	const layerOptions = {
-		Background: '',
-		Body: '',
-		Choker: '',
-		Face: '',
-		Headgear: '',
-		Left_Hand: '',
-		Lower_Accessory: '',
-		Oral_Fixation: '',
-		Outfit: '',
-		Right_Hand: ''
-	};
-
-	const values = new Store<Record<string, string>>(layerOptions);
-
-	let minted = '';
+	import { minted } from '$stores';
 
 	// TODO where tf is the get http://localhost:3000/undefined coming from that gets logged to console?!
 	/*
@@ -40,27 +20,6 @@
 		* 
 	*/
 
-	async function upload() {
-		const ipfs = await IPFS.create({
-			repo: 'ipfs-' + Math.random()
-		});
-		const { cid } = await ipfs.add(
-			JSON.stringify({
-				name: `Juicebox #${1}`,
-				attributes: [
-					{ trait_type: 'Color', value: 'White' },
-					{ trait_type: 'Distortion Scale', value: 11 },
-					{ trait_type: 'Rings', value: 6 },
-					{ trait_type: 'Frequency Multiple', value: 2 }
-				],
-				description: 'Distortion is a fully hand-typed 100% on-chain art collection.',
-				image: `data:image/svg+xml;base64,${btoa(await getSvg($values))}`
-			})
-		);
-		minted = `https://cloudflare-ipfs.com/ipfs/${cid.toString()}`;
-		console.log(minted);
-	}
-
 	async function getNFTUrl(metedataURI: string) {
 		const response = await fetch(metedataURI);
 		const json = await response.json();
@@ -73,74 +32,25 @@
 </svelte:head>
 
 <section>
-	{#if minted}
-		{#await getNFTUrl(minted) then src}
+	<!-- TODO put this back in later -->
+	<!-- {#if minted}
+		{#await getNFTUrl($minted) then src}
 			<img {src} alt="" />
 			<span class="metedata-url">{minted}</span>
 		{/await}
-	{:else}
-		<Background>
-			{#each Object.keys(layerOptions) as key}
-				{#await getSvgForKey({ key, value: $values[key] }) then href}
-					<image
-						in:fade={{ duration: 50 }}
-						out:fade={{ duration: 250 }}
-						xlink:href={href}
-						x="50%"
-						y="50%"
-						width="250"
-						style="transform: translate(-125px, -125px);"
-					/>
-				{/await}
-			{/each}
-		</Background>
-
-		<div class="controls">
-			{#each Object.entries(layers) as [key, options]}
-				<div class="control">
-					<label for={key}>{key.replace('_', ' ')}</label>
-					<select name={key} bind:value={$values[key]}>
-						<option value="">None</option>
-						{#each options as option}
-							<option value={option}>{option.replace('_', ' ')}</option>
-						{/each}
-					</select>
-				</div>
-			{/each}
-		</div>
-
-		<p />
-		<button on:click={upload}>Upload to IPFS</button>
-	{/if}
+	{:else} -->
+	<Composer />
+	<!-- {/if} -->
 </section>
 
 <style>
 	section {
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		flex-direction: row;
+		justify-content: space-around;
 		align-items: center;
 		flex: 1;
-	}
-	.controls {
-		margin-top: 2rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-
-	.control {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-	label {
-		font-size: 0.75rem;
-		font-weight: bold;
-		margin-bottom: 0.25rem;
-	}
-	button {
-		margin-top: 1rem;
+		height: 100vh;
 	}
 
 	.metedata-url {
