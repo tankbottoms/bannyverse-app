@@ -88,6 +88,12 @@
 				<AssetOption
 					src={`/veBanny/${currentPanel.assetPath}/${option}.png`}
 					alt={`Option ${option}`}
+					on:click={() => {
+						values.update((state) => ({
+							...state,
+							[currentPanel.assetPath]: option
+						}));
+					}}
 				/>
 			{/each}
 		{/if}

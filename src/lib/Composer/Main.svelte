@@ -7,7 +7,7 @@
 
 	const layerOptions = {
 		Background: '',
-		Body: '',
+		Body: 'yellow',
 		Choker: '',
 		Face: '',
 		Headgear: '',

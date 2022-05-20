@@ -1,5 +1,5 @@
 <!-- NOTE alt it's fine, overriden by props -->
-<img alt="" {...$$props} />
+<img alt="" {...$$props} on:click />
 
 
 <style>
