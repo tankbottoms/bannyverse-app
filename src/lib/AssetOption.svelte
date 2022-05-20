@@ -1,10 +1,18 @@
 <!-- NOTE alt it's fine, overriden by props -->
-<img alt="" {...$$props} on:click />
-
+<span class="container">
+	<img alt="" {...$$props} on:click />
+</span>
 
 <style>
-    img {
-        height: 90px;
+	.container {
+		width: 90px;
+		height: 90px;
+        overflow: hidden;
+	}
+
+	img {
         width: 90px;
-    }
+        height: 90px;
+		transform: scale(1.5);
+	}
 </style>

@@ -9,9 +9,10 @@
 	let values = getContext('currentBanny');
 
 	const MenuButtons = [
-		// {
-		// 	path: 'banny'
-		// },
+		{
+			path: 'banny',
+			assetPath: 'Body'
+		},
 		{
 			path: 'head-gear',
 			assetPath: 'Headgear'
@@ -83,7 +84,8 @@
 		</header>
 		{#if currentPanel.path === 'banny'}
 			<p>Choose the VeBanny you would like to accessorize!</p>
-		{:else}
+		{/if}
+		<div class="assetGrid">
 			{#each layers[currentPanel.assetPath] as option}
 				<AssetOption
 					src={`/veBanny/${currentPanel.assetPath}/${option}.png`}
@@ -96,7 +98,7 @@
 					}}
 				/>
 			{/each}
-		{/if}
+		</div>
 	</div>
 	<aside>
 		{#each MenuButtons as menu}
@@ -175,16 +177,20 @@
 		color: black;
 	}
 
+	.assetGrid {
+		margin-top: 1rem;
+	}
+
 	.panel {
 		background-color: var(--background-l1);
 		width: 450px;
-		max-height: 100%;
+		max-height: 650px;
 		text-align: center;
 		overflow: scroll;
 	}
 	.controls {
 		margin-top: 2rem;
 		display: flex;
-		height: 500px;
+		height: 650px;
 	}
 </style>
