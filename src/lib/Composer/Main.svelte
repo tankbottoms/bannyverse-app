@@ -7,7 +7,7 @@
 
 	const layerOptions = {
 		Background: '',
-		Body: '',
+		Body: 'yellow',
 		Choker: '',
 		Face: '',
 		Headgear: '',
@@ -23,5 +23,17 @@
 	setContext('currentBanny', currentBanny);
 </script>
 
-<Banny />
-<ComposerMenu />
+<section>
+	<Banny />
+	<ComposerMenu />
+</section>
+
+<style>
+	section {
+		background-color: black;
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+</style>

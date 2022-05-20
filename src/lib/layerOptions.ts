@@ -1,13 +1,13 @@
 export const options = {
 	Body: ['Green', 'Pink', 'Red', 'Yellow'],
-	Choker: ['Choker', 'Christmas_Lights', 'No_Choker'],
+	Choker: ['Choker', 'Christmas_Lights'], //'No_Choker'],
 	Face: [
 		'Alien',
 		'Buddha_Face',
 		'Bunny_Eyes',
 		'Eye_Mouth',
 		'Harley_Quinn',
-		'No_Face',
+		// //'No_Face',
 		'Peach_Face',
 		'Wonder_Woman'
 	],
@@ -36,7 +36,7 @@ export const options = {
 		'Blondie',
 		'Elf',
 		'Harry_Potter',
-		'No_Hat',
+		//'No_Hat',
 		'Professor',
 		'Smoking_Glasses',
 		'Boba',
@@ -78,7 +78,7 @@ export const options = {
 	Lower_Accessory: [
 		'Black_Shoes',
 		'Christmas_Boots',
-		'No_Shoes',
+		//'No_Shoes',
 		'Robinhood_Boots',
 		'Sandals',
 		'Wonder_Shoes'
@@ -133,7 +133,7 @@ export const options = {
 		'Spock',
 		'Cyberpunk',
 		'Hannible_Lector',
-		'No_Outfit',
+		//'No_Outfit',
 		'Punk',
 		'Surfer_T-shirt',
 		'Deadpool',
