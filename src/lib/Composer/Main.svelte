@@ -23,5 +23,16 @@
 	setContext('currentBanny', currentBanny);
 </script>
 
-<Banny />
-<ComposerMenu />
+<section>
+	<Banny />
+	<ComposerMenu />
+</section>
+
+<style>
+	section {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+</style>

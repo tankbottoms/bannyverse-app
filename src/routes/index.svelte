@@ -45,11 +45,11 @@
 
 <style>
 	section {
-		display: flex;
+		/* display: flex;
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
-		flex: 1;
+		flex: 1; */
 		height: 100vh;
 	}
 
