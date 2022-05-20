@@ -179,14 +179,14 @@
 
 	.assetGrid {
 		margin-top: 1rem;
+		overflow: scroll;
+		max-height: 600px;
 	}
 
 	.panel {
 		background-color: var(--background-l0);
 		width: 450px;
-		max-height: 650px;
 		text-align: center;
-		overflow: scroll;
 	}
 	.controls {
 		margin-top: 2rem;
