@@ -30,6 +30,7 @@
 
 <style>
 	section {
+		background-color: black;
 		height: 100%;
 		display: flex;
 		justify-content: space-between;

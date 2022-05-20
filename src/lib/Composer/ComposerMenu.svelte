@@ -182,7 +182,7 @@
 	}
 
 	.panel {
-		background-color: var(--background-l1);
+		background-color: var(--background-l0);
 		width: 450px;
 		max-height: 650px;
 		text-align: center;
