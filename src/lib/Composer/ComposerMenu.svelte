@@ -4,32 +4,40 @@
 	import { IPFS } from '$lib/ipfs';
 	import { getSvg } from '$lib/getSvg';
 	import { options as layers } from '$lib/layerOptions';
+	import AssetOption from '$lib/AssetOption.svelte';
 
 	let values = getContext('currentBanny');
 
 	const MenuButtons = [
+		// {
+		// 	path: 'banny'
+		// },
 		{
-			path: 'banny'
+			path: 'head-gear',
+			assetPath: 'Headgear'
 		},
 		{
-			path: 'head-gear'
-		},
-		{
-			path: 'face'
+			path: 'face',
+			assetPath: 'Face'
 		},
 		{
 			label: 'necklace',
-			path: 'chocker'
+			path: 'chocker',
+			assetPath: 'Choker'
 		},
 		{
-			path: 'outfit'
+			path: 'outfit',
+			assetPath: 'Outfit'
 		},
 		{
 			label: 'objects',
-			path: 'accessory'
+			path: 'accessory',
+			// assetPath: ['Left_Hand', 'Right_Hand', 'Both_Hands']
+			assetPath: ['Lower_Accessory']
 		},
 		{
-			path: 'feet'
+			path: 'feet',
+			assetPath: 'Lower_Accessory'
 		}
 	];
 
@@ -75,6 +83,13 @@
 		</header>
 		{#if currentPanel.path === 'banny'}
 			<p>Choose the VeBanny you would like to accessorize!</p>
+		{:else}
+			{#each layers[currentPanel.assetPath] as option}
+				<AssetOption
+					src={`/veBanny/${currentPanel.assetPath}/${option}.png`}
+					alt={`Option ${option}`}
+				/>
+			{/each}
 		{/if}
 	</div>
 	<aside>
@@ -113,8 +128,8 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: center;
-		/* margin-bottom: 1rem; */
+		justify-content: space-between;
+		background-color: var(--primary-action-color);
 	}
 
 	header {
@@ -137,7 +152,7 @@
 
 	.img-button {
 		width: 80px;
-		height: 80px;
+		/* height: 80px; */
 		background-color: var(--primary-action-color);
 		display: flex;
 		flex-direction: column;
@@ -157,10 +172,13 @@
 	.panel {
 		background-color: var(--background-l1);
 		width: 450px;
+		max-height: 100%;
 		text-align: center;
+		overflow: scroll;
 	}
 	.controls {
 		margin-top: 2rem;
 		display: flex;
+		height: 500px;
 	}
 </style>
