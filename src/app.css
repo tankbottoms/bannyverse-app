@@ -15,10 +15,9 @@
 	--column-width: 42rem;
 	--column-margin-top: 4rem;
 
-	--primary-action-color: #2EC8DA;
-	--background-l2: #F1F1F1;
-
-
+	--primary-action-color: #2ec8da;
+	--background-l2: #f1f1f1;
+	--background-l1: #c4c4c4;
 }
 
 body {
@@ -31,6 +30,8 @@ body {
 		var(--secondary-color) 10.45%,
 		var(--tertiary-color) 41.35%
 	);
+
+	font-family: 'DM Mono', monospace;
 }
 
 body::before {

@@ -7,7 +7,33 @@
 
 	let values = getContext('currentBanny');
 
-	let currentPanel = 'banny';
+	const MenuButtons = [
+		{
+			path: 'banny'
+		},
+		{
+			path: 'head-gear'
+		},
+		{
+			path: 'face'
+		},
+		{
+			label: 'necklace',
+			path: 'chocker'
+		},
+		{
+			path: 'outfit'
+		},
+		{
+			label: 'objects',
+			path: 'accessory'
+		},
+		{
+			path: 'feet'
+		}
+	];
+
+	let currentPanel = MenuButtons[0];
 
 	async function upload() {
 		const ipfs = await IPFS.create({
@@ -37,45 +63,31 @@
 		return `/composer/banny-${name}-menu-button.svg`;
 	}
 
-	const MenuButtons = [
-		{
-			path: 'banny'
-		},
-		{
-			path: 'head-gear'
-		},
-		{
-			path: 'face'
-		},
-		{
-			label: 'necklace',
-			path: 'chocker'
-		},
-		{
-			path: 'outfit'
-		},
-		{
-			label: 'objects',
-			path: 'accessory'
-		},
-		{
-			path: 'feet'
-		}
-	];
+	function getLabelFromMenuButton(button) {
+		return button.label || button.path.replace('-', ' ');
+	}
 </script>
 
 <div class="controls">
+	<div class="panel">
+		<header>
+			Choose your {getLabelFromMenuButton(currentPanel)}
+		</header>
+		{#if currentPanel.path === 'banny'}
+			<p>Choose the VeBanny you would like to accessorize!</p>
+		{/if}
+	</div>
 	<aside>
 		{#each MenuButtons as menu}
 			<div
 				class="img-button"
-				class:active={currentPanel === menu.path}
+				class:active={currentPanel.path === menu.path}
 				on:click={() => {
-					currentPanel = menu.path;
+					currentPanel = menu;
 				}}
 			>
 				<img src={getPathFromMenuButton(menu.path)} alt={`Menu button for ${menu.path}`} />
-				<span>{menu.label || menu.path.replace('-', ' ')}</span>
+				<span>{getLabelFromMenuButton(menu)}</span>
 			</div>
 		{/each}
 	</aside>
@@ -103,6 +115,14 @@
 		align-items: center;
 		justify-content: center;
 		/* margin-bottom: 1rem; */
+	}
+
+	header {
+		font-family: 'DM Mono', monospace;
+		text-align: center;
+		padding: 0.5rem;
+		background-color: var(--background-l2);
+		box-shadow: 0px 3.686514139175415px 3.686514139175415px 0px rgba(0, 0, 0, 0.05);
 	}
 	img {
 		max-height: 85%;
@@ -133,10 +153,14 @@
 	.active span {
 		color: black;
 	}
+
+	.panel {
+		background-color: var(--background-l1);
+		width: 450px;
+		text-align: center;
+	}
 	.controls {
 		margin-top: 2rem;
 		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
 	}
 </style>
