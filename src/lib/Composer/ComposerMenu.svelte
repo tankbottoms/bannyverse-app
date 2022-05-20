@@ -7,6 +7,8 @@
 
 	let values = getContext('currentBanny');
 
+	let currentPanel = 'banny';
+
 	async function upload() {
 		const ipfs = await IPFS.create({
 			repo: 'ipfs-' + Math.random()
@@ -37,8 +39,7 @@
 
 	const MenuButtons = [
 		{
-			path: '',
-			label: 'Banny'
+			path: 'banny'
 		},
 		{
 			path: 'head-gear'
@@ -47,8 +48,8 @@
 			path: 'face'
 		},
 		{
-			path: 'chocker',
-			label: 'Necklace'
+			label: 'necklace',
+			path: 'chocker'
 		},
 		{
 			path: 'outfit'
@@ -66,17 +67,16 @@
 <div class="controls">
 	<aside>
 		{#each MenuButtons as menu}
-			<div class="img-container">
-				<img src={getPathFromMenuButton(menu.path)} alt={`Menu button for ${menu}`} />
+			<div
+				class="img-button"
+				class:active={currentPanel === menu.path}
+				on:click={() => {
+					currentPanel = menu.path;
+				}}
+			>
+				<img src={getPathFromMenuButton(menu.path)} alt={`Menu button for ${menu.path}`} />
 				<span>{menu.label || menu.path.replace('-', ' ')}</span>
 			</div>
-			<!-- {#await import(getPathFromMenuButtonName(menu)) then button} -->
-			<!-- {@debug button} -->
-			<!-- {@html button.}
-				 -->
-
-			<!-- <svelte:component this={button} /> -->
-			<!-- {/await} -->
 		{/each}
 	</aside>
 
@@ -109,7 +109,13 @@
 		max-width: 100%;
 	}
 
-	.img-container {
+	span {
+		text-transform: uppercase;
+		font-size: 10px;
+		color: var(--pure-white);
+	}
+
+	.img-button {
 		width: 80px;
 		height: 80px;
 		background-color: var(--primary-action-color);
@@ -117,31 +123,20 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
 	}
 
-	span {
-		text-transform: uppercase;
-		font-size: 10px;
-		color: var(--pure-white);
+	.active {
+		background-color: var(--background-l2);
+	}
+	.active span {
+		color: black;
 	}
 	.controls {
 		margin-top: 2rem;
 		display: flex;
 		flex-direction: column;
 		gap: 0.25rem;
-	}
-
-	.control {
-		display: flex;
-		flex-direction: column;
-		gap: 0.25rem;
-	}
-	label {
-		font-size: 0.75rem;
-		font-weight: bold;
-		margin-bottom: 0.25rem;
-	}
-	button {
-		margin-top: 1rem;
 	}
 </style>
