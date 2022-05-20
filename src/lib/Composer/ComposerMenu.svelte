@@ -11,34 +11,46 @@
 	const MenuButtons = [
 		{
 			path: 'banny',
-			assetPath: 'Body'
+			assetPath: 'Body',
+			scale: 1
 		},
 		{
 			path: 'head-gear',
-			assetPath: 'Headgear'
+			assetPath: 'Headgear',
+			scale: 1.5,
+			translateY: 10
 		},
 		{
 			path: 'face',
-			assetPath: 'Face'
+			assetPath: 'Face',
+			scale: 2.5,
+			translateY: 10
 		},
 		{
 			label: 'necklace',
 			path: 'chocker',
-			assetPath: 'Choker'
+			assetPath: 'Choker',
+			scale: 1.5
 		},
 		{
 			path: 'outfit',
-			assetPath: 'Outfit'
+			assetPath: 'Outfit',
+			scale: 1.2,
+			translateY: -5
 		},
 		{
 			label: 'objects',
 			path: 'accessory',
 			// assetPath: ['Left_Hand', 'Right_Hand', 'Both_Hands']
-			assetPath: ['Lower_Accessory']
+			assetPath: ['Lower_Accessory'],
+			scale: 2,
+			translateY: -30
 		},
 		{
 			path: 'feet',
-			assetPath: 'Lower_Accessory'
+			assetPath: 'Lower_Accessory',
+			scale: 2,
+			translateY: -30
 		}
 	];
 
@@ -90,6 +102,8 @@
 				<AssetOption
 					src={`/veBanny/${currentPanel.assetPath}/${option}.png`}
 					alt={`Option ${option}`}
+					scale={currentPanel.scale}
+					translateY={currentPanel.translateY}
 					on:click={() => {
 						values.update((state) => ({
 							...state,
@@ -178,9 +192,9 @@
 	}
 
 	.assetGrid {
-		margin-top: 1rem;
+		margin-top: 2rem;
 		overflow: scroll;
-		max-height: 600px;
+		max-height: 560px;
 	}
 
 	.panel {
