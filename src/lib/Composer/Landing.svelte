@@ -44,5 +44,67 @@
         right: 20px;
     }
 
+    /* Constant slow hovering animation */
+    #planet1 {
+        animation: planet1 10s infinite;
+    }
+
+    @keyframes planet1 {
+        0% {
+            transform: translate(0, 0);
+        }
+        50% {
+            transform: translate(5px, 10px);
+        }
+        100% {
+            transform: translate(0, 0px);
+        }
+    }
+
+    #planet2 {
+        animation: planet2 10s infinite;
+    }
+
+    @keyframes planet2 {
+        0% {
+            transform: translate(0, 0);
+        }
+        50% {
+            transform: translate(10px, 0px);
+        }
+        100% {
+            transform: translate(0, 0px);
+        }
+    }
+
+    #planet3 {
+        animation: planet3 60s infinite;
+    }
+
+    @keyframes planet3 {
+        0% {
+            transform: translate(0, 0);
+        }
+        100% {
+            transform: translate(0, 0) rotate(360deg);
+        }
+    }
+
+    #planet4 {
+        animation: planet4 10s infinite;
+    }
+
+    @keyframes planet4 {
+        0% {
+            transform: translate(0, 0);
+        }
+        50% {
+            transform: translate(-5px, 10px);
+        }
+        100% {
+            transform: translate(0, 0px);
+        }
+    }
+
 
 </style>
