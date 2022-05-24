@@ -18,20 +18,19 @@
 	--primary-action-color: #2ec8da;
 	--background-l2: #f1f1f1;
 	--background-l1: #c4c4c4;
-	--background-l0:  #F7F7F7;
-
+	--background-l0: #f7f7f7;
 }
 
 body {
 	min-height: 100vh;
 	margin: 0;
-	background-color: var(--primary-color);
-	background: linear-gradient(
+	background-color: black;
+	/* background: linear-gradient(
 		180deg,
 		var(--primary-color) 0%,
 		var(--secondary-color) 10.45%,
 		var(--tertiary-color) 41.35%
-	);
+	); */
 
 	font-family: 'DM Mono', monospace;
 }
