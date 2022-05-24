@@ -77,6 +77,15 @@
 		minted.set(`https://cloudflare-ipfs.com/ipfs/${cid.toString()}`);
 	}
 
+	// Characters number from 1 to 60
+	const characterIndex = Array.from(Array(60).keys()).slice(1);
+	function getPathFromCharacter(number: number) {
+		if (number < 10) {
+			return `/characters/0${number}.png`;
+		}
+		return `/characters/${number}.png`;
+	}
+
 	function getPathFromMenuButton(name: string) {
 		if (name === '') {
 			return `/composer/banny-menu-button.svg`;
@@ -94,24 +103,30 @@
 		<header>
 			Choose your {getLabelFromMenuButton(currentPanel)}
 		</header>
-		{#if currentPanel.path === 'banny'}
-			<p>Choose the VeBanny you would like to accessorize!</p>
-		{/if}
 		<div class="assetGrid">
-			{#each layers[currentPanel.assetPath] as option}
-				<AssetOption
-					src={`/veBanny/${currentPanel.assetPath}/${option}.png`}
-					alt={`Option ${option}`}
-					scale={currentPanel.scale}
-					translateY={currentPanel.translateY}
-					on:click={() => {
-						values.update((state) => ({
-							...state,
-							[currentPanel.assetPath]: option
-						}));
-					}}
-				/>
-			{/each}
+			{#if currentPanel.path === 'banny'}
+				<p>Choose the VeBanny you would like to accessorize!</p>
+				<!-- From 0 to 60 load 0.png... 2.png etc  from /characters/ -->
+				{#each characterIndex as character}
+					<img class="character" src={getPathFromCharacter(character)} alt="Character" />
+				{/each}
+			{:else}
+				<!-- TODO fix this type issue -->
+				{#each layers[currentPanel.assetPath] as option}
+					<AssetOption
+						src={`/veBanny/${currentPanel.assetPath}/${option}.png`}
+						alt={`Option ${option}`}
+						scale={currentPanel.scale}
+						translateY={currentPanel.translateY}
+						on:click={() => {
+							values.update((state) => ({
+								...state,
+								[currentPanel.assetPath]: option
+							}));
+						}}
+					/>
+				{/each}
+			{/if}
 		</div>
 	</div>
 	<aside>
@@ -128,21 +143,8 @@
 			</div>
 		{/each}
 	</aside>
-
-	<!-- {#each Object.entries(layers) as [key, options]}
-		<div class="control">
-			<label for={key}>{key.replace('_', ' ')}</label>
-			<select name={key} bind:value={$values[key]}>
-				<option value="">None</option>
-				{#each options as option}
-					<option value={option}>{option.replace('_', ' ')}</option>
-				{/each}
-			</select>
-		</div>
-	{/each}
-
 	<p />
-	<button on:click={upload}>Upload to IPFS</button> -->
+	<!-- <button on:click={upload}>Upload to IPFS</button> -->
 </div>
 
 <style>
@@ -170,6 +172,10 @@
 		text-transform: uppercase;
 		font-size: 10px;
 		color: var(--pure-white);
+	}
+
+	.character {
+		width: 200px;
 	}
 
 	.img-button {
