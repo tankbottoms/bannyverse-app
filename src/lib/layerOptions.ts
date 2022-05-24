@@ -162,5 +162,6 @@ export const options = {
 		'Viking_Axe',
 		'Wonder_Woman'
 	],
+	Both_Hands: [],
 	Background: ['1000_Days', '100_Days', '10_Days', '500_Days', '50_Days']
 };

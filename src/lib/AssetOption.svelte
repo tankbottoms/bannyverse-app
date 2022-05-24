@@ -5,6 +5,7 @@
 	export let scale;
 	export let src;
 	export let translateY;
+	export let translateX;
 </script>
 
 <!-- NOTE the svg is the background svg for an item -->
@@ -58,7 +59,9 @@
 		{alt}
 		{src}
 		on:click
-		style={`transform: scale(${scale}) translateY(${translateY || 0}px);`}
+		style={`transform: scale(${scale}) translateY(${translateY || 0}px) translateX(${
+			translateX || 0
+		}px);`}
 	/>
 	<div class="description">
 		<span>0.1<Ethereum /></span>
@@ -81,7 +84,6 @@
 		left: 10px;
 		width: 70px;
 		background: rgba(255, 249, 242, 0.8);
-
 	}
 
 	img {

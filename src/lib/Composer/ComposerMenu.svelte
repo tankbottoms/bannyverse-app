@@ -11,44 +11,43 @@
 	const MenuButtons = [
 		{
 			path: 'banny',
-			assetPath: 'Body',
+			assetPath: ['Body'],
 			scale: 1
 		},
 		{
 			path: 'head-gear',
-			assetPath: 'Headgear',
+			assetPath: ['Headgear'],
 			scale: 1.5,
 			translateY: 10
 		},
 		{
 			path: 'face',
-			assetPath: 'Face',
+			assetPath: ['Face'],
 			scale: 2.5,
 			translateY: 10
 		},
 		{
 			label: 'necklace',
 			path: 'chocker',
-			assetPath: 'Choker',
+			assetPath: ['Choker'],
 			scale: 1.5
 		},
 		{
 			path: 'outfit',
-			assetPath: 'Outfit',
+			assetPath: ['Outfit'],
 			scale: 1.2,
 			translateY: -5
 		},
 		{
 			label: 'objects',
 			path: 'accessory',
-			// assetPath: ['Left_Hand', 'Right_Hand', 'Both_Hands']
-			assetPath: ['Lower_Accessory'],
-			scale: 2,
-			translateY: -30
+			assetPath: ['Left_Hand', 'Right_Hand', 'Both_Hands'],
+			scale: 1.2,
+			translateX: -10
 		},
 		{
 			path: 'feet',
-			assetPath: 'Lower_Accessory',
+			assetPath: ['Lower_Accessory'],
 			scale: 2,
 			translateY: -30
 		}
@@ -112,19 +111,22 @@
 				{/each}
 			{:else}
 				<!-- TODO fix this type issue -->
-				{#each layers[currentPanel.assetPath] as option}
-					<AssetOption
-						src={`/veBanny/${currentPanel.assetPath}/${option}.png`}
-						alt={`Option ${option}`}
-						scale={currentPanel.scale}
-						translateY={currentPanel.translateY}
-						on:click={() => {
-							values.update((state) => ({
-								...state,
-								[currentPanel.assetPath]: option
-							}));
-						}}
-					/>
+				{#each currentPanel.assetPath as src}
+					{#each layers[src] as option}
+						<AssetOption
+							src={`/veBanny/${src}/${option}.png`}
+							alt={`Option ${option}`}
+							scale={currentPanel.scale}
+							translateY={currentPanel.translateY}
+							translateX={currentPanel.translateX}
+							on:click={() => {
+								values.update((state) => ({
+									...state,
+									[src]: option
+								}));
+							}}
+						/>
+					{/each}
 				{/each}
 			{/if}
 		</div>
@@ -161,7 +163,7 @@
 		text-align: center;
 		padding: 0.5rem;
 		background-color: var(--background-l2);
-		box-shadow: 0px 3.686514139175415px 3.686514139175415px 0px rgba(0, 0, 0, 0.05);
+		box-shadow: 0px 3.68px 3.68px 0px rgba(0, 0, 0, 0.05);
 	}
 	img {
 		max-height: 85%;
