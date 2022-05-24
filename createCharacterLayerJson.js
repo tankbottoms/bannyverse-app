@@ -39,7 +39,9 @@ function getCharacterLayersFromDirectory(directory) {
 	for (const trait of traitDirectories) {
 		// Check that it's a directory
 		if (fs.lstatSync(`${directory}/${trait}`).isDirectory()) {
-			layers[trait] = formatFileNameToLayerName(fs.readdirSync(`${directory}${trait}`, 'utf8'));
+			if (trait != 'Background') {
+				layers[trait] = formatFileNameToLayerName(fs.readdirSync(`${directory}${trait}`, 'utf8'));
+			}
 		}
 	}
 	return layers;
@@ -67,7 +69,7 @@ fs.readdirSync(veBannyDirectory).forEach(dir => {
 
 		const objectKey = charactersMetadata[name];
 		if (!objectKey) {
-			console.log("Oops, this isn't mapping: ", name);
+			console.log("Oops, this Banny isn't mapping: ", name);
 			return;
 		}
 		charactersLayers[objectKey] = characterLayers;

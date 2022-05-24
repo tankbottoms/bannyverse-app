@@ -68,8 +68,6 @@
             animation-delay: ${Math.random() * 7}s;
     `
 	);
-
-	console.log(positionStyleCss);
 </script>
 
 <section>

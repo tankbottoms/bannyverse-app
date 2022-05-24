@@ -3,6 +3,9 @@
 	import { options as layers } from '$lib/layerOptions';
 	import AssetOption from '$lib/AssetOption.svelte';
 
+	// TODO I want this from the json... annoyingly not been able to load json
+	import characters from './charactersLayers';
+
 	let values = getContext('currentBanny');
 
 	const MenuButtons = [
@@ -72,14 +75,10 @@
 		return button.label || button.path.replace('-', ' ');
 	}
 
-	// Set values from characterIndex 
+	// Set values from characterIndex
 	function setValuesFromCharacterIndex(index: number) {
-		// TODO I want a character json object which returns the
-		// layers for a particular character such that I can just do values.set(character)
-		// const character = character[index];
-		console.log("🚧 WIP")
+		values.set(characters[index]);
 	}
-
 </script>
 
 <div class="controls">
@@ -94,7 +93,7 @@
 				{#each characterIndex as character}
 					<img
 						class="character"
-						on:click={() => setValuesFromCharacterIndex(characterIndex)}
+						on:click={() => setValuesFromCharacterIndex(character)}
 						src={getPathFromCharacter(character)}
 						alt="Character"
 					/>
