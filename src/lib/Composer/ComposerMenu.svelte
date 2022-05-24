@@ -1,8 +1,5 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { minted } from '$stores';
-	import { IPFS } from '$lib/ipfs';
-	import { getSvg } from '$lib/getSvg';
 	import { options as layers } from '$lib/layerOptions';
 	import AssetOption from '$lib/AssetOption.svelte';
 
@@ -55,27 +52,6 @@
 
 	let currentPanel = MenuButtons[0];
 
-	async function upload() {
-		const ipfs = await IPFS.create({
-			repo: 'ipfs-' + Math.random()
-		});
-		const { cid } = await ipfs.add(
-			JSON.stringify({
-				name: `Juicebox #${1}`,
-				// TODO Derive attributes from character
-				attributes: [
-					{ trait_type: 'Color', value: 'White' },
-					{ trait_type: 'Distortion Scale', value: 11 },
-					{ trait_type: 'Rings', value: 6 },
-					{ trait_type: 'Frequency Multiple', value: 2 }
-				],
-				description: 'Distortion is a fully hand-typed 100% on-chain art collection.',
-				image: `data:image/svg+xml;base64,${btoa(await getSvg($values))}`
-			})
-		);
-		minted.set(`https://cloudflare-ipfs.com/ipfs/${cid.toString()}`);
-	}
-
 	// Characters number from 1 to 60
 	const characterIndex = Array.from(Array(60).keys()).slice(1);
 	function getPathFromCharacter(number: number) {
@@ -95,6 +71,15 @@
 	function getLabelFromMenuButton(button) {
 		return button.label || button.path.replace('-', ' ');
 	}
+
+	// Set values from characterIndex 
+	function setValuesFromCharacterIndex(index: number) {
+		// TODO I want a character json object which returns the
+		// layers for a particular character such that I can just do values.set(character)
+		// const character = character[index];
+		console.log("🚧 WIP")
+	}
+
 </script>
 
 <div class="controls">
@@ -107,7 +92,12 @@
 				<p>Choose the VeBanny you would like to accessorize!</p>
 				<!-- From 0 to 60 load 0.png... 2.png etc  from /characters/ -->
 				{#each characterIndex as character}
-					<img class="character" src={getPathFromCharacter(character)} alt="Character" />
+					<img
+						class="character"
+						on:click={() => setValuesFromCharacterIndex(characterIndex)}
+						src={getPathFromCharacter(character)}
+						alt="Character"
+					/>
 				{/each}
 			{:else}
 				<!-- TODO fix this type issue -->
@@ -178,6 +168,7 @@
 
 	.character {
 		width: 200px;
+		cursor: pointer;
 	}
 
 	.img-button {
