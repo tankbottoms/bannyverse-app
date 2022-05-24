@@ -77,8 +77,11 @@
 
 	.description {
 		position: absolute;
-		bottom: 5px;
+		bottom: 7px;
 		left: 10px;
+		width: 70px;
+		background: rgba(255, 249, 242, 0.8);
+
 	}
 
 	img {
