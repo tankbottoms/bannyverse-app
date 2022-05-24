@@ -1,11 +1,13 @@
 <script>
+	import Ethereum from './Ethereum.svelte';
+
 	export let alt;
 	export let scale;
 	export let src;
 	export let translateY;
 </script>
 
-<!-- NOTE alt it's fine, overriden by props -->
+<!-- NOTE the svg is the background svg for an item -->
 <div class="container">
 	<svg width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<g filter="url(#filter0_d_332_2065)">
@@ -58,6 +60,9 @@
 		on:click
 		style={`transform: scale(${scale}) translateY(${translateY || 0}px);`}
 	/>
+	<div class="description">
+		<span>0.1<Ethereum /></span>
+	</div>
 
 	<!-- <img class="background" src="/composer/Back_for_character_2.svg" /> -->
 </div>
@@ -66,21 +71,19 @@
 	.container {
 		position: relative;
 		margin: 5px 5px 0px;
-		/* width: 130px;
-		height: 130px; */
 		overflow: hidden;
-		/* Background imgage /composer/Back_for_character_2 */
-		/* background-image: url('/composer/Back_for_character_2.svg'); */
-		/* background-size: cover; */
-		/* box-shadow: 2px 2px 0px 0px rgba(178, 183, 184, 1); */
+		font-size: 12px;
+	}
+
+	.description {
+		position: absolute;
+		bottom: 5px;
+		left: 10px;
 	}
 
 	img {
-		/* width: 90px;
-		height: 90px; */
 		position: absolute;
 		left: 0;
-		/* transform: scale(2) translate(5px, 10px); */
 	}
 
 	div {
