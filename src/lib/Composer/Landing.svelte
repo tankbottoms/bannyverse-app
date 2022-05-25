@@ -71,7 +71,7 @@
 </script>
 
 <section>
-	<img src="/landing/landingText.svg" alt="The Banny Verse" />
+	<img src="/landing/landingText.svg" alt="The Banny Verse" id="landingText" />
 	<p>
 		Hello. Welcome to the Bannyverse. If you have made it here that means that you have successfully
 		staked your VeBanny on Juicebox. The Bannyverse allows you to customize your VeBanny to your
@@ -108,9 +108,9 @@
 		line-height: 36px;
 		letter-spacing: 0em;
 		text-align: center;
-        color: white;
-        max-width: 745px;
-        margin-top: 50px;
+		color: white;
+		max-width: 745px;
+		margin-top: 50px;
 	}
 	[id*='planet'],
 	.star {
@@ -211,6 +211,34 @@
 		}
 		100% {
 			transform: translate(0, 0px);
+		}
+	}
+
+	@media screen and (max-width: 745px) {
+		#landingText {
+			max-width: 100vw;
+		}
+
+		p {
+			font-size: 18px;
+			line-height: 30px;
+			padding: 0px 20px;
+		}
+
+		[id*='planet'] {
+			max-width: 50px;
+		}
+
+		#planet2 {
+			max-width: 100px !important;
+		}
+
+		#planet3 {
+			top: 280px;
+		}
+
+		.star {
+			transform: scale(0.5) !important;
 		}
 	}
 </style>
