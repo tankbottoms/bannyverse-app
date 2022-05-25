@@ -5,6 +5,7 @@
 <script lang="ts">
 	import Composer from '$lib/Composer';
 	import Landing from '$lib/Composer/Landing.svelte';
+	import MeetBannyFam from '$lib/MeetBannyFam.svelte';
 
 	import { minted } from '$stores';
 
@@ -41,3 +42,4 @@
 	{:else} -->
 <Landing />
 <Composer />
+<MeetBannyFam />
