@@ -41,11 +41,3 @@
 	{:else} -->
 <Landing />
 <Composer />
-
-<!-- {/if} -->
-<style>
-	/* 
-	.metedata-url {
-		margin-top: 2rem;
-	} */
-</style>

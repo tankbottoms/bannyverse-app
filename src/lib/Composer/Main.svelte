@@ -36,4 +36,10 @@
 		justify-content: space-between;
 		align-items: flex-end;
 	}
+
+	@media (max-width: 650px) {
+		section {
+			align-items: center;
+		}
+	}
 </style>

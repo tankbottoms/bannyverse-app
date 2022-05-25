@@ -1,6 +1,4 @@
 <svg
-	width="650"
-	height="650"
 	viewBox="0 0 290 290"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -159,3 +157,9 @@
 		</g>
 	</g> -->
 </svg>
+
+<style>
+	svg {
+		max-width: 500px;
+	}
+</style>

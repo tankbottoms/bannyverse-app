@@ -197,12 +197,23 @@
 
 	.panel {
 		background-color: var(--background-l0);
-		width: 450px;
+		max-width: 450px;
+
 		text-align: center;
 	}
 	.controls {
 		margin-top: 2rem;
 		display: flex;
 		height: 650px;
+	}
+
+	@media screen and (max-width: 600px) {
+		.character {
+			width: 150px;
+		}
+
+		.img-button {
+			width: 60px;
+		}
 	}
 </style>
