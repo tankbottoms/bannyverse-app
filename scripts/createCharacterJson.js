@@ -4,6 +4,7 @@
  */
 
 import fs from 'fs';
+import { parse } from 'csv-parse';
 
 const veBannyDirectory = '../docs/veBanny-layered-assets/veBanny/';
 const charactersLayers = {};
@@ -11,51 +12,58 @@ const nameToBucket = {};
 
 // Load csv file characters-metadata within veBannyDirectory and return as an object
 // of key-value pairs name: bucket
-function loadCharactersMetadata() {
-	const csvFile = fs.readFileSync('../docs/characters-metadata-history.csv', 'utf8');
-	const lines = csvFile.split('\n');
+async function loadCharactersMetadata() {
 	const charactersMetadata = {};
-	for (const line of lines.slice(1)) {
-		let [
-			bucket,
-			name,
-			jbx_range,
-			range_width,
-			arcana,
-			comms,
-			grind,
-			perception,
-			strength,
-			shadowiness,
-			history,
-			motto
-		] = line.split(',');
-		// Remove the " from name
-		name = name.replace(/"/g, '');
-		// Replace space with _
-		name = name.replace(/\s/g, '_');
-		// Remove dots from name
-		name = name.replace(/\./g, '');
-		if (name === 'Emmett_“Doc”_Brown') {
-			name = 'Emmett_Doc_Brown';
-		}
-		const metadata = {
-			name,
-			jbx_range,
-			range_width,
-			arcana,
-			comms,
-			grind,
-			perception,
-			strength,
-			shadowiness,
-			history,
-			motto
-		};
-		charactersMetadata[name] = Number(bucket);
-		charactersLayers[bucket] = { metadata };
-	}
-	return charactersMetadata;
+	// Wrap create read stream in a promise
+	return new Promise((resolve, reject) => {
+		return fs
+			.createReadStream('../docs/characters-metadata-history.csv')
+			.pipe(parse({ delimiter: ',', from_line: 2 }))
+			.on('data', function(row) {
+				let [
+					bucket,
+					name,
+					jbx_range,
+					range_width,
+					arcana,
+					comms,
+					grind,
+					perception,
+					strength,
+					shadowiness,
+					history,
+					motto
+				] = row;
+
+				name = name.replace(/"/g, '');
+				// Replace space with _
+				name = name.replace(/\s/g, '_');
+				// Remove dots from name
+				name = name.replace(/\./g, '');
+				if (name === 'Emmett__“Doc”_Brown') {
+					name = 'Emmett_Doc_Brown';
+				}
+				const metadata = {
+					name,
+					jbx_range,
+					range_width,
+					arcana,
+					comms,
+					grind,
+					perception,
+					strength,
+					shadowiness,
+					history,
+					motto
+				};
+				// console.log(metadata);
+				charactersMetadata[name] = Number(bucket);
+				charactersLayers[bucket] = { metadata };
+			})
+			.on('end', function() {
+				return resolve(charactersMetadata);
+			});
+	});
 }
 
 function formatFileNameToLayerName(fileName) {
@@ -76,7 +84,7 @@ function getCharacterLayersFromDirectory(directory) {
 	return layers;
 }
 
-const charactersMetadata = loadCharactersMetadata();
+const charactersMetadata = await loadCharactersMetadata();
 
 // Iterate over each directory in the veBanny directory
 fs.readdirSync(veBannyDirectory).forEach(dir => {
@@ -88,7 +96,7 @@ fs.readdirSync(veBannyDirectory).forEach(dir => {
 		name = name.replace(/_(10|50|100|500|1000)_Days/g, '');
 
 		// Don't bother if we've already got the layers for this character
-		if (charactersLayers[name]) {
+		if (nameToBucket[name]) {
 			return;
 		}
 
