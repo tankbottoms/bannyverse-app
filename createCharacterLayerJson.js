@@ -6,15 +6,30 @@
 import fs from 'fs';
 
 const veBannyDirectory = './docs/veBanny-layered-assets/veBanny/';
+const charactersLayers = {};
+const nameToBucket = {};
 
 // Load csv file characters-metadata within veBannyDirectory and return as an object
 // of key-value pairs name: bucket
 function loadCharactersMetadata() {
-	const csvFile = fs.readFileSync(`${veBannyDirectory}characters-metadata.csv`, 'utf8');
+	const csvFile = fs.readFileSync('./docs/characters-metadata-history.csv', 'utf8');
 	const lines = csvFile.split('\n');
 	const charactersMetadata = {};
 	for (const line of lines.slice(1)) {
-		let [bucket, name, ...rest] = line.split(',');
+		let [
+			bucket,
+			name,
+			jbx_range,
+			range_width,
+			arcana,
+			comms,
+			grind,
+			perception,
+			strength,
+			shadowiness,
+			history,
+			motto
+		] = line.split(',');
 		// Remove the " from name
 		name = name.replace(/"/g, '');
 		// Replace space with _
@@ -24,7 +39,21 @@ function loadCharactersMetadata() {
 		if (name === 'Emmett_“Doc”_Brown') {
 			name = 'Emmett_Doc_Brown';
 		}
+		const metadata = {
+			name,
+			jbx_range,
+			range_width,
+			arcana,
+			comms,
+			grind,
+			perception,
+			strength,
+			shadowiness,
+			history,
+			motto
+		};
 		charactersMetadata[name] = Number(bucket);
+		charactersLayers[bucket] = { metadata };
 	}
 	return charactersMetadata;
 }
@@ -48,7 +77,6 @@ function getCharacterLayersFromDirectory(directory) {
 }
 
 const charactersMetadata = loadCharactersMetadata();
-const charactersLayers = {};
 
 // Iterate over each directory in the veBanny directory
 fs.readdirSync(veBannyDirectory).forEach(dir => {
@@ -67,14 +95,16 @@ fs.readdirSync(veBannyDirectory).forEach(dir => {
 		const layerDirectory = `${veBannyDirectory}${dir}/Traits/`;
 		const characterLayers = getCharacterLayersFromDirectory(layerDirectory);
 
-		const objectKey = charactersMetadata[name];
-		if (!objectKey) {
+		const bucket = charactersMetadata[name];
+		if (!bucket) {
 			console.log("Oops, this Banny isn't mapping: ", name);
 			return;
 		}
-		charactersLayers[objectKey] = characterLayers;
+		charactersLayers[bucket]['layers'] = characterLayers;
+		nameToBucket[name] = bucket;
 	}
 });
 
 // Finally, save the charactersLayers to a json file
-fs.writeFileSync('./static/composer/charactersLayers.json', JSON.stringify(charactersLayers));
+fs.writeFileSync('./static/composer/characters.json', JSON.stringify(charactersLayers));
+fs.writeFileSync('./static/composer/charactersNameToBucket.json', JSON.stringify(nameToBucket));
