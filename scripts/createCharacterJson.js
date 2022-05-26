@@ -5,14 +5,14 @@
 
 import fs from 'fs';
 
-const veBannyDirectory = './docs/veBanny-layered-assets/veBanny/';
+const veBannyDirectory = '../docs/veBanny-layered-assets/veBanny/';
 const charactersLayers = {};
 const nameToBucket = {};
 
 // Load csv file characters-metadata within veBannyDirectory and return as an object
 // of key-value pairs name: bucket
 function loadCharactersMetadata() {
-	const csvFile = fs.readFileSync('./docs/characters-metadata-history.csv', 'utf8');
+	const csvFile = fs.readFileSync('../docs/characters-metadata-history.csv', 'utf8');
 	const lines = csvFile.split('\n');
 	const charactersMetadata = {};
 	for (const line of lines.slice(1)) {
@@ -106,5 +106,5 @@ fs.readdirSync(veBannyDirectory).forEach(dir => {
 });
 
 // Finally, save the charactersLayers to a json file
-fs.writeFileSync('./static/composer/characters.json', JSON.stringify(charactersLayers));
-fs.writeFileSync('./static/composer/charactersNameToBucket.json', JSON.stringify(nameToBucket));
+fs.writeFileSync('../src/data/characters.json', JSON.stringify(charactersLayers));
+fs.writeFileSync('../src/data/charactersNameToBucket.json', JSON.stringify(nameToBucket));
