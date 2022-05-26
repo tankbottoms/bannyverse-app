@@ -3,6 +3,7 @@
 </script>
 
 <script lang="ts">
+	import BannyGrid from '$lib/BannyGrid';
 	import Composer from '$lib/Composer';
 	import Landing from '$lib/Composer/Landing.svelte';
 	import MeetBannyFam from '$lib/MeetBannyFam.svelte';
@@ -43,3 +44,4 @@
 <Landing />
 <Composer />
 <MeetBannyFam />
+<BannyGrid />

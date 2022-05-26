@@ -3,7 +3,6 @@
 	import { options as layers } from '$lib/layerOptions';
 	import AssetOption from '$lib/AssetOption.svelte';
 
-	// TODO I want this from the json... annoyingly not been able to load json
 	import characters from '$data/characters.json';
 
 	let values = getContext('currentBanny');
