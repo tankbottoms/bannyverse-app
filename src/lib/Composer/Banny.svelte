@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 	import type Store from '$utils/Store';
 	import { getSvgForKey } from '$lib/getSvg';
-	import Background from '$lib/Background.svelte';
+	import Button from '$lib/Components/Button.svelte';
 
 	let values = getContext('currentBanny') as Store<Record<string, string>>;
 
@@ -21,12 +21,15 @@
 	onMount(() => {
 		resize();
 	});
-
 </script>
 
 <svelte:window on:resize={resize} />
 
-<div class="container" style="background-image: url(/composer/character-backgrounds/banny-potter.gif)">
+<div
+	class="container"
+	style="background-image: url(/composer/character-backgrounds/banny-potter.gif)"
+>
+	<!-- TODO question mark with history -->
 	<div class="banny">
 		<svg
 			viewBox="0 0 290 290"
@@ -50,13 +53,20 @@
 			{/each}
 		</svg>
 	</div>
+	<div class="overview">
+		<!-- TODO chosen items -->
+		<!-- TODO total -->
+		<!-- TODO button -->
+		<div>...</div>
+		<Button type="light" size="small">Mint Banny</Button>
+	</div>
 </div>
 
 <style>
 	.banny {
 		width: 40vw;
 	}
-	
+
 	.container {
 		height: 650px;
 		width: 100%;
@@ -66,5 +76,15 @@
 		justify-content: center;
 		background-position: center;
 		background-size: cover;
+	}
+
+	.overview {
+		display: flex;
+		justify-content: space-between;
+		background: var(--background-l2);
+		height: 50px;
+		width: 100%;
+		position: absolute;
+		padding: 5px;
 	}
 </style>

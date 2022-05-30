@@ -49,6 +49,11 @@
 		color: var(--light-text-color);
 	}
 
+	.small {
+		height: 40px;
+		padding: 10px 30px;
+	}
+
 	.large {
 		font-size: 24px;
 		line-height: 36px;
