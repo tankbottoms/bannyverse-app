@@ -39,8 +39,6 @@
 	}
 
 	h1 {
-		/* TODO the correct motto */
-		font-family: Arial, Helvetica, sans-serif;
 		font-weight: 700;
 		line-height: 1;
 	}
