@@ -7,9 +7,18 @@
 	import nameToBucket from '$data/charactersNameToBucket.json';
 	import characters from '$data/characters.json';
 	import { onMount } from 'svelte';
+	import Card from './Card.svelte';
+	import Modal, { bind } from '$lib/Components/Modal.svelte';
+	import ModalContent from './ModalContent.svelte';
 
 	let bannies = [];
 	let hoveredImage: string;
+
+	function onImageMouseover(bannie) {
+		hoveredImage = bannie.name;
+	}
+
+	let current: undefined;
 
 	/**
 	 * Takes a gif string of form "bannible-lector.gif" and returns "Bannible_Lector"
@@ -28,10 +37,6 @@
 		return name.charAt(0).toUpperCase() + name.slice(1);
 	}
 
-	function onImageMouseover(bannie) {
-		hoveredImage = bannie.name;
-	}
-
 	onMount(() => {
 		gifs.forEach((gif: string) => {
 			const name = nameFromGif(gif);
@@ -47,66 +52,24 @@
 </script>
 
 <section class="grid" id={anchorId}>
-	{#each bannies as bannie}
-		<div class="bannieContainer" id={bannie.name}>
-			<img
-				class:active={hoveredImage === bannie.name}
-				src={bannie.src}
-				alt={bannie.name}
-				on:mouseover={() => onImageMouseover(bannie)}
-				on:focus={() => onImageMouseover(bannie)}
-			/>
-			{#if hoveredImage === bannie.name}
-				<div class="overlay">
-					<h1>{bannie.name.replaceAll('_', ' ')}</h1>
-					<p>{bannie.motto}</p>
-				</div>
-			{/if}
-		</div>
+	{#each bannies as banny}
+		<Card
+			{banny}
+			on:click={() => {
+				current = banny;
+			}}
+			isHovered={hoveredImage === banny.name}
+			{onImageMouseover}
+		/>
 	{/each}
+	<Modal
+		styleWindow={{ 'border-radius': '20px', background: 'black' }}
+		styleCloseButton={{ 'color': 'white' }}
+		show={current && bind(ModalContent, { banny: current })}
+	/>
 </section>
 
 <style>
-	img {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
-		border-radius: 5%;
-	}
-
-	.bannieContainer {
-		position: relative;
-	}
-
-	h1,
-	p {
-		color: white;
-		padding: 0rem 1rem;
-	}
-
-	h1 {
-		/* TODO the correct motto */
-		font-family: Arial, Helvetica, sans-serif;
-		font-weight: 700;
-		line-height: 1;
-	}
-
-	/* Create an image overlay */
-	.overlay {
-		position: absolute;
-		height: 100%;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background: rgba(0, 0, 0, 0.5);
-		color: #fff;
-		text-align: center;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-	}
-
 	.grid {
 		max-width: 1180px;
 		margin: 0 auto;
@@ -115,36 +78,5 @@
 		grid-template-rows: repeat(auto-fit, 240px);
 		grid-gap: 1rem;
 		grid-auto-flow: dense;
-	}
-
-	.grid > .bannieContainer:nth-child(2),
-	#Ivar_the_Boneless {
-		grid-column: span 2; /* Spans two columns */
-		grid-row: span 2; /* Spans two rows */
-	}
-
-	#Banny_Potter {
-		grid-column: span 1;
-		grid-row: span 1;
-	}
-
-	#Ivar_the_Boneless {
-		grid-column: span 2;
-		grid-row: span 2;
-	}
-
-	.grid > .bannieContainer:nth-child(3) {
-		grid-column: span 1;
-		grid-row: span 1;
-	}
-	/* This will create 2x images every 3 elements */
-	.grid > .bannieContainer:nth-child(3n) {
-		grid-column: span 1;
-		grid-row: span 2;
-	}
-
-	.grid > .bannieContainer:nth-child(5n) {
-		grid-column: span 2;
-		grid-row: span 3;
 	}
 </style>
