@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import Button from '$lib/Components/Button.svelte';
+	import Header from './Header.svelte';
 	import { getStars } from './utils';
-	import { onMount } from 'svelte';
 
 	export let showWelcome: boolean = true;
 
@@ -39,7 +40,7 @@
 	});
 
 	$: {
-		if(!showWelcome) {
+		if (!showWelcome) {
 			document.body.style.overflow = 'auto';
 		}
 	}
@@ -47,7 +48,10 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<section>
+{#if !showWelcome}
+	<Header />
+{/if}
+<section class:compensateHeader={!showWelcome}>
 	<img src="/landing/Planet_1.svg" alt="Planet 1" id="planet1" />
 	<img src="/landing/Planet_2.svg" alt="Planet 2" id="planet2" />
 	<img src="/landing/Planet_3.svg" alt="Planet 3" id="planet3" />
@@ -94,6 +98,10 @@
 		margin-top: 20px;
 	}
 
+	.compensateHeader {
+		height: calc(100vh - 70px);
+	}
+
 	/* NOTE: skewed Star Wars text, use for the ultra long text flow thingy that is to come */
 	/* h1 {
 		font-size: 10vw;
@@ -121,6 +129,10 @@
 
 	a {
 		margin-top: 10px;
+	}
+
+	#landingText {
+		width: 700px;
 	}
 
 	.gap {
