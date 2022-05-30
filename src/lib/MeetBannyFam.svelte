@@ -29,6 +29,10 @@
 		background-color: black;
 		height: 100vh;
 		width: 100vw;
+
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
 	}
 
 	#text {
@@ -38,6 +42,7 @@
 
 	#asteroid {
 		position: absolute;
+		width: 100vw;
 	}
 
 	#nebula {
@@ -47,6 +52,7 @@
 
 	#stars {
 		position: absolute;
+		width: 100vw;
 	}
 
 	#planet {
