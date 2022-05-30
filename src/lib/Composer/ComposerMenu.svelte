@@ -201,7 +201,6 @@
 		text-align: center;
 	}
 	.controls {
-		margin-top: 2rem;
 		display: flex;
 		height: 650px;
 	}
@@ -213,6 +212,12 @@
 
 		.img-button {
 			width: 60px;
+		}
+	}
+
+	@media (min-width: 900px) {
+		.panel {
+			width: 500px;
 		}
 	}
 </style>
