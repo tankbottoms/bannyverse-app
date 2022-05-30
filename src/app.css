@@ -58,6 +58,11 @@ body::before {
 }
 
 h1,
+h2 {
+	font-family: 'GalacticaGrid', sans-serif;
+}
+
+h1,
 h2,
 p {
 	font-weight: 400;
