@@ -7,14 +7,22 @@
 
 	let values = getContext('currentBanny') as Store<Record<string, string>>;
 
+	let unit = "vw";
 	let width = 20;
 	function resize() {
+
 		if (window.innerWidth < 500) {
 			width = 80;
+			unit = "vw";
 		} else if (window.innerWidth < 768) {
 			width = 40;
+			unit = "vw";
+		} else if (window.innerWidth > 1600) {
+			width = 300;
+			unit = 'px';
 		} else if (window.innerWidth > 768) {
 			width = 20;
+			unit = "vw";
 		}
 	}
 
@@ -45,8 +53,8 @@
 							xlink:href={href}
 							x="50%"
 							y="50%"
-							width={`${width}vw`}
-							style={`transform: translate(-${width / 2}vw, -${width / 2}vw)`}
+							width={`${width}${unit}`}
+							style={`transform: translate(-${width / 2}${unit}, -${width / 2}${unit})`}
 						/>
 					{/if}
 				{/await}
