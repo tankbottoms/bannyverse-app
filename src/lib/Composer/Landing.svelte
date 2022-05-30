@@ -58,15 +58,39 @@
 		}
 	];
 
+	let innerWidth = 1000;
+
+	function randomStar() {
+		const star = {
+			size: Math.random() * 0.5 + 0.1,
+			top: undefined,
+			left: undefined,
+			right: undefined,
+			bottom: undefined
+		};
+
+		if (Math.random() > 0.5) {
+			star.right = Math.random() * innerWidth;
+			star.top = Math.random() * innerHeight;
+		} else {
+			star.left = Math.random() * innerWidth;
+			star.bottom = Math.random() * innerHeight;
+		}
+
+		return star;
+	}
+
+	const randomStars = Array.from({ length: 15 }, () => randomStar());
+
 	function isSmall() {
-		return window.innerWidth < 450;
+		return innerWidth < 450;
 	}
 
 	function shouldHide(left: number, right: number) {
 		return left >= 400 || right >= 400;
 	}
 
-	const positionStyleCss = stars.map(
+	const positionStyleCss = [...stars, ...randomStars].map(
 		({ size, left, right, top, bottom }) => `
             transform: scale(${size});
             left: ${left}px;
@@ -79,14 +103,9 @@
 	);
 </script>
 
+<svelte:window bind:innerWidth />
+
 <section>
-	<img src="/landing/landingText.svg" alt="The Banny Verse" id="landingText" />
-	<p>
-		Hello. Welcome to the Bannyverse. If you have made it here that means that you have successfully
-		staked your VeBanny on Juicebox. The Bannyverse allows you to customize your VeBanny to your
-		liking. Change your outfit and boost your powers in order to get ready for the Banny
-		battlefield!
-	</p>
 	<img src="/landing/Planet_1.svg" alt="Planet 1" id="planet1" />
 	<img src="/landing/Planet_2.svg" alt="Planet 2" id="planet2" />
 	<img src="/landing/Planet_3.svg" alt="Planet 3" id="planet3" />
@@ -94,6 +113,14 @@
 	{#each positionStyleCss as star}
 		<img src="/landing/Star.svg" alt="Star" class="star" style={star} />
 	{/each}
+	<img src="/landing/landingText.svg" alt="The Banny Verse" id="landingText" />
+	<!-- <h1>The Banny Verse</h1> -->
+	<p>
+		Hello. Welcome to the Bannyverse. If you have made it here that means that you have successfully
+		staked your VeBanny on Juicebox. The Bannyverse allows you to customize your VeBanny to your
+		liking. Change your outfit and boost your powers in order to get ready for the Banny
+		battlefield!
+	</p>
 </section>
 
 <style>
@@ -110,6 +137,15 @@
 		margin-top: 20px;
 	}
 
+	/* NOTE: skewed Star Wars text, use for the ultra long text flow thingy that is to come */
+	/* h1 {
+		font-size: 10vw;
+		color: white;
+		margin-bottom: 0;
+		transform-origin: 50% 100%;
+		transform: perspective(400px) rotateX(20deg);
+	} */
+
 	p {
 		font-family: DM Mono;
 		font-size: 24px;
@@ -120,6 +156,10 @@
 		color: white;
 		max-width: 745px;
 		margin-top: 50px;
+
+		bottom: 20px;
+
+		background: black;
 	}
 	[id*='planet'],
 	.star {
@@ -244,10 +284,6 @@
 
 		#planet3 {
 			top: 280px;
-		}
-
-		.star {
-			transform: scale(0.5) !important;
 		}
 	}
 </style>
