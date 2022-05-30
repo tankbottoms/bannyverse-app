@@ -21,27 +21,33 @@
 
 <svelte:window on:resize={resize} />
 
-<Background>
-	{#each Object.keys($values) as key}
-		{#await getSvgForKey({ key, value: $values[key] }) then href}
-			{#if href}
-				<image
-					in:fade={{ duration: 50 }}
-					out:fade={{ duration: 250 }}
-					xlink:href={href}
-					x="50%"
-					y="50%"
-					width={`${width}vw`}
-					style={`transform: translate(-${width / 2}vw, -${width / 2}vw)`}
-				/>
-			{/if}
-		{/await}
-	{/each}
-</Background>
+<div class="banny">
+	<Background>
+		{#each Object.keys($values) as key}
+			{#await getSvgForKey({ key, value: $values[key] }) then href}
+				{#if href}
+					<image
+						in:fade={{ duration: 50 }}
+						out:fade={{ duration: 250 }}
+						xlink:href={href}
+						x="50%"
+						y="50%"
+						width={`${width}vw`}
+						style={`transform: translate(-${width / 2}vw, -${width / 2}vw)`}
+					/>
+				{/if}
+			{/await}
+		{/each}
+	</Background>
+</div>
 
 <style>
-	/* :global(svg) {
-		width: 300px;
-		height: 300px;
-	} */
+	.banny {
+		width: 600px;
+		height: 100%;
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 </style>
