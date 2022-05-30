@@ -23,7 +23,7 @@
 	setContext('currentBanny', currentBanny);
 </script>
 
-<section>
+<section id="bannyComposer">
 	<Banny />
 	<ComposerMenu />
 </section>

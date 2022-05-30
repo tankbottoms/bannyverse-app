@@ -83,7 +83,8 @@
 		margin: 0;
 	}
 	.banny {
-		width: 40vw;
+		width: 100%;
+		max-width: 750px;
 	}
 
 	.container {

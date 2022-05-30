@@ -1,87 +1,13 @@
 <script lang="ts">
-	const stars = [
-		{
-			size: 0.5,
-			left: 100
-		},
-		{
-			size: 1.2,
-			right: 100
-		},
-		{
-			size: 1,
-			top: 20
-		},
-		{
-			size: 0.3,
-			bottom: 80,
-			left: 100
-		},
-		{
-			size: 0.8,
-			left: 100,
-			bottom: 180
-		},
-		{
-			size: 0.9,
-			top: 200,
-			right: 150
-		},
-		{
-			size: 0.7,
-			left: 200,
-			top: 140
-		},
-		{
-			size: 0.3,
-			left: 300,
-			top: 250
-		},
-		{
-			size: 0.5,
-			bottom: 100
-		},
-		{
-			size: 0.3,
-			bottom: 150,
-			left: 300
-		},
-		{
-			size: 0.3,
-			bottom: 80,
-			right: 300
-		},
-		{
-			size: 0.3,
-			bottom: 15,
-			left: 400
-		}
-	];
+	import Button from '$lib/Components/Button.svelte';
+	import { getStars } from './utils';
+
+	export let showWelcome: boolean = false;
 
 	let innerWidth = 1000;
 	let innerHeight = 800;
 
-	function randomStar() {
-		const star = {
-			size: Math.random() * 0.5 + 0.1,
-			top: undefined,
-			left: undefined,
-			right: undefined,
-			bottom: undefined
-		};
-
-		if (Math.random() > 0.5) {
-			star.right = Math.random() * innerWidth;
-			star.top = Math.random() * innerHeight;
-		} else {
-			star.left = Math.random() * innerWidth;
-			star.bottom = Math.random() * innerHeight;
-		}
-
-		return star;
-	}
-
-	const randomStars = Array.from({ length: 15 }, () => randomStar());
+	const stars = getStars(innerWidth, innerHeight, 15);
 
 	function isSmall() {
 		return innerWidth < 450;
@@ -91,7 +17,7 @@
 		return left >= 400 || right >= 400;
 	}
 
-	const positionStyleCss = [...stars, ...randomStars].map(
+	const positionStyleCss = stars.map(
 		({ size, left, right, top, bottom }) => `
             transform: scale(${size});
             left: ${left}px;
@@ -116,12 +42,21 @@
 	{/each}
 	<img src="/landing/landingText.svg" alt="The Banny Verse" id="landingText" />
 	<!-- <h1>The Banny Verse</h1> -->
-	<p>
-		Hello. Welcome to the Bannyverse. If you have made it here that means that you have successfully
-		staked your VeBanny on Juicebox. The Bannyverse allows you to customize your VeBanny to your
-		liking. Change your outfit and boost your powers in order to get ready for the Banny
-		battlefield!
-	</p>
+	{#if showWelcome}
+		<p>
+			Hello. Welcome to the Bannyverse. If you have made it here that means that you have
+			successfully staked your VeBanny on Juicebox. The Bannyverse allows you to customize your
+			VeBanny to your liking. Change your outfit and boost your powers in order to get ready for the
+			Banny battlefield!
+		</p>
+		<a href="/verse">
+			<Button>CUSTOMIZE YOUR VeBANNY</Button>
+		</a>
+	{:else}
+		<a href="#bannyComposer" class="gap">
+			<Button>CUSTOMIZE YOUR VeBANNY</Button>
+		</a>
+	{/if}
 </section>
 
 <style>
@@ -149,7 +84,7 @@
 
 	p {
 		font-family: DM Mono;
-		font-size: 24px;
+		font-size: 22px;
 		font-weight: 500;
 		line-height: 36px;
 		letter-spacing: 0em;
@@ -161,6 +96,18 @@
 		bottom: 20px;
 
 		background: black;
+	}
+
+	a {
+		margin-top: 10px;
+	}
+
+	.gap {
+		margin-top: 50px;
+	}
+
+	[id*='planet'] {
+		z-index: 10;
 	}
 	[id*='planet'],
 	.star {
