@@ -1,7 +1,12 @@
+<script>
+	import Button from './Components/Button.svelte';
+	import { anchorId } from './BannyGrid';
+</script>
+
 <section>
 	<img id="nebula" src="/quote/Nebula.svg" alt="" />
 	<img id="stars" src="/quote/Stars.svg" alt="" />
-    <img id="planet" src="/quote/Planet.svg" alt="" />
+	<img id="planet" src="/quote/Planet.svg" alt="" />
 	<div class="quote">
 		<img id="asteroid" src="/quote/Asteroid_belt.svg" alt="asteroid belt" />
 		<svg id="text" viewBox="0 0 840 264" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,12 +15,17 @@
 				fill="white"
 			/>
 		</svg>
+		<div class="callToAction">
+			<a href={`#${anchorId}`}>
+				<Button>Meet the Banny fam</Button>
+			</a>
+		</div>
 	</div>
 </section>
 
 <style>
 	section {
-        position: relative;
+		position: relative;
 		background-color: black;
 		height: 100vh;
 		width: 100vw;
@@ -26,24 +36,29 @@
 		max-width: 905px;
 	}
 
-    #asteroid {
-        position: absolute;
-    }
+	#asteroid {
+		position: absolute;
+	}
 
-    #nebula {
-        position: absolute;
-        width: 100vw;
-    }
+	#nebula {
+		position: absolute;
+		width: 100vw;
+	}
 
-    #stars {
-        position: absolute;
-    }
+	#stars {
+		position: absolute;
+	}
 
-    #planet {
-        position: absolute;
-        left: 100px;
-        top: 100px;
-    }
+	#planet {
+		position: absolute;
+		left: 100px;
+		top: 100px;
+	}
+
+	.callToAction {
+		position: relative;
+		top: 250px;
+	}
 
 	.quote {
 		height: 100vh;

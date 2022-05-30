@@ -1,3 +1,7 @@
+<script context="module">
+	export const anchorId = 'bannyGrid';
+</script>
+
 <script lang="ts">
 	import gifs from '$data/bannyGifs.json';
 	import nameToBucket from '$data/charactersNameToBucket.json';
@@ -29,7 +33,7 @@
 	}
 
 	onMount(() => {
-		gifs.forEach((gif) => {
+		gifs.forEach((gif: string) => {
 			const name = nameFromGif(gif);
 			const bucket = nameToBucket[name];
 			if (bucket) {
@@ -42,7 +46,7 @@
 	});
 </script>
 
-<section class="grid">
+<section class="grid" id={anchorId}>
 	{#each bannies as bannie}
 		<div class="bannieContainer" id={bannie.name}>
 			<img
