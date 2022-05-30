@@ -107,7 +107,7 @@
 		max-width: 1180px;
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 		grid-template-rows: repeat(auto-fit, 240px);
 		grid-gap: 1rem;
 		grid-auto-flow: dense;
