@@ -7,22 +7,21 @@
 
 	let values = getContext('currentBanny') as Store<Record<string, string>>;
 
-	let unit = "vw";
+	let unit = 'vw';
 	let width = 20;
 	function resize() {
-
 		if (window.innerWidth < 500) {
 			width = 80;
-			unit = "vw";
+			unit = 'vw';
 		} else if (window.innerWidth < 768) {
 			width = 40;
-			unit = "vw";
+			unit = 'vw';
 		} else if (window.innerWidth > 1600) {
 			width = 300;
 			unit = 'px';
 		} else if (window.innerWidth > 768) {
 			width = 20;
-			unit = "vw";
+			unit = 'vw';
 		}
 	}
 
@@ -38,29 +37,36 @@
 	style="background-image: url(/composer/character-backgrounds/banny-potter.gif)"
 >
 	<!-- TODO question mark with history -->
-	<div class="banny">
-		<svg
-			viewBox="0 0 290 290"
-			xmlns="http://www.w3.org/2000/svg"
-			xmlns:xlink="http://www.w3.org/1999/xlink"
-		>
-			{#each Object.keys($values) as key}
-				{#await getSvgForKey({ key, value: $values[key] }) then href}
-					{#if href}
-						<image
-							in:fade={{ duration: 50 }}
-							out:fade={{ duration: 250 }}
-							xlink:href={href}
-							x="50%"
-							y="50%"
-							width={`${width}${unit}`}
-							style={`transform: translate(-${width / 2}${unit}, -${width / 2}${unit})`}
-						/>
-					{/if}
-				{/await}
-			{/each}
-		</svg>
-	</div>
+	{#if $values && $values.Face === ''}
+		<div class="unknown">
+			<h1>???????</h1>
+			<img src="/composer/greybanny.png" alt="Unknown Banny" />
+		</div>
+	{:else}
+		<div class="banny">
+			<svg
+				viewBox="0 0 290 290"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+			>
+				{#each Object.keys($values) as key}
+					{#await getSvgForKey({ key, value: $values[key] }) then href}
+						{#if href}
+							<image
+								in:fade={{ duration: 50 }}
+								out:fade={{ duration: 250 }}
+								xlink:href={href}
+								x="50%"
+								y="50%"
+								width={`${width}${unit}`}
+								style={`transform: translate(-${width / 2}${unit}, -${width / 2}${unit})`}
+							/>
+						{/if}
+					{/await}
+				{/each}
+			</svg>
+		</div>
+	{/if}
 	<div class="overview">
 		<!-- TODO chosen items -->
 		<!-- TODO total -->
@@ -71,6 +77,11 @@
 </div>
 
 <style>
+	h1 {
+		color: white;
+		font-size: 2em;
+		margin: 0;
+	}
 	.banny {
 		width: 40vw;
 	}
@@ -94,5 +105,12 @@
 		width: 100%;
 		position: absolute;
 		padding: 5px;
+	}
+
+	.unknown {
+		display: flex;
+		flex-direction: column;
+		align-items: baseline;
+		margin-bottom: 60px;
 	}
 </style>
