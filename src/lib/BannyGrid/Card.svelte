@@ -32,6 +32,10 @@
 		position: relative;
 	}
 
+	.bannyContainer:hover {
+		cursor: url('cursor.png'), auto;
+	}
+
 	h1,
 	p {
 		color: white;

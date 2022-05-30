@@ -72,4 +72,8 @@
 		box-shadow: -5px 5px 0px var(--light-disabled-border-color);
 		color: #939393;
 	}
+
+	button:hover {
+		cursor: url('cursor.png'), auto;
+	}
 </style>
