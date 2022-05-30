@@ -3,8 +3,7 @@
 </script>
 
 <script lang="ts">
-import Ancestors from '$lib/Ancestors.svelte';
-
+	import Ancestors from '$lib/Ancestors.svelte';
 	import BannyGrid from '$lib/BannyGrid';
 	import Composer from '$lib/Composer';
 	import Landing from '$lib/Composer/Landing.svelte';
