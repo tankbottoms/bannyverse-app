@@ -4,6 +4,7 @@
 	import type Store from '$utils/Store';
 	import { getSvgForKey } from '$lib/getSvg';
 	import Button from '$lib/Components/Button.svelte';
+	import Popover from '$lib/Components/Popover.svelte';
 
 	let values = getContext('currentBanny') as Store<Record<string, string>>;
 
@@ -72,7 +73,10 @@
 		<!-- TODO total -->
 		<!-- TODO button -->
 		<div>...</div>
-		<Button disabled type="light" size="small">Mint Banny</Button>
+		<Popover message="Coming soon" placement="top">
+			<img width="100" slot="content" src="/composer/great.png" alt="Thumbs up Banny" />
+			<Button disabled type="light" size="small">Mint Banny</Button>
+		</Popover>
 	</div>
 </div>
 
