@@ -19,7 +19,8 @@
 	];
 
 	const height = [320, 480, 650, 480, 320];
-    const compensateBottom = [0, 20, 40, 20, 0];
+    const scale = [0.5, 0.75, 1, 0.75, 0.5];
+    const compensateBottom = [10, 6.5, 3, 6.5, 10];
 </script>
 
 <section>
@@ -30,8 +31,8 @@
 
 	<div class="crew">
 		{#each crew as bucket, index}
-			<div class="crew-member" style={`bottom: -${compensateBottom[index]}px`}>
-				<img height={height[index]} src={getPathFromCharacter(bucket)} alt="crew" />
+			<div class="crew-member" style={`bottom: -${compensateBottom[index]}vw`}>
+				<img style={`transform: scale(${scale[index]})`} src={getPathFromCharacter(bucket)} alt="crew" />
 			</div>
 		{/each}
 	</div>
@@ -61,12 +62,17 @@
 	}
 
 	.crew-member {
-		width: 300px;
+		max-width: 300px;
 		display: inline-flex;
 		align-items: baseline;
 		justify-content: center;
         position: relative;
+        flex: 1;
 	}
+
+    .crew-member img {
+        max-height: 40vw;
+    }
 
 	.ground {
 		position: absolute;
@@ -91,4 +97,16 @@
 		top: 0;
 		width: 100vw;
 	}
+
+    @media (max-width: 900px) {
+        .crew-member {
+            max-width: 180px;
+        }
+    }
+
+    @media (max-width: 650px) {
+        .crew-member {
+            max-width: 100px;
+        }
+    }
 </style>
