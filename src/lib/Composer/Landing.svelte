@@ -59,6 +59,7 @@
 	];
 
 	let innerWidth = 1000;
+	let innerHeight = 800;
 
 	function randomStar() {
 		const star = {
@@ -103,7 +104,7 @@
 	);
 </script>
 
-<svelte:window bind:innerWidth />
+<svelte:window bind:innerWidth bind:innerHeight />
 
 <section>
 	<img src="/landing/Planet_1.svg" alt="Planet 1" id="planet1" />
