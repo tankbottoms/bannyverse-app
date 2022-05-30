@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { fade, fly } from 'svelte/transition';
 	import Button from '$lib/Components/Button.svelte';
 	import { getStars } from './utils';
+	import { onMount } from 'svelte';
 
-	export let showWelcome: boolean = false;
+	export let showWelcome: boolean = true;
 
 	let innerWidth = 1000;
 	let innerHeight = 800;
@@ -28,6 +30,19 @@
 			display: ${isSmall && shouldHide(left, right) && 'none'}
     `
 	);
+
+	onMount(() => {
+		// Don't allow scrolling when showWelcome is on
+		if (showWelcome) {
+			document.body.style.overflow = 'hidden';
+		}
+	});
+
+	$: {
+		if(!showWelcome) {
+			document.body.style.overflow = 'auto';
+		}
+	}
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -43,17 +58,23 @@
 	<img src="/landing/landingText.svg" alt="The Banny Verse" id="landingText" />
 	<!-- <h1>The Banny Verse</h1> -->
 	{#if showWelcome}
-		<p>
-			Hello. Welcome to the Bannyverse. If you have made it here that means that you have
-			successfully staked your VeBanny on Juicebox. The Bannyverse allows you to customize your
-			VeBanny to your liking. Change your outfit and boost your powers in order to get ready for the
-			Banny battlefield!
-		</p>
-		<a href="/verse">
-			<Button>CUSTOMIZE YOUR VeBANNY</Button>
-		</a>
+		<div transition:fly={{ x: 500, duration: 1000 }} class="welcome">
+			<p>
+				Hello. Welcome to the Bannyverse. If you have made it here that means that you have
+				successfully staked your VeBanny on Juicebox. The Bannyverse allows you to customize your
+				VeBanny to your liking. Change your outfit and boost your powers in order to get ready for
+				the Banny battlefield!
+			</p>
+
+			<Button
+				on:click={() => {
+					showWelcome = false;
+				}}>Enter the Banny verse</Button
+			>
+		</div>
 	{:else}
-		<a href="#bannyComposer" class="gap">
+		<img src="landing/bannyRocket.png" alt="Banny in a rocket" id="rocket" />
+		<a in:fade={{ duration: 200, delay: 1000 }} href="#bannyComposer" class="gap">
 			<Button>CUSTOMIZE YOUR VeBANNY</Button>
 		</a>
 	{/if}
@@ -106,6 +127,12 @@
 		margin-top: 50px;
 	}
 
+	.welcome {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
 	[id*='planet'] {
 		z-index: 10;
 	}
@@ -117,6 +144,23 @@
 	.star {
 		opacity: 0;
 		animation: fadeIn 5s ease-in-out infinite;
+	}
+
+	/* Animate rocket entrace from left to right */
+	#rocket {
+		top: 50vh;
+		width: 300px;
+		position: absolute;
+		animation: rocketEntrance 1s ease-in-out forwards;
+	}
+
+	@keyframes rocketEntrance {
+		0% {
+			transform: translateX(-100vw);
+		}
+		100% {
+			transform: translateX(30vw);
+		}
 	}
 
 	@keyframes fadeIn {
@@ -232,6 +276,10 @@
 
 		#planet3 {
 			top: 280px;
+		}
+
+		#rocket {
+			width: 150px;
 		}
 	}
 </style>
