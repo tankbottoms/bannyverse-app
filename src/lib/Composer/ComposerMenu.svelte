@@ -133,6 +133,7 @@
 			</div>
 		{/each}
 	</aside>
+	<!-- TODO reset button -->
 	<p />
 	<!-- <button on:click={upload}>Upload to IPFS</button> -->
 </div>
@@ -191,7 +192,7 @@
 	.assetGrid {
 		margin-top: 2rem;
 		overflow: scroll;
-		max-height: 560px;
+		max-height: 680px;
 	}
 
 	.panel {
@@ -202,7 +203,8 @@
 	}
 	.controls {
 		display: flex;
-		height: 650px;
+		height: 100vh;
+		max-height: 825px;
 	}
 
 	@media screen and (max-width: 600px) {

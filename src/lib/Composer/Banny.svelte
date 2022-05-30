@@ -87,7 +87,8 @@
 	}
 
 	.container {
-		height: 650px;
+		height: 100vh;
+		max-height: 825px;
 		width: 100%;
 		position: relative;
 		display: flex;
