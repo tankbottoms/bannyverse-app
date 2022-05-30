@@ -66,7 +66,7 @@
 		<!-- TODO total -->
 		<!-- TODO button -->
 		<div>...</div>
-		<Button type="light" size="small">Mint Banny</Button>
+		<Button disabled type="light" size="small">Mint Banny</Button>
 	</div>
 </div>
 

@@ -1,9 +1,10 @@
 <script lang="ts">
+	export let disabled: boolean = false;
 	export let type: 'dark' | 'light' = 'dark';
 	export let size: 'small' | 'medium' | 'large' = 'large';
 </script>
 
-<button on:click class={`${type} ${size}`} {...$$props}><slot /></button>
+<button on:click class={`${type} ${size}`} {disabled} {...$$props}><slot /></button>
 
 <style>
 	:global(button) {
@@ -15,8 +16,10 @@
 		--dark-border-color: white;
 		--dark-text-color: white;
 
-		--light-bg-color: rgba(170, 232, 210, 1);
-		--light-border-color: #939393;
+		--light-bg-color: #59ffc4;
+		--light-border-color: black;
+		--light-disabled-bg-color: rgba(170, 232, 210, 1);
+		--light-disabled-border-color: #939393;
 		--light-text-color: black;
 	}
 
@@ -59,7 +62,14 @@
 		line-height: 36px;
 	}
 
-	button:disabled {
+	button[disabled] {
 		cursor: not-allowed;
+	}
+
+	button[disabled].light {
+		background: var(--light-disabled-bg-color);
+		border-color: var(--light-disabled-border-color);
+		box-shadow: -5px 5px 0px var(--light-disabled-border-color);
+		color: #939393;
 	}
 </style>
