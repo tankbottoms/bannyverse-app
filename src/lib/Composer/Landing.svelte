@@ -4,6 +4,7 @@
 	import Button from '$lib/Components/Button.svelte';
 	import Header from './Header.svelte';
 	import { getStars } from './utils';
+	import { page } from '$app/stores';
 
 	export let showWelcome: boolean = true;
 
@@ -20,6 +21,11 @@
 		return left >= 400 || right >= 400;
 	}
 
+	function shouldShowWelcome() {
+		// Check if anything else than base route
+		return [$page.url.origin, $page.url.origin + '/'].includes($page.url.href) && showWelcome;
+	}
+
 	const positionStyleCss = stars.map(
 		({ size, left, right, top, bottom }) => `
             transform: scale(${size});
@@ -34,8 +40,10 @@
 
 	onMount(() => {
 		// Don't allow scrolling when showWelcome is on
-		if (showWelcome) {
+		if (shouldShowWelcome()) {
 			document.body.style.overflow = 'hidden';
+			// Scroll to top
+			window.scrollTo(0, 0);
 		}
 	});
 
