@@ -10,6 +10,9 @@
 		return `/characters/${number}.png`;
 	}
 
+	/*
+	TODO: keep the main banny constant but the other ones can be random each load
+	*/
 	const crew = [
 		nameToBucket.Pamela_Anderson,
 		nameToBucket.Spock,

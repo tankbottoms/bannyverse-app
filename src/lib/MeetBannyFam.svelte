@@ -4,6 +4,7 @@
 </script>
 
 <section>
+	<!-- TODO: little star animations like https://codepen.io/tankbottoms/pen/vYddbXm -->
 	<img id="nebula" src="/quote/Nebula.svg" alt="" />
 	<img id="stars" src="/quote/Stars.svg" alt="" />
 	<img id="planet" src="/quote/Planet.svg" alt="" />
