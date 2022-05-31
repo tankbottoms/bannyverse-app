@@ -10,27 +10,41 @@
 		return `/characters/${number}.png`;
 	}
 
-	/*
-	TODO: keep the main banny constant but the other ones can be random each load
-	*/
-	const crew = [
-		nameToBucket.Pamela_Anderson,
-		nameToBucket.Spock,
-		nameToBucket.Nammu,
-		nameToBucket.Farceur,
-		nameToBucket.Spider_Jerusalem
-	];
+	function randomIntFromInterval(min: number, max: number) {
+		// min and max included
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
+
+	function generateCrew() {
+		/* Keep the main banny constant but the other ones can be random each load */
+		let crew = [];
+		for (let i = 1; i < 6; i++) {
+			if (i === 3) {
+				crew.push(nameToBucket.Nammu);
+			} else {
+				// Get a random int, check if already in crew, if so get a new int
+				let randomInt = randomIntFromInterval(2, 60);
+				while (crew.includes(randomInt)) {
+					randomInt = randomIntFromInterval(2, 60);
+				}
+				crew.push(randomInt);
+			}
+		}
+		return crew;
+	}
+
+	const crew = generateCrew();
 
 	const scale = [0.5, 0.75, 1, 0.75, 0.5];
 	const compensateBottom = [12, 8.5, 5, 8.5, 12];
 </script>
 
-<section>
-    <img src="/ancestors/Stars.svg" alt="stars" class="stars" />
+<section id="ancestors">
+	<img src="/ancestors/Stars.svg" alt="stars" class="stars" />
 	<img src="/ancestors/Planets.svg" alt="planets" class="planets" />
 	<img src="/ancestors/Ground.svg" alt="ground" class="ground" />
 	<img src="/ancestors/Smoke.svg" alt="smoke" class="smoke" />
-    
+
 	<h1>Who are your ancestors?</h1>
 
 	<div class="crew">
@@ -67,7 +81,7 @@
 		margin: 0 auto;
 		margin-top: 5rem;
 		font-size: 56px;
-        position: relative;
+		position: relative;
 	}
 
 	.crew {
