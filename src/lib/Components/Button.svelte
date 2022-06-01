@@ -74,6 +74,6 @@
 	}
 
 	button:hover {
-		cursor: url('cursor.png'), auto;
+		cursor: url('/cursor.png'), auto;
 	}
 </style>
