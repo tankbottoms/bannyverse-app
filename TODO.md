@@ -1,4 +1,4 @@
-### todo for bannyverse webapp
+### todo for app.bannyverse.xyz
 
 ##### asset collection
 
