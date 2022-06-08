@@ -182,7 +182,7 @@
 			"Face": "Peach_Face",
 			"Headgear": "Peach",
 			"Left_Hand": "Nothing",
-			"Lower_Accessory": "No_Shoes",
+			"Lower_Accessory": "Black_Shoes",
 			"Oral_Fixation": "Nothing",
 			"Outfit": "Princess_Peach",
 			"Right_Hand": "Nothing"
@@ -776,7 +776,7 @@
 			"Face": "Eye_Mouth",
 			"Headgear": "Jesus",
 			"Left_Hand": "Holy_Wine",
-			"Lower_Accessory": "No_Shoes",
+			"Lower_Accessory": "Black_Shoes",
 			"Oral_Fixation": "Nothing",
 			"Outfit": "Jesus",
 			"Right_Hand": "Nothing"
@@ -1019,7 +1019,7 @@
 			"Face": "Eye_Mouth",
 			"Headgear": "Geisha",
 			"Left_Hand": "Nothing",
-			"Lower_Accessory": "No_Shoes",
+			"Lower_Accessory": "Black_Shoes",
 			"Oral_Fixation": "Nothing",
 			"Outfit": "Geisha",
 			"Right_Hand": "Wagasa"
