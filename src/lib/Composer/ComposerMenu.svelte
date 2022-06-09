@@ -192,7 +192,7 @@
 	.assetGrid {
 		margin-top: 2rem;
 		overflow: scroll;
-		max-height: 680px;
+		max-height: 580px;
 	}
 
 	.panel {
@@ -205,6 +205,7 @@
 		display: flex;
 		height: 100vh;
 		max-height: 825px;
+		z-index: 30;
 	}
 
 	@media screen and (max-width: 600px) {

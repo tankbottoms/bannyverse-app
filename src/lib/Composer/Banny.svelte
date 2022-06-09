@@ -10,24 +10,32 @@
 
 	let unit = 'vw';
 	let width = 20;
+	let bannyStyles = '';
+	let placeholderStyles = '';
+	let loading = true;
+
 	function resize() {
-		if (window.innerWidth < 500) {
-			width = 80;
-			unit = 'vw';
-		} else if (window.innerWidth < 768) {
-			width = 40;
-			unit = 'vw';
-		} else if (window.innerWidth > 1600) {
-			width = 300;
+		// TODO clean this up,
+		if (window.innerWidth < 768) {
+			width = 250;
+			bannyStyles = `width: ${width * 3}px; bottom: -78px`;
 			unit = 'px';
+			// } else if (window.innerWidth > 1600) {
+			// 	width = 300;
+			// 	bannyStyles = 'bottom: -50px';
+			// 	placeholderStyles = `width: ${width / 1.08}px; margin-left: 65px`;
+			// 	unit = 'px';
 		} else if (window.innerWidth > 768) {
-			width = 20;
-			unit = 'vw';
+			width = 280;
+			bannyStyles = `width: ${width * 3}px; bottom: -50px`;
+			unit = 'px';
 		}
+		placeholderStyles = `width: ${width / 1.08}px; margin-left: 65px`;
 	}
 
 	onMount(() => {
 		resize();
+		loading = false;
 	});
 </script>
 
@@ -38,13 +46,15 @@
 	style="background-image: url(/composer/character-backgrounds/banny-potter.gif)"
 >
 	<!-- TODO question mark with history -->
-	{#if $values && $values.Face === ''}
-		<div class="unknown">
-			<h1>???????</h1>
-			<img src="/composer/greybanny.png" alt="Unknown Banny" />
+	{#if loading}
+		<div />
+	{:else if $values && $values.Face === ''}
+		<div class="unknown" out:fade>
+			<h1 style={'margin-left: 75px'}>???????</h1>
+			<img style={placeholderStyles} src="/composer/greybanny.png" alt="Unknown Banny" />
 		</div>
 	{:else}
-		<div class="banny">
+		<div class="banny" style={bannyStyles} in:fade>
 			<svg
 				viewBox="0 0 290 290"
 				xmlns="http://www.w3.org/2000/svg"
@@ -89,6 +99,8 @@
 	.banny {
 		width: 100%;
 		max-width: 750px;
+		position: absolute;
+		overflow: hidden;
 	}
 
 	.container {
@@ -118,5 +130,6 @@
 		flex-direction: column;
 		align-items: baseline;
 		margin-bottom: 60px;
+		position: absolute;
 	}
 </style>

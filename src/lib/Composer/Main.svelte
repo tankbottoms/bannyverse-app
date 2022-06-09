@@ -35,6 +35,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
+		overflow: hidden;
 	}
 
 	@media (max-width: 650px) {
