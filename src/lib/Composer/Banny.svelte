@@ -49,7 +49,7 @@
 	{#if loading}
 		<div />
 	{:else if $values && $values.Face === ''}
-		<div class="unknown" out:fade>
+		<div class="unknown" out:fade in:fade>
 			<h1 style={'margin-left: 75px'}>???????</h1>
 			<img style={placeholderStyles} src="/composer/greybanny.png" alt="Unknown Banny" />
 		</div>
