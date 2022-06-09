@@ -192,7 +192,7 @@
 	.assetGrid {
 		margin-top: 2rem;
 		overflow: scroll;
-		max-height: 580px;
+		max-height: calc(100% - 125px);
 	}
 
 	.panel {
