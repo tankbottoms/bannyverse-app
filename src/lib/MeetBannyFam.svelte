@@ -77,6 +77,8 @@
 		display: flex;
 		justify-content: center;
 		flex-direction: column;
+
+		overflow: hidden;
 	}
 
 	#text {
