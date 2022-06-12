@@ -5,7 +5,10 @@
 
 	import characters from '$data/characters.json';
 
-	let values = getContext('currentBanny');
+	let currentBanny = getContext('currentBanny') as any;
+	let values = currentBanny.layers;
+	let name = currentBanny.name;
+	let characterIndex = currentBanny.characterIndex;
 
 	const MenuButtons = [
 		{
@@ -55,7 +58,7 @@
 	let currentPanel = MenuButtons[0];
 
 	// Characters number from 1 to 60
-	const characterIndex = Array.from(Array(60).keys()).slice(1);
+	const characterIndeces = Array.from(Array(60).keys()).slice(1);
 	function getPathFromCharacter(number: number) {
 		if (number < 10) {
 			return `/characters/0${number}.png`;
@@ -77,6 +80,8 @@
 	// Set values from characterIndex
 	function setValuesFromCharacterIndex(index: number) {
 		values.set(characters[index]['layers']);
+		name.set(characters[index]['metadata']['name']);
+		characterIndex.set(index);
 	}
 </script>
 
@@ -89,7 +94,7 @@
 			{#if currentPanel.path === 'banny'}
 				<p>Choose the VeBanny you would like to accessorize!</p>
 				<!-- From 0 to 60 load 0.png... 2.png etc  from /characters/ -->
-				{#each characterIndex as character}
+				{#each characterIndeces as character}
 					<img
 						class="character"
 						on:click={() => setValuesFromCharacterIndex(character)}

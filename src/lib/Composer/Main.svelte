@@ -18,9 +18,11 @@
 		Right_Hand: ''
 	};
 
-	const currentBanny = new Store<Record<string, string>>(layerOptions);
+	const layers = new Store<Record<string, string>>(layerOptions);
+	const name = new Store<string>();
+	const characterIndex = new Store<number>();
 
-	setContext('currentBanny', currentBanny);
+	setContext('currentBanny', { layers, name, characterIndex });
 </script>
 
 <section id="bannyComposer">

@@ -8,7 +8,10 @@
 
 	import backgrounds from '$data/backgroundGifs.json';
 
-	let values = getContext('currentBanny') as Store<Record<string, string>>;
+	let currentBanny = getContext('currentBanny') as any;
+	let values = currentBanny.layers;
+	let name = currentBanny.name;
+	let characterIndex = currentBanny.characterIndex;
 
 	let unit = 'vw';
 	let width = 20;
@@ -37,7 +40,11 @@
 	}
 
 	function nextBackground(forward = true) {
-		background = forward ? (background + 1) % backgrounds.length : (background - 1) % backgrounds.length;
+		if (forward) {
+			background = (background + 1) % backgrounds.length;
+		} else {
+			background = (background <= 0 ? backgrounds.length - 1 : background - 1) % backgrounds.length;
+		}
 	}
 
 	onMount(() => {
@@ -108,6 +115,7 @@
 
 	.arrow {
 		position: absolute;
+		z-index: 1000;
 		height: 150px;
     	bottom: calc(50% - 75px);
 		cursor: pointer;
