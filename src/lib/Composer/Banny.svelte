@@ -6,11 +6,14 @@
 	import Button from '$lib/Components/Button.svelte';
 	import Popover from '$lib/Components/Popover.svelte';
 
+	import backgrounds from '$data/backgroundGifs.json';
+
 	let values = getContext('currentBanny') as Store<Record<string, string>>;
 
 	let unit = 'vw';
 	let width = 20;
 	let bannyStyles = '';
+	let background = 0;
 	let placeholderStyles = '';
 	let loading = true;
 
@@ -33,6 +36,10 @@
 		placeholderStyles = `width: ${width / 1.08}px; margin-left: 65px`;
 	}
 
+	function nextBackground(forward = true) {
+		background = forward ? (background + 1) % backgrounds.length : (background - 1) % backgrounds.length;
+	}
+
 	onMount(() => {
 		resize();
 		loading = false;
@@ -43,8 +50,10 @@
 
 <div
 	class="container"
-	style="background-image: url(/composer/character-backgrounds/banny-potter.gif)"
+	style="background-image: url(/composer/character-backgrounds/{backgrounds[background]})"
 >
+	<img src="/composer/arrow.png" alt="arrow" class="arrow" on:click={() => nextBackground(false)}/>
+	<img src="/composer/arrow.png" alt="arrow" class="arrow" on:click={() => nextBackground()}/>
 	<!-- TODO question mark with history -->
 	{#if loading}
 		<div />
@@ -96,6 +105,23 @@
 		font-size: 2em;
 		margin: 0;
 	}
+
+	.arrow {
+		position: absolute;
+		height: 150px;
+    	bottom: calc(50% - 75px);
+		cursor: pointer;
+	}
+	
+	.arrow:first-of-type {
+	    left: 0;
+	}
+
+	.arrow:last-of-type {
+	    right: 0;
+		transform: rotate(180deg);
+	}
+
 	.banny {
 		width: 100%;
 		max-width: 750px;
