@@ -17,13 +17,16 @@
     main {
         display: flex;
         align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     img {
-        max-width: 500px;
-        max-height: 500px;
+        height: 35vw;
         border-radius: 7%;
         padding: 15px;
+        min-height: 400px;
+        max-height: 500px;
     }
 
     section {
@@ -52,5 +55,12 @@
     h3, p {
         color: #E7E7E7;
         font-weight: 300;
+    }
+
+    @media (max-width: 500px) {
+
+        section {
+            padding: 20px;
+        }
     }
 </style>
