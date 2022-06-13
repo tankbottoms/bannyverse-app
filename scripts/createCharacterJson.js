@@ -6,7 +6,7 @@
 import fs from 'fs';
 import { parse } from 'csv-parse';
 
-const veBannyDirectory = '../docs/veBanny-layered-assets/veBanny/';
+const veBannyDirectory = './docs/veBanny-layered-assets/veBanny/';
 const charactersLayers = {};
 const nameToBucket = {};
 
@@ -17,7 +17,7 @@ async function loadCharactersMetadata() {
 	// Wrap create read stream in a promise
 	return new Promise((resolve, reject) => {
 		return fs
-			.createReadStream('../docs/characters-metadata-history.csv')
+			.createReadStream('./docs/characters-metadata-history.csv')
 			.pipe(parse({ delimiter: ',', from_line: 2 }))
 			.on('data', function(row) {
 				let [
@@ -94,7 +94,8 @@ fs.readdirSync(veBannyDirectory).forEach(dir => {
 		let name = dir.replace(/Character_/g, '');
 		// Remove the trailing _*_Days from the directory
 		name = name.replace(/_(10|50|100|500|1000)_Days/g, '');
-
+		// Remove any trailing spaces of the name
+		name = name.replace(/\s+$/g, '');
 		// Don't bother if we've already got the layers for this character
 		if (nameToBucket[name]) {
 			return;
@@ -114,5 +115,5 @@ fs.readdirSync(veBannyDirectory).forEach(dir => {
 });
 
 // Finally, save the charactersLayers to a json file
-fs.writeFileSync('../src/data/characters.json', JSON.stringify(charactersLayers));
-fs.writeFileSync('../src/data/charactersNameToBucket.json', JSON.stringify(nameToBucket));
+fs.writeFileSync('./src/data/characters.json', JSON.stringify(charactersLayers));
+fs.writeFileSync('./src/data/charactersNameToBucket.json', JSON.stringify(nameToBucket));

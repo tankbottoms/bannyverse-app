@@ -37,7 +37,7 @@
 			// 	unit = 'px';
 		} else if (window.innerWidth > 768) {
 			width = 280;
-			bannyStyles = `width: ${width * 3}px; bottom: -50px`;
+			bannyStyles = `width: ${width * 3}px; bottom: -40px`;
 			unit = 'px';
 		}
 		placeholderStyles = `width: ${width / 1.08}px; margin-left: 65px`;
