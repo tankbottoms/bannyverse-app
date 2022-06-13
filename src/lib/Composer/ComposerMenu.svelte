@@ -113,7 +113,6 @@
 					/>
 				{/each}
 			{:else}
-				<!-- TODO fix this type issue -->
 				{#each currentPanel.assetPath as src}
 					{#each layers[src] as option}
 						<AssetOption

@@ -110,7 +110,6 @@
 	<div class="overview">
 		<!-- TODO chosen items -->
 		<!-- TODO total -->
-		<!-- TODO button -->
 		<div>...</div>
 		<Popover message="Coming soon" placement="top">
 			<img width="100" slot="content" src="/composer/great.png" alt="Thumbs up Banny" />
