@@ -9,6 +9,7 @@
 	let values = currentBanny.layers;
 	let name = currentBanny.name;
 	let characterIndex = currentBanny.characterIndex;
+	let open = true;
 
 	const MenuButtons = [
 		{
@@ -77,6 +78,14 @@
 		return button.label || button.path.replace('-', ' ');
 	}
 
+	function menuButtonClick(button) {
+		if(currentPanel.path === button.path) {
+			open = !open;
+		} else {
+			currentPanel = button;
+		}
+	}
+
 	// Set values from characterIndex
 	function setValuesFromCharacterIndex(index: number) {
 		values.set(characters[index]['layers']);
@@ -86,6 +95,7 @@
 </script>
 
 <div class="controls">
+	{#if open}
 	<div class="panel">
 		<header>
 			Choose your {getLabelFromMenuButton(currentPanel)}
@@ -124,14 +134,13 @@
 			{/if}
 		</div>
 	</div>
+	{/if}
 	<aside>
 		{#each MenuButtons as menu}
 			<div
 				class="img-button"
 				class:active={currentPanel.path === menu.path}
-				on:click={() => {
-					currentPanel = menu;
-				}}
+				on:click={() => menuButtonClick(menu)}
 			>
 				<img src={getPathFromMenuButton(menu.path)} alt={`Menu button for ${menu.path}`} />
 				<span>{getLabelFromMenuButton(menu)}</span>
