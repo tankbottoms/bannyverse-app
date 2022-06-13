@@ -11,12 +11,16 @@
 	let currentBanny = getContext('currentBanny') as any;
 	let values = currentBanny.layers;
 	let name = currentBanny.name;
-	let characterIndex = currentBanny.characterIndex;
+	let backgroundKeys = Object.keys(backgrounds);
+
+	let background = '';
+	name.subscribe(() => {
+		background = $name;
+	});
 
 	let unit = 'vw';
 	let width = 20;
 	let bannyStyles = '';
-	let background = 0;
 	let placeholderStyles = '';
 	let loading = true;
 
@@ -40,11 +44,20 @@
 	}
 
 	function nextBackground(forward = true) {
+		let backgroundIndex = backgroundKeys.indexOf(background);
 		if (forward) {
-			background = (background + 1) % backgrounds.length;
+			backgroundIndex = (backgroundIndex + 1) % backgroundKeys.length;
 		} else {
-			background = (background <= 0 ? backgrounds.length - 1 : background - 1) % backgrounds.length;
+			backgroundIndex = (backgroundIndex <= 0 ? backgrounds.length - 1 : backgroundIndex - 1) % backgrounds.length;
 		}
+		background = backgroundKeys[backgroundIndex];
+	}
+
+	$: {
+		if(!backgrounds[background] && !backgrounds[$name]) {
+			background = backgroundKeys[0];
+		}
+
 	}
 
 	onMount(() => {
