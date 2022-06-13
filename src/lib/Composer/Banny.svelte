@@ -179,4 +179,10 @@
 		margin-bottom: 60px;
 		position: absolute;
 	}
+
+	@media (max-width: 768px) {
+		.arrow {
+			height: 75px;
+		}
+	}
 </style>
