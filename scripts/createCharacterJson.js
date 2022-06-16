@@ -6,7 +6,7 @@
 import fs from 'fs';
 import { parse } from 'csv-parse';
 
-const veBannyDirectory = './docs/veBanny-layered-assets/veBanny/';
+const veBannyDirectory = './docs/veBanny-rebuild-assets/veBanny_Final_Standard/';
 const charactersLayers = {};
 const nameToBucket = {};
 
@@ -17,7 +17,7 @@ async function loadCharactersMetadata() {
 	// Wrap create read stream in a promise
 	return new Promise((resolve, reject) => {
 		return fs
-			.createReadStream('./docs/characters-metadata-history.csv')
+			.createReadStream(`${veBannyDirectory}/characters-metadata-history.csv`)
 			.pipe(parse({ delimiter: ',', from_line: 2 }))
 			.on('data', function(row) {
 				let [

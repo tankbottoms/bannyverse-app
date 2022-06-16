@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import { options as layers } from '$lib/layerOptions';
+	import layers from '$data/layerOptions.json';
 	import AssetOption from '$lib/AssetOption.svelte';
 
 	import characters from '$data/characters.json';
