@@ -15,6 +15,7 @@
 			"$constants": ["src/constants"],
 			"$constants/*": ["src/constants/*"]
 		},
+		"allowSyntheticDefaultImports": true,
 		"resolveJsonModule": true
 	}
 }
