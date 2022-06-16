@@ -17,7 +17,7 @@ async function loadCharactersMetadata() {
 	// Wrap create read stream in a promise
 	return new Promise((resolve, reject) => {
 		return fs
-			.createReadStream(`${veBannyDirectory}/characters-metadata-history.csv`)
+			.createReadStream(`${veBannyDirectory}/characters-metadata-histories.csv`)
 			.pipe(parse({ delimiter: ',', from_line: 2 }))
 			.on('data', function(row) {
 				let [
@@ -40,6 +40,8 @@ async function loadCharactersMetadata() {
 				name = name.replace(/\s/g, '_');
 				// Remove dots from name
 				name = name.replace(/\./g, '');
+				// Remove any trailing _
+				name = name.replace(/_$/, '');
 				if (name === 'Emmett__“Doc”_Brown') {
 					name = 'Emmett_Doc_Brown';
 				}
@@ -96,6 +98,8 @@ fs.readdirSync(veBannyDirectory).forEach(dir => {
 		name = name.replace(/_(10|50|100|500|1000)_Days/g, '');
 		// Remove any trailing spaces of the name
 		name = name.replace(/\s+$/g, '');
+		// Remove any trailing underscores of the name
+		name = name.replace(/_+$/g, '');
 		// Don't bother if we've already got the layers for this character
 		if (nameToBucket[name]) {
 			return;
