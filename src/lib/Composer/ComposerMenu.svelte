@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import layers from '$data/layerOptions.json';
 	import AssetOption from '$lib/AssetOption.svelte';
 
 	import characters from '$data/characters.json';
+	import layers from '$data/layerOptions.json';
 
 	let currentBanny = getContext('currentBanny') as any;
 	let values = currentBanny.layers;
@@ -59,7 +59,7 @@
 	let currentPanel = MenuButtons[0];
 
 	// Characters number from 1 to 60
-	const characterIndeces = Array.from(Array(60).keys()).slice(1);
+	const characterIndeces = Array.from(Array(61).keys()).slice(1);
 	function getPathFromCharacter(number: number) {
 		if (number < 10) {
 			return `/characters/0${number}.png`;

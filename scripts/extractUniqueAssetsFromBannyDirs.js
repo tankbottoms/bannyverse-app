@@ -15,7 +15,10 @@ const layerJsonPath = './src/data/layerOptions.json';
  *          - Choker
  *              - Choker.png
  *          ....
- *
+ *      - character_y
+ *          - Body
+ *              - Yellow.png
+ *          ....
  * Take each character directory, take the file for each category and put it the asset directory under the aggregated bucket
  * - assets
  *      - Body
