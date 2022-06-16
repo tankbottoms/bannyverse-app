@@ -55,6 +55,10 @@ function extractUniqueAssetsFromBannyDirs(srcpath) {
 			layerFiles.forEach(file => {
 				const filePath = `${layerDirectory}/${file}`;
 				const fileName = file.replace('.png', '');
+                // Check if layer directory exists, create if not
+                if (!fs.existsSync(`${assets}/${layer}`)) {
+                    fs.mkdirSync(`${assets}/${layer}`);
+                }
 				const destinationPath = `${assets}/${layer}/${file}`;
 				layerJson[layer].add(fileName);
 				fs.copyFileSync(filePath, destinationPath);
