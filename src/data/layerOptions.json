@@ -3,15 +3,22 @@
     "Yellow",
     "Green",
     "Pink",
-    "Red"
+    "Red",
+    "Orange"
   ],
   "Both_Hands": [
-    "Nothing"
+    "Nothing",
+    "AK-47",
+    "Blue_Paint",
+    "M4",
+    "Sword_Shield"
   ],
   "Choker": [
     "Choker",
     "No_Choker",
-    "Christmas_Lights"
+    "Christmas_Lights",
+    "Hawaiian",
+    "Blockchain_Necklace"
   ],
   "Face": [
     "Eye_Mouth",
@@ -22,7 +29,15 @@
     "Enlil",
     "Gautama_Buddha",
     "Bunny_Eyes",
-    "Princess_Peach_Toadstool_Face"
+    "Princess_Peach_Toadstool_Face",
+    "Angry",
+    "Sakura",
+    "Happy",
+    "Rick_Astley",
+    "Panda_Eyes",
+    "Rose",
+    "Smile",
+    "Surprised"
   ],
   "Headgear": [
     "Sunglasses",
@@ -78,7 +93,23 @@
     "Tafari_Makonnen",
     "The_Witch_of_Endor",
     "Tinkerbanny",
-    "Wade"
+    "Wade",
+    "Blue_Glasses",
+    "Firefighter_Helmet",
+    "Flash",
+    "Kiss_Musician",
+    "Hat_and_Beard",
+    "Mummy",
+    "Panda",
+    "Purple-samurai",
+    "Rick_Astley",
+    "Bruce_Lee_Hair",
+    "Discoball",
+    "Ironman_Headgear",
+    "Mowhawk",
+    "Mushroom_Hat",
+    "Nerd_Glasses",
+    "Queen_Crown"
   ],
   "Left_Hand": [
     "Nothing",
@@ -89,7 +120,16 @@
     "Surf_Board",
     "Katana",
     "Pitchfork",
-    "Spider_Jerusalem_Weapon"
+    "Spider_Jerusalem_Weapon",
+    "Chibuxi",
+    "Samurai_Dagger",
+    "BOOBS_calc",
+    "Computer",
+    "Flamings",
+    "Lord_of_the_Banana's_Gandolph_Staff",
+    "Magical_Staff",
+    "Nunchucks",
+    "Shovel"
   ],
   "Lower_Accessory": [
     "Black_Shoes",
@@ -97,11 +137,13 @@
     "Dr_Jonathan_Osterman",
     "Sandals",
     "Legolas_Boots",
-    "Piers_Plowman_Boots"
+    "Piers_Plowman_Boots",
+    "Rick_Astley_Boots"
   ],
   "Oral_Fixation": [
     "Nothing",
-    "Mouthstraw"
+    "Mouthstraw",
+    "Blunt_1k"
   ],
   "Outfit": [
     "Smoking",
@@ -159,7 +201,19 @@
     "Tamar_of_Georgia",
     "The_Witch_of_Endor_Belt",
     "Tinkerbanny",
-    "Wade"
+    "Wade",
+    "Blue_T-Shirt",
+    "Firefighter",
+    "Flash",
+    "Hawaiian",
+    "JuiceBox_Bunny",
+    "Suit",
+    "Mummy",
+    "Panda",
+    "Purple_Samurai",
+    "Rick_Astley",
+    "Ducttape",
+    "Wings"
   ],
   "Right_Hand": [
     "Nothing",
@@ -178,6 +232,24 @@
     "Anch",
     "Piers_Plowman_Dagger",
     "Dagger",
-    "The_Witch_of_Endor_Broom"
+    "The_Witch_of_Endor_Broom",
+    "Firefighter",
+    "Juicebox",
+    "Triangle_guitar",
+    "Axe",
+    "Beer",
+    "Bow_and_Arrow",
+    "Bread",
+    "Fans",
+    "Fly_Swatter",
+    "Frying_Pan",
+    "Guitar",
+    "Hammer",
+    "Mace",
+    "Mini_Axe",
+    "Shark",
+    "Sword",
+    "Thanos_Glove",
+    "Wakanda"
   ]
 }

@@ -6,7 +6,11 @@
 import fs from 'fs';
 import { parse } from 'csv-parse';
 
+const useNonStandard = true;
+
 const veBannyDirectory = './docs/veBanny-rebuild-assets/veBanny_Final_Standard/';
+const nonStandardBannyDirectory =
+	'./docs/veBanny-rebuild-assets/veBanny_Final_Non-Standard_Character_Accessory/';
 const charactersLayers = {};
 const nameToBucket = {};
 
@@ -88,23 +92,29 @@ function getCharacterLayersFromDirectory(directory) {
 
 const charactersMetadata = await loadCharactersMetadata();
 
+function nameFromDirectory(dir) {
+	// Remove the Character_ from the directory name
+	let name = dir.replace(/Character_/g, '');
+	// Remove the trailing _*_Days from the directory
+	name = name.replace(/_(10|50|100|500|1000)_Days/g, '');
+	// Remove any trailing spaces of the name
+	name = name.replace(/\s+$/g, '');
+	// Remove any trailing underscores of the name
+	name = name.replace(/_+$/g, '');
+	return name;
+}
+
 // Iterate over each directory in the veBanny directory
 fs.readdirSync(veBannyDirectory).forEach(dir => {
 	// Check that it's a directory
 	if (fs.lstatSync(veBannyDirectory + dir).isDirectory()) {
-		// Remove the Character_ from the directory name
-		let name = dir.replace(/Character_/g, '');
-		// Remove the trailing _*_Days from the directory
-		name = name.replace(/_(10|50|100|500|1000)_Days/g, '');
-		// Remove any trailing spaces of the name
-		name = name.replace(/\s+$/g, '');
-		// Remove any trailing underscores of the name
-		name = name.replace(/_+$/g, '');
+		const name = nameFromDirectory(dir);
 		// Don't bother if we've already got the layers for this character
+		// this'll happen in the case of several directories for the same character
+		// but with different lock periods in the directory name (10, 50, 100, 500, 1000)
 		if (nameToBucket[name]) {
 			return;
 		}
-
 		const layerDirectory = `${veBannyDirectory}${dir}/Traits/`;
 		const characterLayers = getCharacterLayersFromDirectory(layerDirectory);
 
@@ -117,6 +127,28 @@ fs.readdirSync(veBannyDirectory).forEach(dir => {
 		nameToBucket[name] = bucket;
 	}
 });
+
+if (useNonStandard) {
+	// Continue from the 60 main characters
+	let currentBucketIndex = 61;
+	fs.readdirSync(nonStandardBannyDirectory).forEach(dir => {
+		// Check that it's a directory
+		if (
+			fs.lstatSync(nonStandardBannyDirectory + dir).isDirectory() &&
+			dir.startsWith('Character_')
+		) {
+			const name = nameFromDirectory(dir);
+			const layerDirectory = `${nonStandardBannyDirectory}${dir}/Traits/`;
+			const characterLayers = getCharacterLayersFromDirectory(layerDirectory);
+
+			charactersLayers[currentBucketIndex] = {};
+			charactersLayers[currentBucketIndex]['layers'] = characterLayers;
+			charactersLayers[currentBucketIndex]['metadata'] = { name };
+			nameToBucket[name] = currentBucketIndex;
+			currentBucketIndex++;
+		}
+	});
+}
 
 // Finally, save the charactersLayers to a json file
 fs.writeFileSync('./src/data/characters.json', JSON.stringify(charactersLayers));

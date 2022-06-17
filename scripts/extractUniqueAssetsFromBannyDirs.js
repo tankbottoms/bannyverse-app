@@ -1,6 +1,9 @@
 import fs from 'fs';
 
 const baseDirectory = './docs/veBanny-rebuild-assets/veBanny_Final_Standard';
+const nonStandardBannyDirectory =
+	'./docs/veBanny-rebuild-assets/veBanny_Final_Non-Standard_Character_Accessory/';
+
 const assets = './static/veBanny';
 const layerJsonPath = './src/data/layerOptions.json';
 
@@ -32,8 +35,29 @@ function getDirectories(srcpath) {
 	return fs.readdirSync(srcpath).filter(file => fs.lstatSync(`${srcpath}/${file}`).isDirectory());
 }
 
-function extractUniqueAssetsFromBannyDirs(srcpath) {
-	const directories = getDirectories(srcpath);
+function copyAssetsToAggregatedDirectory(characterDirectory, layerJson) {
+	const characterLayers = getDirectories(characterDirectory);
+	characterLayers.forEach(layer => {
+		const layerDirectory = `${characterDirectory}/${layer}`;
+		const layerFiles = fs.readdirSync(layerDirectory);
+		layerFiles.forEach(file => {
+			const filePath = `${layerDirectory}/${file}`;
+			const fileName = file.replace('.png', '');
+			// Check if layer directory exists, create if not
+			if (!fs.existsSync(`${assets}/${layer}`)) {
+				fs.mkdirSync(`${assets}/${layer}`);
+			}
+			const destinationPath = `${assets}/${layer}/${file}`;
+			layerJson[layer].add(fileName);
+			fs.copyFileSync(filePath, destinationPath);
+		});
+	});
+}
+
+function extractUniqueAssetsFromBannyDirs(standard_srcpath, nonstandard_srcpath) {
+	const standardDirectories = getDirectories(standard_srcpath);
+	const nonstandardDirectories = getDirectories(nonstandard_srcpath);
+
 	const layerJson = {
 		Body: new Set(),
 		Both_Hands: new Set(),
@@ -44,32 +68,27 @@ function extractUniqueAssetsFromBannyDirs(srcpath) {
 		Lower_Accessory: new Set(),
 		Oral_Fixation: new Set(),
 		Outfit: new Set(),
-		Right_Hand: new Set(),
+		Right_Hand: new Set()
 	};
-	directories.forEach(directory => {
-		const characterDirectory = `${srcpath}/${directory}/Traits`;
-		const characterLayers = getDirectories(characterDirectory);
-		characterLayers.forEach(layer => {
-			const layerDirectory = `${characterDirectory}/${layer}`;
-			const layerFiles = fs.readdirSync(layerDirectory);
-			layerFiles.forEach(file => {
-				const filePath = `${layerDirectory}/${file}`;
-				const fileName = file.replace('.png', '');
-                // Check if layer directory exists, create if not
-                if (!fs.existsSync(`${assets}/${layer}`)) {
-                    fs.mkdirSync(`${assets}/${layer}`);
-                }
-				const destinationPath = `${assets}/${layer}/${file}`;
-				layerJson[layer].add(fileName);
-				fs.copyFileSync(filePath, destinationPath);
-			});
-		});
+
+	standardDirectories.forEach(directory => {
+		const characterDirectory = `${standard_srcpath}/${directory}/Traits`;
+		copyAssetsToAggregatedDirectory(characterDirectory, layerJson);
 	});
-    // Cast the sets to arrays
-    Object.keys(layerJson).forEach(layer => {
-        layerJson[layer] = Array.from(layerJson[layer]);
-    })
-    fs.writeFileSync(layerJsonPath, JSON.stringify(layerJson, null, 2));
+
+	nonstandardDirectories.forEach(directory => {
+		let characterDirectory = `${nonstandard_srcpath}/${directory}/Traits`;
+		if(directory.startsWith("OTHER")) {
+			characterDirectory = `${nonstandard_srcpath}/${directory}`;
+		}
+		copyAssetsToAggregatedDirectory(characterDirectory, layerJson);
+	});
+
+	// Cast the sets to arrays
+	Object.keys(layerJson).forEach(layer => {
+		layerJson[layer] = Array.from(layerJson[layer]);
+	});
+	fs.writeFileSync(layerJsonPath, JSON.stringify(layerJson, null, 2));
 }
 
-extractUniqueAssetsFromBannyDirs(baseDirectory);
+extractUniqueAssetsFromBannyDirs(baseDirectory, nonStandardBannyDirectory);
