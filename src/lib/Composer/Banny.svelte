@@ -7,6 +7,7 @@
 	import Popover from '$lib/Components/Popover.svelte';
 
 	import backgrounds from '$data/backgroundGifs.json';
+	import BananaArrow from '$lib/Components/BananaArrow.svelte';
 
 	let currentBanny = getContext('currentBanny') as any;
 	let values = currentBanny.layers;
@@ -43,16 +44,16 @@
 		if (forward) {
 			backgroundIndex = (backgroundIndex + 1) % backgroundKeys.length;
 		} else {
-			backgroundIndex = (backgroundIndex <= 0 ? backgrounds.length - 1 : backgroundIndex - 1) % backgrounds.length;
+			backgroundIndex =
+				(backgroundIndex <= 0 ? backgrounds.length - 1 : backgroundIndex - 1) % backgrounds.length;
 		}
 		background = backgroundKeys[backgroundIndex];
 	}
 
 	$: {
-		if(!backgrounds[background] && !backgrounds[$name]) {
+		if (!backgrounds[background] && !backgrounds[$name]) {
 			background = backgroundKeys[0];
 		}
-
 	}
 
 	onMount(() => {
@@ -67,8 +68,22 @@
 	class="container"
 	style="background-image: url(/composer/character-backgrounds/{backgrounds[background]})"
 >
-	<img src="/composer/arrow.png" alt="arrow" class="arrow" on:click={() => nextBackground(false)}/>
-	<img src="/composer/arrow.png" alt="arrow" class="arrow" on:click={() => nextBackground()}/>
+	{#if isSmallScreen}
+		<img
+			src="/composer/arrow.png"
+			alt="arrow"
+			class="arrow"
+			on:click={() => nextBackground(false)}
+		/>
+		<img src="/composer/arrow.png" alt="arrow" class="arrow" on:click={() => nextBackground()} />
+	{:else}
+		<span class="arrow" on:click={() => nextBackground(false)}>
+			<BananaArrow height={150} />
+		</span>
+		<span class="arrow" on:click={() => nextBackground()}>
+			<BananaArrow height={150} />
+		</span>
+	{/if}
 	<!-- TODO question mark with history -->
 	{#if loading}
 		<div />
@@ -124,17 +139,18 @@
 		position: absolute;
 		z-index: 1000;
 		height: 150px;
-    	bottom: calc(50% - 75px);
+		bottom: calc(50% - 75px);
 		cursor: pointer;
 	}
-	
+
 	.arrow:first-of-type {
-	    left: 0;
+		left: 0;
 	}
 
 	.arrow:last-of-type {
-	    right: 0;
-		transform: rotate(180deg);
+		right: 0;
+		/* Mirror the asset */
+		transform: scale(-1, 1);
 	}
 
 	.banny {
