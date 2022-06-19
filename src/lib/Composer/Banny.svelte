@@ -12,33 +12,28 @@
 	let values = currentBanny.layers;
 	let name = currentBanny.name;
 	let backgroundKeys = Object.keys(backgrounds);
+	let isSmallScreen = false;
 
 	let background = '';
 	name.subscribe(() => {
 		background = $name;
 	});
 
-	let unit = 'vw';
+	let unit = 'px';
 	let width = 20;
 	let bannyStyles = '';
 	let placeholderStyles = '';
 	let loading = true;
 
 	function resize() {
-		// TODO clean this up,
 		if (window.innerWidth < 768) {
 			width = 250;
 			bannyStyles = `width: ${width * 3}px; bottom: -78px`;
-			unit = 'px';
-			// } else if (window.innerWidth > 1600) {
-			// 	width = 300;
-			// 	bannyStyles = 'bottom: -50px';
-			// 	placeholderStyles = `width: ${width / 1.08}px; margin-left: 65px`;
-			// 	unit = 'px';
+			isSmallScreen = true;
 		} else if (window.innerWidth > 768) {
 			width = 280;
 			bannyStyles = `width: ${width * 3}px; bottom: -40px`;
-			unit = 'px';
+			isSmallScreen = false;
 		}
 		placeholderStyles = `width: ${width / 1.08}px; margin-left: 65px`;
 	}
