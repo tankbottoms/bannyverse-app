@@ -6,18 +6,28 @@
 	export let src;
 	export let translateY;
 	export let translateX;
+	export let active;
 	export let disabled;
 </script>
 
 <!-- NOTE the svg is the background svg for an item -->
 <div class="container" class:disabled>
-	<svg width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<svg
+		class:active
+		width="92"
+		height="92"
+		viewBox="0 0 92 92"
+		fill="none"
+		xmlns="http://www.w3.org/2000/svg"
+	>
 		<g filter="url(#filter0_d_332_2065)">
 			<path
 				fill-rule="evenodd"
 				clip-rule="evenodd"
 				d="M83.3958 0.0788574H6.90062V6.53026H0.449219V83.9471H6.90062V89.4768H83.3958V83.9471H89.8472V6.53026H83.3958V0.0788574Z"
 				fill="#FFF9F2"
+				stroke={active && '#1ad3f0'}
+				stroke-width="2"
 			/>
 		</g>
 

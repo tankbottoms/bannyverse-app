@@ -105,7 +105,7 @@
 							<image
 								in:fade={{ duration: 50 }}
 								out:fade={{ duration: 250 }}
-								xlink:href={href}
+								{href}
 								x="50%"
 								y="50%"
 								width={`${width}${unit}`}

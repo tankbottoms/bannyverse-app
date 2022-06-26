@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import AssetOption from '$lib/AssetOption.svelte';
-	import type Store from '$utils/Store';
 
 	import characters from '$data/characters.json';
 	import layers from '$data/layerOptions.json';
+	import assetsMetadata from '$data/assetsMetadata.json';
 
 	let currentBanny = getContext('currentBanny') as any;
 	let values = currentBanny.layers;
@@ -80,7 +80,7 @@
 	}
 
 	function menuButtonClick(button) {
-		if(currentPanel.path === button.path) {
+		if (currentPanel.path === button.path) {
 			open = !open;
 		} else {
 			currentPanel = button;
@@ -97,63 +97,71 @@
 	function getDisabled(layer: string, values: { [key: string]: string }) {
 		// If either left hand or right hand is selected, disable both hands
 		// If both hands are selected, disable left hand and disabled right hand
-		if(layer === 'Both_Hands') {
+		if (layer === 'Both_Hands') {
 			return values.Left_Hand !== 'Nothing' || values.Right_Hand !== 'Nothing';
 		}
-		if(['Left_Hand', 'Right_Hand'].includes(layer)) {
+		if (['Left_Hand', 'Right_Hand'].includes(layer)) {
 			return values.Both_Hands !== 'Nothing';
 		}
 		return false;
 	}
 
+	function changeAsset(layer: string, value: string) {
+		if (disabled[layer]) return;
+		values.update((state) => ({
+			...state,
+			[layer]: value
+		}));
+
+		const assetMetadata = assetsMetadata[layer][value];
+		console.log(assetMetadata);
+	}
+
 	$: disabled = {
 		Left_Hand: getDisabled('Left_Hand', $values),
 		Right_Hand: getDisabled('Right_Hand', $values),
-		Both_Hands: getDisabled('Both_Hands', $values),
-	}
+		Both_Hands: getDisabled('Both_Hands', $values)
+	};
 </script>
 
 <div class="controls">
 	{#if open}
-	<div class="panel">
-		<header>
-			Choose your {getLabelFromMenuButton(currentPanel)}
-		</header>
-		<div class="assetGrid">
-			{#if currentPanel.path === 'banny'}
-				<p>Choose the VeBanny you would like to accessorize!</p>
-				<!-- From 0 to 60 load 0.png... 2.png etc  from /characters/ -->
-				{#each characterIndeces as character}
-					<img
-						class="character"
-						on:click={() => setValuesFromCharacterIndex(character)}
-						src={getPathFromCharacter(character)}
-						alt="Character"
-					/>
-				{/each}
-			{:else}
-				{#each currentPanel.assetPath as src}
-					{#each layers[src] as option}
-						<AssetOption
-							src={`/veBanny/${src}/${option}.png`}
-							alt={`Option ${option}`}
-							scale={currentPanel.scale}
-							disabled={disabled[src]}
-							translateY={currentPanel.translateY}
-							translateX={currentPanel.translateX}
-							on:click={() => {
-								if(disabled[src]) return;
-								values.update((state) => ({
-									...state,
-									[src]: option
-								}));
-							}}
+		<div class="panel">
+			<header>
+				Choose your {getLabelFromMenuButton(currentPanel)}
+			</header>
+			<div class="assetGrid">
+				{#if currentPanel.path === 'banny'}
+					<p>Choose the VeBanny you would like to accessorize!</p>
+					<!-- From 0 to 60 load 0.png... 2.png etc  from /characters/ -->
+					{#each characterIndeces as character}
+						<img
+							class="character"
+							on:click={() => setValuesFromCharacterIndex(character)}
+							src={getPathFromCharacter(character)}
+							alt="Character"
 						/>
 					{/each}
-				{/each}
-			{/if}
+				{:else}
+					{#each currentPanel.assetPath as src}
+						{#each layers[src] as option}
+							<AssetOption
+								src={`/veBanny/${src}/${option}.png`}
+								alt={`Option ${option}`}
+								scale={currentPanel.scale}
+								active={$values[src] === option}
+								disabled={disabled[src]}
+								translateY={currentPanel.translateY}
+								translateX={currentPanel.translateX}
+								on:click={() => {
+									changeAsset(src, option);
+								}}
+							/>
+						{/each}
+					{/each}
+				{/if}
+			</div>
 		</div>
-	</div>
 	{/if}
 	<aside>
 		{#each MenuButtons as menu}
