@@ -8,14 +8,15 @@
 	const layerOptions = {
 		Background: '',
 		Body: 'yellow',
-		Choker: '',
 		Face: '',
+		Choker: '',
+		Lower_Accessory: '',
+		Outfit: '',
+		Oral_Fixation: '',
 		Headgear: '',
 		Left_Hand: '',
-		Lower_Accessory: '',
-		Oral_Fixation: '',
-		Outfit: '',
-		Right_Hand: ''
+		Right_Hand: '',
+		Both_Hands: '',
 	};
 
 	const layers = new Store<Record<string, string>>(layerOptions);
