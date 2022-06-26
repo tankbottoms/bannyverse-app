@@ -108,10 +108,17 @@
 
 	function changeAsset(layer: string, value: string) {
 		if (disabled[layer]) return;
-		values.update((state) => ({
-			...state,
-			[layer]: value
-		}));
+		if ($values[layer] === value) {
+			values.update((state) => ({
+				...state,
+				[layer]: 'Nothing'
+			}));
+		} else {
+			values.update((state) => ({
+				...state,
+				[layer]: value
+			}));
+		}
 
 		const assetMetadata = assetsMetadata[layer][value];
 		console.log(assetMetadata);
