@@ -18,7 +18,7 @@
 	}
 
 	function shouldHide(left: number, right: number) {
-		return left >= 400 || right >= 400;
+		return left >= 350 || right >= 350;
 	}
 
 	function shouldShowWelcome() {
