@@ -109,7 +109,7 @@
     }
   },
   "Headgear": {
-    "No_Hat": {
+    "Nothing": {
       "character_index": 1,
       "modifier_shadowiness": -3,
       "boost_au_naturel": 5
