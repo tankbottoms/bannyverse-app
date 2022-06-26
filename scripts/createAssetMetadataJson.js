@@ -122,4 +122,4 @@ if (createLayerOptions) {
 // Write assets object to data/assetsMetadata.json
 fs.writeFileSync('./src/data/assetsMetadata.json', JSON.stringify(assetMetadata, null, 2));
 // TODO when the correct assetsMetadata comes back, create the layer json from that to get sorder order
-// fs.writeFileSync('./src/data/layerOptions.json', JSON.stringify(layerOptions, null, 2));
+fs.writeFileSync('./src/data/layerOptions.json', JSON.stringify(layerOptions, null, 2));
