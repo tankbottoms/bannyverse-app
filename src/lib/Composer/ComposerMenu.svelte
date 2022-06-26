@@ -10,6 +10,7 @@
 	let values = currentBanny.layers;
 	let name = currentBanny.name;
 	let characterIndex = currentBanny.characterIndex;
+	let mods = currentBanny.mods;
 	let open = true;
 
 	const MenuButtons = [
@@ -106,9 +107,38 @@
 		return false;
 	}
 
+	function changeMods(deselectingAsset: boolean, layer: string, value: string) {
+		let assetMetadata = assetsMetadata[layer][value];
+
+		if (assetMetadata) {
+			delete assetMetadata['character_index'];
+		} else {
+			return;
+		}
+
+		if (deselectingAsset) {
+			mods.update((state) => {
+				let newState = { ...state };
+				for (let key in assetMetadata) {
+					if (newState[key] === assetMetadata[key]) {
+						delete newState[key];
+					}
+				}
+				return newState;
+			});
+		} else {
+			mods.update((state) => ({
+				...state,
+				...assetMetadata
+			}));
+		}
+	}
+
 	function changeAsset(layer: string, value: string) {
 		if (disabled[layer]) return;
+		let deselectingAsset = false;
 		if ($values[layer] === value) {
+			deselectingAsset = true;
 			values.update((state) => ({
 				...state,
 				[layer]: 'Nothing'
@@ -120,8 +150,7 @@
 			}));
 		}
 
-		const assetMetadata = assetsMetadata[layer][value];
-		console.log(assetMetadata);
+		changeMods(deselectingAsset, layer, value);
 	}
 
 	$: disabled = {

@@ -22,8 +22,9 @@
 	const layers = new Store<Record<string, string>>(layerOptions);
 	const name = new Store<string>();
 	const characterIndex = new Store<number>();
+	const mods = new Store<Record<string, string>>({});
 
-	setContext('currentBanny', { layers, name, characterIndex });
+	setContext('currentBanny', { layers, name, characterIndex, mods });
 </script>
 
 <section id="bannyComposer">
