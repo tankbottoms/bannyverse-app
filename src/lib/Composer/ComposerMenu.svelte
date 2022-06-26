@@ -107,50 +107,59 @@
 		return false;
 	}
 
-	function changeMods(deselectingAsset: boolean, layer: string, value: string) {
+	function changeMods(layer: string, value: string, oldValue: string) {
 		let assetMetadata = assetsMetadata[layer][value];
+		let oldAssetMetadata = assetsMetadata[layer][oldValue];
 
-		if (assetMetadata) {
-			delete assetMetadata['character_index'];
-		} else {
-			return;
-		}
-
-		if (deselectingAsset) {
+		if (oldAssetMetadata) {
+			delete oldAssetMetadata['character_index'];
 			mods.update((state) => {
 				let newState = { ...state };
-				for (let key in assetMetadata) {
-					if (newState[key] === assetMetadata[key]) {
+				for (let key in oldAssetMetadata) {
+					if (newState[key] === oldAssetMetadata[key]) {
 						delete newState[key];
 					}
 				}
 				return newState;
 			});
-		} else {
+		}
+
+		if (assetMetadata) {
+			delete assetMetadata['character_index'];
 			mods.update((state) => ({
 				...state,
 				...assetMetadata
 			}));
+		} else {
+			return;
 		}
 	}
 
 	function changeAsset(layer: string, value: string) {
 		if (disabled[layer]) return;
-		let deselectingAsset = false;
+		let oldValue = '';
+
 		if ($values[layer] === value) {
-			deselectingAsset = true;
+			oldValue = $values[layer];
 			values.update((state) => ({
 				...state,
 				[layer]: 'Nothing'
 			}));
+			changeMods(layer, '', oldValue);
 		} else {
+			if (values[layer] !== 'Nothing') {
+				oldValue = $values[layer];
+			}
 			values.update((state) => ({
 				...state,
 				[layer]: value
 			}));
+			changeMods(layer, value, oldValue);
 		}
+	}
 
-		changeMods(deselectingAsset, layer, value);
+	$: {
+		console.log($mods)
 	}
 
 	$: disabled = {
@@ -181,18 +190,20 @@
 				{:else}
 					{#each currentPanel.assetPath as src}
 						{#each layers[src] as option}
-							<AssetOption
-								src={`/veBanny/${src}/${option}.png`}
-								alt={`Option ${option}`}
-								scale={currentPanel.scale}
-								active={$values[src] === option}
-								disabled={disabled[src]}
-								translateY={currentPanel.translateY}
-								translateX={currentPanel.translateX}
-								on:click={() => {
-									changeAsset(src, option);
-								}}
-							/>
+							{#if option !== 'Nothing'}
+								<AssetOption
+									src={`/veBanny/${src}/${option}.png`}
+									alt={`Option ${option}`}
+									scale={currentPanel.scale}
+									active={$values[src] === option}
+									disabled={disabled[src]}
+									translateY={currentPanel.translateY}
+									translateX={currentPanel.translateX}
+									on:click={() => {
+										changeAsset(src, option);
+									}}
+								/>
+							{/if}
 						{/each}
 					{/each}
 				{/if}
