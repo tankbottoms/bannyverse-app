@@ -10,8 +10,8 @@
 	export let src: string;
 	export let translateY: number;
 	export let translateX: number;
-	export let active: boolean;
-	export let disabled: boolean;
+	export let active: boolean = false;
+	export let disabled: boolean = false;
 	export let price: string | number = 0.1;
 	export let size: number = 92;
 </script>
