@@ -1,0 +1,678 @@
+{
+  "Body": {
+    "Yellow": {
+      "character_index": 1,
+      "boost_swaggin": 3
+    },
+    "Pink": {
+      "character_index": 6,
+      "modifier_shadowiness": -4,
+      "boost_wtf": 3
+    },
+    "Green": {
+      "character_index": 9,
+      "modifier_shadowiness": -4,
+      "boost_wtf": 5
+    },
+    "Red": {
+      "character_index": 57,
+      "modifier_arcana": 4,
+      "boost_wtf": 2
+    },
+    "Orange": {
+      "character_index": 72
+    }
+  },
+  "Both_Hands": {
+    "Nothing": {
+      "character_index": 1,
+      "modifier_comms": 5,
+      "boost_pacifist": 5
+    }
+  },
+  "Choker": {
+    "Choker": {
+      "character_index": 1,
+      "modifier_arcana": 3,
+      "boost_punk": 3
+    },
+    "No_Choker": {
+      "character_index": 22,
+      "modifier_perception": -2,
+      "boost_swaggin": 3
+    },
+    "Christmas_Lights": {
+      "character_index": 32,
+      "modifier_shadowiness": 2,
+      "boost_sore_thumb": 2
+    },
+    "Hawaiian": {
+      "character_index": 65
+    }
+  },
+  "Face": {
+    "Eye_Mouth": {
+      "character_index": 1,
+      "boost_muse": 3
+    },
+    "Princess_Peach_Toadstool_Face": {
+      "character_index": 7,
+      "modifier_grind": 2,
+      "boost_au_naturel": 2
+    },
+    "Baobhan_Sith": {
+      "character_index": 13,
+      "modifier_grind": -1,
+      "boost_wtf": 4
+    },
+    "Dr_Harleen_Quinzel": {
+      "character_index": 24,
+      "modifier_perception": -2,
+      "boost_pacifist": 5
+    },
+    "Enlil": {
+      "character_index": 47,
+      "modifier_grind": -3,
+      "boost_wtf": 3
+    },
+    "Harleen_Quinzel": {
+      "character_index": 49,
+      "modifier_perception": 3,
+      "boost_punk": 5
+    },
+    "Bunny_Eyes": {
+      "character_index": 50,
+      "modifier_arcana": 2,
+      "boost_swaggin": 3
+    },
+    "Diana_Banana": {
+      "character_index": 55,
+      "modifier_perception": 2,
+      "boost_swaggin": 2
+    },
+    "Gautama_Buddha": {
+      "character_index": 60,
+      "modifier_arcana": 5,
+      "boost_muse": 5
+    },
+    "Angry": {
+      "character_index": 61
+    },
+    "Sakura": {
+      "character_index": 66
+    },
+    "Happy": {
+      "character_index": 67
+    },
+    "Rick_Astley": {
+      "character_index": 75
+    }
+  },
+  "Headgear": {
+    "No_Hat": {
+      "character_index": 1,
+      "modifier_shadowiness": -3,
+      "boost_au_naturel": 5
+    },
+    "Farceur": {
+      "character_index": 2,
+      "modifier_shadowiness": -4,
+      "boost_wtf": 3
+    },
+    "Bronson_Hat": {
+      "character_index": 3,
+      "modifier_grind": 4,
+      "boost_butcher": 1
+    },
+    "Musa": {
+      "character_index": 5,
+      "modifier_perception": 3,
+      "boost_muse": 2
+    },
+    "Brown_Hair": {
+      "character_index": 6,
+      "modifier_arcana": 2,
+      "boost_wtf": 1
+    },
+    "Princess_Peach_Toadstool": {
+      "character_index": 7,
+      "modifier_arcana": 2,
+      "boost_wtf": 1
+    },
+    "Rose_Bertin_Hat": {
+      "character_index": 8,
+      "modifier_arcana": 1,
+      "boost_swaggin": 2
+    },
+    "Red_Hair": {
+      "character_index": 9,
+      "modifier_arcana": 3,
+      "boost_wtf": 3
+    },
+    "Banny_Ipkiss": {
+      "character_index": 10,
+      "modifier_perception": -3,
+      "boost_swaggin": 3
+    },
+    "John_Row": {
+      "character_index": 11,
+      "modifier_grind": 2,
+      "boost_pacifist": 2
+    },
+    "Dotty_Gale": {
+      "character_index": 12,
+      "modifier_grind": -2,
+      "boost_pacifist": 4
+    },
+    "Piers_Plowman_Hat": {
+      "character_index": 14,
+      "modifier_strength": 2,
+      "boost_pacifist": 2
+    },
+    "Ivar_the_Boneless": {
+      "character_index": 15,
+      "modifier_strength": 2,
+      "boost_butcher": 5
+    },
+    "Headphones": {
+      "character_index": 16,
+      "modifier_comms": -2,
+      "boost_420_friendly": 4
+    },
+    "Sakura_Haruno": {
+      "character_index": 17,
+      "modifier_arcana": 2,
+      "boost_swaggin": 4
+    },
+    "Green_Cap": {
+      "character_index": 18,
+      "modifier_comms": 2,
+      "boost_swaggin": 3
+    },
+    "Tafari_Makonnen": {
+      "character_index": 19,
+      "modifier_shadowiness": -2,
+      "boost_muse": 3
+    },
+    "Mick_Mulligan_Glasses": {
+      "character_index": 20,
+      "modifier_shadowiness": -3,
+      "boost_sore_thumb": 5
+    },
+    "Bannible_Lector": {
+      "character_index": 21,
+      "modifier_comms": 2,
+      "boost_sore_thumb": 4
+    },
+    "Wade": {
+      "character_index": 22,
+      "modifier_perception": -3,
+      "boost_wtf": 3
+    },
+    "Dolly_Parton": {
+      "character_index": 24,
+      "modifier_perception": -1,
+      "boost_pacifist": 4
+    },
+    "Baker_Helmet": {
+      "character_index": 25,
+      "modifier_strength": 2,
+      "boost_swaggin": 2
+    },
+    "Feather_Hat": {
+      "character_index": 26,
+      "modifier_arcana": 4,
+      "boost_swaggin": 5
+    },
+    "The_Witch_of_Endor": {
+      "character_index": 27,
+      "modifier_comms": -2,
+      "boost_sore_thumb": 4
+    },
+    "Desmond_Miles": {
+      "character_index": 28,
+      "modifier_perception": 2,
+      "boost_sore_thumb": 3
+    },
+    "Banhovah": {
+      "character_index": 29,
+      "modifier_perception": -1,
+      "boost_420_friendly": 5
+    },
+    "Edward_Teach": {
+      "character_index": 31,
+      "modifier_perception": -3,
+      "boost_butcher": 2
+    },
+    "Legolas_Hat": {
+      "character_index": 32,
+      "modifier_perception": 2,
+      "boost_sore_thumb": 3
+    },
+    "Naruto": {
+      "character_index": 33,
+      "modifier_perception": -1,
+      "boost_sore_thumb": 4
+    },
+    "Pharaoh_King_Banatut": {
+      "character_index": 34,
+      "modifier_perception": -3,
+      "boost_sore_thumb": 5
+    },
+    "Sunglasses": {
+      "character_index": 35,
+      "modifier_perception": 2,
+      "boost_swaggin": 4
+    },
+    "Batbanny": {
+      "character_index": 36,
+      "modifier_perception": -4,
+      "boost_sore_thumb": 3
+    },
+    "Mario": {
+      "character_index": 37,
+      "modifier_perception": -1,
+      "boost_swaggin": 2
+    },
+    "Masako_Tanaka": {
+      "character_index": 38,
+      "modifier_perception": 2,
+      "boost_swaggin": 4
+    },
+    "Jango_Fett": {
+      "character_index": 39,
+      "modifier_perception": -3,
+      "boost_pacifist": 3
+    },
+    "Tinkerbanny": {
+      "character_index": 40,
+      "modifier_perception": 3,
+      "boost_420_friendly": 4
+    },
+    "Banny_Stark": {
+      "character_index": 41,
+      "modifier_perception": -2,
+      "boost_sore_thumb": 2
+    },
+    "Emmett_Doc_Brown": {
+      "character_index": 42,
+      "modifier_perception": 4,
+      "boost_au_naturel": 3
+    },
+    "Beatrix_Kiddo": {
+      "character_index": 43,
+      "modifier_perception": -1,
+      "boost_butcher": 5
+    },
+    "Louise_Burns": {
+      "character_index": 44,
+      "modifier_perception": 3,
+      "boost_muse": 3
+    },
+    "Miyamoto_Musashi_Ribbon": {
+      "character_index": 45,
+      "modifier_perception": 1,
+      "boost_muse": 5
+    },
+    "Obiwan_Kenobanana": {
+      "character_index": 46,
+      "modifier_perception": -1,
+      "boost_swaggin": 2
+    },
+    "Spock": {
+      "character_index": 48,
+      "modifier_perception": -2,
+      "boost_au_naturel": 5
+    },
+    "Pamela_Anderson": {
+      "character_index": 50,
+      "modifier_perception": 3,
+      "boost_wtf": 3
+    },
+    "Princess_Leia": {
+      "character_index": 51,
+      "modifier_perception": 1,
+      "boost_420_friendly": 3
+    },
+    "Lestat_The_Undead": {
+      "character_index": 52,
+      "modifier_perception": -1,
+      "boost_420_friendly": 3
+    },
+    "Jinx_Hair": {
+      "character_index": 53,
+      "modifier_perception": -2,
+      "boost_wtf": 3
+    },
+    "Spider_Jerusalem_Glasses": {
+      "character_index": 54,
+      "modifier_perception": 2,
+      "boost_wtf": 5
+    },
+    "Banny_Potter": {
+      "character_index": 56,
+      "modifier_perception": -2,
+      "boost_au_naturel": 3
+    },
+    "Blondie_Hat": {
+      "character_index": 58,
+      "modifier_perception": 2,
+      "boost_swaggin": 3
+    },
+    "Dr_Jonathan_Osterman": {
+      "character_index": 59,
+      "modifier_perception": -2,
+      "boost_sore_thumb": 5
+    },
+    "Blue_Glasses": {
+      "character_index": 62
+    },
+    "Firefighter_Helmet": {
+      "character_index": 63
+    },
+    "Flash": {
+      "character_index": 64
+    },
+    "Kiss_Musician": {
+      "character_index": 69
+    },
+    "Hat_and_Beard": {
+      "character_index": 70
+    },
+    "Mummy": {
+      "character_index": 71
+    },
+    "Panda": {
+      "character_index": 73
+    },
+    "Purple-samurai": {
+      "character_index": 74
+    }
+  },
+  "Lower_Accessory": {
+    "Black_Shoes": {
+      "character_index": 1,
+      "boost_pacifist": 1
+    },
+    "Sandals": {
+      "character_index": 4,
+      "modifier_shadowiness": -2,
+      "boost_420_friendly": 1
+    },
+    "Piers_Plowman_Boots": {
+      "character_index": 14,
+      "modifier_strength": -1,
+      "boost_pacifist": 1
+    },
+    "Legolas_Boots": {
+      "character_index": 32,
+      "modifier_arcana": 2,
+      "boost_punk": 3
+    },
+    "Diana_Banana_Shoes": {
+      "character_index": 55,
+      "modifier_arcana": 3,
+      "boost_pacifist": 1
+    },
+    "Rick_Astley_Boots": {
+      "character_index": 75
+    }
+  },
+  "Outfit": {
+    "No_Outfit": {
+      "character_index": 1,
+      "boost_au_naturel": 3
+    },
+    "Bronson": {
+      "character_index": 3,
+      "modifier_shadowiness": -2,
+      "boost_butcher": 1
+    },
+    "Johnny_Utah_T-shirt": {
+      "character_index": 4,
+      "modifier_comms": 2,
+      "boost_420_friendly": 4
+    },
+    "Primrose": {
+      "character_index": 6,
+      "modifier_shadowiness": -3,
+      "boost_wtf": 3
+    },
+    "Rose_Bertin_Dress": {
+      "character_index": 8,
+      "modifier_shadowiness": 3,
+      "boost_swaggin": 1
+    },
+    "Banmora": {
+      "character_index": 9,
+      "modifier_grind": 3,
+      "boost_wtf": 2
+    },
+    "John_Row_Vest": {
+      "character_index": 11,
+      "modifier_strength": -1,
+      "boost_pacifist": 3
+    },
+    "Piers_Plowman": {
+      "character_index": 14,
+      "modifier_arcana": 2,
+      "boost_pacifist": 2
+    },
+    "Johnny_Rotten": {
+      "character_index": 16,
+      "modifier_grind": 3,
+      "boost_punk": 5
+    },
+    "Smalls": {
+      "character_index": 18,
+      "modifier_perception": 3,
+      "boost_muse": 3
+    },
+    "Mick_Mulligan": {
+      "character_index": 20,
+      "modifier_comms": 3,
+      "boost_420_friendly": 5
+    },
+    "Tamar_of_Georgia": {
+      "character_index": 23,
+      "modifier_arcana": 4,
+      "boost_muse": 5
+    },
+    "Baker": {
+      "character_index": 25,
+      "modifier_arcana": 2,
+      "boost_swaggin": 3
+    },
+    "Athos": {
+      "character_index": 26,
+      "modifier_arcana": 3,
+      "boost_butcher": 3
+    },
+    "The_Witch_of_Endor_Belt": {
+      "character_index": 27,
+      "modifier_arcana": 2,
+      "boost_sore_thumb": 5
+    },
+    "Legolas": {
+      "character_index": 32,
+      "modifier_arcana": 1,
+      "boost_sore_thumb": 3
+    },
+    "Smoking": {
+      "character_index": 35,
+      "modifier_arcana": 2,
+      "boost_swaggin": 5
+    },
+    "Miyamoto_Musashi": {
+      "character_index": 45,
+      "modifier_arcana": 4,
+      "boost_muse": 5
+    },
+    "Jinx": {
+      "character_index": 53,
+      "modifier_arcana": 3,
+      "boost_punk": 4
+    },
+    "Spider_Jerusalem": {
+      "character_index": 54,
+      "modifier_arcana": 4,
+      "boost_punk": 5
+    },
+    "Diana_Banana_Dress": {
+      "character_index": 55,
+      "modifier_arcana": 2,
+      "boost_swaggin": 3
+    },
+    "Prince_of_Darkness": {
+      "character_index": 57,
+      "modifier_arcana": 5,
+      "boost_punk": 5
+    },
+    "Blondie": {
+      "character_index": 58,
+      "modifier_arcana": 2,
+      "boost_pacifist": 3
+    },
+    "Blue_T-Shirt": {
+      "character_index": 62
+    },
+    "Firefighter": {
+      "character_index": 63
+    },
+    "JuiceBox_Bunny": {
+      "character_index": 66
+    },
+    "Suit": {
+      "character_index": 70
+    },
+    "Purple_Samurai": {
+      "character_index": 74
+    },
+    "Ducttape": {
+      "character_index": 76
+    }
+  },
+  "Right_Hand": {
+    "Lollipop": {
+      "character_index": 2,
+      "modifier_arcana": 2,
+      "boost_wtf": 2
+    },
+    "Butcher_Knife": {
+      "character_index": 3,
+      "modifier_strength": 4,
+      "boost_butcher": 3
+    },
+    "Fishing_Pole": {
+      "character_index": 11,
+      "modifier_arcana": 2,
+      "boost_swaggin": 2
+    },
+    "Basket": {
+      "character_index": 12,
+      "modifier_grind": 1,
+      "boost_swaggin": 3
+    },
+    "Piers_Plowman_Dagger": {
+      "character_index": 14,
+      "modifier_comms": -1,
+      "boost_wtf": 2
+    },
+    "Ivar_the_Boneless_Axe": {
+      "character_index": 15,
+      "modifier_comms": -3,
+      "boost_butcher": 4
+    },
+    "Dagger": {
+      "character_index": 23,
+      "modifier_strength": 2,
+      "boost_butcher": 3
+    },
+    "Athos_Rapier": {
+      "character_index": 26,
+      "modifier_strength": 3,
+      "boost_butcher": 5
+    },
+    "The_Witch_of_Endor_Broom": {
+      "character_index": 27,
+      "modifier_grind": 2,
+      "boost_muse": 3
+    },
+    "Anch": {
+      "character_index": 34,
+      "modifier_perception": 2,
+      "boost_muse": 2
+    },
+    "Wagasa": {
+      "character_index": 38,
+      "modifier_perception": 3,
+      "boost_sore_thumb": 3
+    },
+    "Katana": {
+      "character_index": 43,
+      "modifier_perception": 5,
+      "boost_butcher": 5
+    },
+    "Lightsaber": {
+      "character_index": 46,
+      "modifier_perception": 5,
+      "boost_butcher": 3
+    },
+    "Pistol": {
+      "character_index": 58,
+      "modifier_perception": 2,
+      "boost_butcher": 5
+    },
+    "Juicebox": {
+      "character_index": 67
+    },
+    "Triangle_guitar": {
+      "character_index": 69
+    }
+  },
+  "Left_Hand": {
+    "Surf_Board": {
+      "character_index": 4,
+      "modifier_grind": 3,
+      "boost_420_friendly": 2
+    },
+    "Ivar_the_Boneless_Shield": {
+      "character_index": 15,
+      "modifier_strength": 4,
+      "boost_butcher": 3
+    },
+    "Holy_Wine": {
+      "character_index": 29,
+      "boost_420_friendly": 5
+    },
+    "Edward_Teach_Sword": {
+      "character_index": 31,
+      "boost_butcher": 3
+    },
+    "Shark_v2": {
+      "character_index": 53,
+      "boost_wtf": 5
+    },
+    "Spider_Jerusalem_Weapon": {
+      "character_index": 54,
+      "boost_punk": 3
+    },
+    "Pitchfork": {
+      "character_index": 57,
+      "boost_butcher": 2
+    },
+    "Chibuxi": {
+      "character_index": 70
+    },
+    "Samurai_Dagger": {
+      "character_index": 74
+    }
+  },
+  "Oral_Fixation": {
+    "Mouthstraw": {
+      "character_index": 5,
+      "modifier_perception": 1,
+      "boost_pacifist": 1
+    }
+  }
+}
