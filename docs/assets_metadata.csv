@@ -1,4 +1,4 @@
-asset,layer,character,New names (for copyright),characterIndex,arcana,comms,grind,perception,strength,shadowiness,modifier_arcana,modifier_comms,modifier_grind,modifier_perception,modifier_strength,modifier_shadowiness,boost_Swaggin',boost_Pacifist,boost_Punk,boost_Wtf,boost_Au naturel,boost_Sore Thumb,boost_Muse,boost_Butcher,boost_420 Friendly
+asset,layer,character,new_name,character_index,arcana,comms,grind,perception,strength,shadowiness,modifier_arcana,modifier_comms,modifier_grind,modifier_perception,modifier_strength,modifier_shadowiness,boost_swaggin,boost_pacifist,boost_punk,boost_wtf,boost_au_naturel,boost_sore_thumb,boost_muse,boost_butcher,boost_420_friendly
 Yellow,Body,Nammu,,1,5,0,0,4,0,5,0,0,0,0,0,0,+3,0,0,0,0,0,0,0,0
 Nothing,Both_Hands,Nammu,,1,5,0,0,4,0,5,0,+5,0,0,0,0,0,+5,0,0,0,0,0,0,0
 Choker,Choker,Nammu,,1,5,0,0,4,0,5,+3,0,0,0,0,0,0,0,+3,0,0,0,0,0,0
