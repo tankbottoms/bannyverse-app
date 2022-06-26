@@ -6,10 +6,11 @@
 	export let src;
 	export let translateY;
 	export let translateX;
+	export let disabled;
 </script>
 
 <!-- NOTE the svg is the background svg for an item -->
-<div class="container">
+<div class="container" class:disabled>
 	<svg width="92" height="92" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<g filter="url(#filter0_d_332_2065)">
 			<path
@@ -84,6 +85,10 @@
 		left: 10px;
 		width: 70px;
 		background: rgba(255, 249, 242, 0.8);
+	}
+
+	.disabled {
+		opacity: 0.5;
 	}
 
 	img {

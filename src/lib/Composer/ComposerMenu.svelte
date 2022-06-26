@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
 	import AssetOption from '$lib/AssetOption.svelte';
+	import type Store from '$utils/Store';
 
 	import characters from '$data/characters.json';
 	import layers from '$data/layerOptions.json';
@@ -92,6 +93,24 @@
 		name.set(characters[index]['metadata']['name']);
 		characterIndex.set(index);
 	}
+
+	function getDisabled(layer: string, values: { [key: string]: string }) {
+		// If either left hand or right hand is selected, disable both hands
+		// If both hands are selected, disable left hand and disabled right hand
+		if(layer === 'Both_Hands') {
+			return values.Left_Hand !== 'Nothing' || values.Right_Hand !== 'Nothing';
+		}
+		if(['Left_Hand', 'Right_Hand'].includes(layer)) {
+			return values.Both_Hands !== 'Nothing';
+		}
+		return false;
+	}
+
+	$: disabled = {
+		Left_Hand: getDisabled('Left_Hand', $values),
+		Right_Hand: getDisabled('Right_Hand', $values),
+		Both_Hands: getDisabled('Both_Hands', $values),
+	}
 </script>
 
 <div class="controls">
@@ -119,9 +138,11 @@
 							src={`/veBanny/${src}/${option}.png`}
 							alt={`Option ${option}`}
 							scale={currentPanel.scale}
+							disabled={disabled[src]}
 							translateY={currentPanel.translateY}
 							translateX={currentPanel.translateX}
 							on:click={() => {
+								if(disabled[src]) return;
 								values.update((state) => ({
 									...state,
 									[src]: option
