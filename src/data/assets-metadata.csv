@@ -1,144 +1,234 @@
 asset, layer, character, characterIndex, arcana, comms, grind, perception, strength, shadowiness
-Yellow, Body, Nammu, 1, 5, 0, 0, 4, 0, 5
-Nothing, Both_Hands, Nammu, 1, 5, 0, 0, 4, 0, 5
-Choker, Choker, Nammu, 1, 5, 0, 0, 4, 0, 5
-Eye_Mouth, Face, Nammu, 1, 5, 0, 0, 4, 0, 5
-No_Hat, Headgear, Nammu, 1, 5, 0, 0, 4, 0, 5
-Black_Shoes, Lower_Accessory, Nammu, 1, 5, 0, 0, 4, 0, 5
-No_Outfit, Outfit, Nammu, 1, 5, 0, 0, 4, 0, 5
-Farceur, Headgear, Farceur, 2, 2, 4, 1, 2, 1, 0
-Lollipop, Right_Hand, Farceur, 2, 2, 4, 1, 2, 1, 0
-Bronson_Hat, Headgear, Bronson, 3, 0, 4, 4, 2, 3, 0
-Bronson, Outfit, Bronson, 3, 0, 4, 4, 2, 3, 0
-Butcher_Knife, Right_Hand, Bronson, 3, 0, 4, 4, 2, 3, 0
-Surf_Board, Left_Hand, Johnny_Utah, 4, 0, 3, 4, 1, 0, 0
-Sandals, Lower_Accessory, Johnny_Utah, 4, 0, 3, 4, 1, 0, 0
-Johnny_Utah_T-shirt, Outfit, Johnny_Utah, 4, 0, 3, 4, 1, 0, 0
-Musa, Headgear, Musa, 5, 0, 2, 5, 2, 4, 1
-Mouthstraw, Oral_Fixation, Musa, 5, 0, 2, 5, 2, 4, 1
-Pink, Body, Primrose, 6, 1, 4, 2, 4, 1, 0
-Brown_Hair, Headgear, Primrose, 6, 1, 4, 2, 4, 1, 0
-Primrose, Outfit, Primrose, 6, 1, 4, 2, 4, 1, 0
-Princess_Peach_Toadstool_Face, Face, Princess_Peach_Toadstool, 7, 1, 5, 3, 3, 2, 0
-Princess_Peach_Toadstool, Headgear, Princess_Peach_Toadstool, 7, 1, 5, 3, 3, 2, 0
-Rose_Bertin_Hat, Headgear, Rose_Bertin, 8, 0, 4, 4, 2, 2, 0
-Rose_Bertin_Dress, Outfit, Rose_Bertin, 8, 0, 4, 4, 2, 2, 0
-Green, Body, Banmora, 9, 4, 4, 3, 2, 4, 4
-Red_Hair, Headgear, Banmora, 9, 4, 4, 3, 2, 4, 4
-Banmora, Outfit, Banmora, 9, 4, 4, 3, 2, 4, 4
-Banny_Ipkiss, Headgear, Banny_Ipkiss, 10, 4, 4, 2, 1, 2, 0
-John_Row, Headgear, John_Row, 11, 0, 1, 4, 4, 3, 1
-John_Row_Vest, Outfit, John_Row, 11, 0, 1, 4, 4, 3, 1
-Fishing_Pole, Right_Hand, John_Row, 11, 0, 1, 4, 4, 3, 1
-Dotty_Gale, Headgear, Dotty_Gale, 12, 1, 3, 3, 2, 2, 2
-Basket, Right_Hand, Dotty_Gale, 12, 1, 3, 3, 2, 2, 2
-Baobhan_Sith, Face, Baobhan_Sith, 13, 4, 2, 3, 4, 2, 4
-Piers_Plowman_Hat, Headgear, Piers_Plowman, 14, 2, 5, 3, 2, 2, 4
-Piers_Plowman_Boots, Lower_Accessory, Piers_Plowman, 14, 2, 5, 3, 2, 2, 4
-Piers_Plowman, Outfit, Piers_Plowman, 14, 2, 5, 3, 2, 2, 4
-Piers_Plowman_Dagger, Right_Hand, Piers_Plowman, 14, 2, 5, 3, 2, 2, 4
-Ivar_the_Boneless, Headgear, Ivar_the_Boneless, 15, 1, 0, 5, 4, 4, 2
-Ivar_the_Boneless_Shield, Left_Hand, Ivar_the_Boneless, 15, 1, 0, 5, 4, 4, 2
-Ivar_the_Boneless_Axe, Right_Hand, Ivar_the_Boneless, 15, 1, 0, 5, 4, 4, 2
-Headphones, Headgear, Johnny_Rotten, 16, 2, 3, 4, 2, 2, 1
-Johnny_Rotten, Outfit, Johnny_Rotten, 16, 2, 3, 4, 2, 2, 1
-Sakura_Haruno, Headgear, Sakura_Haruno, 17, 0, 2, 3, 4, 4, 3
-Green_Cap, Headgear, Smalls, 18, 1, 3, 2, 4, 1, 3
-Smalls, Outfit, Smalls, 18, 1, 3, 2, 4, 1, 3
-Tafari_Makonnen, Headgear, Tafari_Makonnen, 19, 1, 3, 2, 5, 3, 2
-Mick_Mulligan_Glasses, Headgear, Mick_Mulligan, 20, 2, 4, 3, 3, 1, 3
-Mick_Mulligan, Outfit, Mick_Mulligan, 20, 2, 4, 3, 3, 1, 3
-Bannible_Lector, Headgear, Bannible_Lector, 21, 0, 0, 4, 2, 3, 2
-No_Choker, Choker, Wade, 22, 2, 4, 3, 3, 3, 3
-Wade, Headgear, Wade, 22, 2, 4, 3, 3, 3, 3
-Tamar_of_Georgia, Outfit, Tamar_of_Georgia, 23, 2, 4, 4, 3, 2, 0
-Dagger, Right_Hand, Tamar_of_Georgia, 23, 2, 4, 4, 3, 2, 0
-Dr_Harleen_Quinzel, Face, Dolly_Parton, 24, 3, 5, 5, 2, 2, 3
-Dolly_Parton, Headgear, Dolly_Parton, 24, 3, 5, 5, 2, 2, 3
-Baker_Helmet, Headgear, Baker, 25, 1, 2, 2, 5, 3, 2
-Baker, Outfit, Baker, 25, 1, 2, 2, 5, 3, 2
-Feather_Hat, Headgear, Athos, 26, 3, 4, 3, 3, 3, 3
-Athos, Outfit, Athos, 26, 3, 4, 3, 3, 3, 3
-Athos_Rapier, Right_Hand, Athos, 26, 3, 4, 3, 3, 3, 3
-The_Witch_of_Endor, Headgear, The_Witch_of_Endor, 27, 4, 4, 4, 3, 3, 4
-The_Witch_of_Endor_Belt, Outfit, The_Witch_of_Endor, 27, 4, 4, 4, 3, 3, 4
-The_Witch_of_Endor_Broom, Right_Hand, The_Witch_of_Endor, 27, 4, 4, 4, 3, 3, 4
-Desmond_Miles, Headgear, Desmond_Miles, 28, 3, 2, 5, 4, 3, 5
-Banhovah, Headgear, Banhovah, 29, 5, 2, 2, 5, 5, 2
-Holy_Wine, Left_Hand, Banhovah, 29, 5, 2, 2, 5, 5, 2
-Edward_Teach, Headgear, Edward_Teach, 31, 1, 4, 4, 4, 3, 4
-Edward_Teach_Sword, Left_Hand, Edward_Teach, 31, 1, 4, 4, 4, 3, 4
-Christmas_Lights, Choker, Legolas, 32, 5, 2, 3, 4, 2, 4
-Legolas_Hat, Headgear, Legolas, 32, 5, 2, 3, 4, 2, 4
-Legolas_Boots, Lower_Accessory, Legolas, 32, 5, 2, 3, 4, 2, 4
-Legolas, Outfit, Legolas, 32, 5, 2, 3, 4, 2, 4
-Naruto, Headgear, Naruto, 33, 3, 4, 4, 4, 4, 0
-Pharaoh_King_Banatut, Headgear, Pharaoh_King_Banatut, 34, 4, 3, 4, 5, 3, 2
-Anch, Right_Hand, Pharaoh_King_Banatut, 34, 4, 3, 4, 5, 3, 2
-Sunglasses, Headgear, Agent_J, 35, 3, 5, 3, 4, 3, 3
-Smoking, Outfit, Agent_J, 35, 3, 5, 3, 4, 3, 3
-Batbanny, Headgear, Batbanny, 36, 3, 2, 4, 4, 4, 4
-Mario, Headgear, Mario, 37, 3, 4, 3, 2, 5, 3
-Masako_Tanaka, Headgear, Masako_Tanaka, 38, 2, 5, 2, 4, 3, 2
-Wagasa, Right_Hand, Masako_Tanaka, 38, 2, 5, 2, 4, 3, 2
-Jango_Fett, Headgear, Jango_Fett, 39, 3, 2, 5, 3, 3, 5
-Tinkerbanny, Headgear, Tinkerbanny, 40, 5, 3, 3, 3, 3, 3
-Banny_Stark, Headgear, Banny_Stark, 41, 3, 4, 4, 3, 5, 3
-Emmett_Doc_Brown, Headgear, Emmett_Doc_Brown, 42, 4, 3, 4, 4, 2, 2
-Beatrix_Kiddo, Headgear, Beatrix_Kiddo, 43, 3, 2, 4, 5, 3, 5
-Katana, Right_Hand, Beatrix_Kiddo, 43, 3, 2, 4, 5, 3, 5
-Louise_Burns, Headgear, Louise_Burns, 44, 5, 2, 3, 3, 4, 5
-Miyamoto_Musashi_Ribbon, Headgear, Miyamoto_Musashi, 45, 2, 5, 5, 5, 5, 5
-Miyamoto_Musashi, Outfit, Miyamoto_Musashi, 45, 2, 5, 5, 5, 5, 5
-Obiwan_Kenobanana, Headgear, Obiwan_Kenobanana, 46, 5, 5, 4, 5, 5, 4
-Lightsaber, Right_Hand, Obiwan_Kenobanana, 46, 5, 5, 4, 5, 5, 4
-Enlil, Face, Enlil, 47, 4, 2, 2, 4, 4, 5
-Spock, Headgear, Spock, 48, 3, 3, 4, 4, 3, 5
-Harleen_Quinzel, Face, Dr_Harleen_Quinzel, 49, 4, 4, 4, 3, 5, 3
-Bunny_Eyes, Face, Pamela_Anderson, 50, 3, 5, 5, 3, 3, 3
-Pamela_Anderson, Headgear, Pamela_Anderson, 50, 3, 5, 5, 3, 3, 3
-Princess_Leia, Headgear, Princess_Leia, 51, 3, 4, 3, 5, 3, 3
-Lestat_The_Undead, Headgear, Lestat_The_Undead, 52, 5, 5, 4, 5, 5, 5
-Jinx_Hair, Headgear, Jinx, 53, 4, 4, 5, 4, 5, 4
-Shark_v2, Left_Hand, Jinx, 53, 4, 4, 5, 4, 5, 4
-Jinx, Outfit, Jinx, 53, 4, 4, 5, 4, 5, 4
-Spider_Jerusalem_Glasses, Headgear, Spider_Jerusalem, 54, 4, 4, 3, 4, 5, 3
-Spider_Jerusalem_Weapon, Left_Hand, Spider_Jerusalem, 54, 4, 4, 3, 4, 5, 3
-Spider_Jerusalem, Outfit, Spider_Jerusalem, 54, 4, 4, 3, 4, 5, 3
-Diana_Banana, Face, Diana_Banana, 55, 5, 4, 5, 4, 5, 4
-Diana_Banana_Shoes, Lower_Accessory, Diana_Banana, 55, 5, 4, 5, 4, 5, 4
-Diana_Banana_Dress, Outfit, Diana_Banana, 55, 5, 4, 5, 4, 5, 4
-Banny_Potter, Headgear, Banny_Potter, 56, 5, 4, 3, 4, 5, 4
-Red, Body, Prince_of_Darkness, 57, 5, 5, 5, 4, 4, 5
-Pitchfork, Left_Hand, Prince_of_Darkness, 57, 5, 5, 5, 4, 4, 5
-Prince_of_Darkness, Outfit, Prince_of_Darkness, 57, 5, 5, 5, 4, 4, 5
-Blondie_Hat, Headgear, Blondie, 58, 4, 5, 5, 5, 5, 4
-Blondie, Outfit, Blondie, 58, 4, 5, 5, 5, 5, 4
-Pistol, Right_Hand, Blondie, 58, 4, 5, 5, 5, 5, 4
-Dr_Jonathan_Osterman, Headgear, Dr_Jonathan_Osterman, 59, 5, 5, 4, 5, 5, 4
-Gautama_Buddha, Face, Gautama_Buddha, 60, 5, 5, 5, 5, 5, 5
-Angry, Face, Angry_Banny, 61, , , , , , 
-Blue_Glasses, Headgear, Blue_Glasses, 62, , , , , , 
-Blue_T-Shirt, Outfit, Blue_Glasses, 62, , , , , , 
-Firefighter_Helmet, Headgear, Firefighter, 63, , , , , , 
-Firefighter, Outfit, Firefighter, 63, , , , , , 
-Flash, Headgear, Flash, 64, , , , , , 
-Hawaiian, Choker, Hawaii, 65, , , , , , 
-Sakura, Face, Juicebox_Banny, 66, , , , , , 
-JuiceBox_Bunny, Outfit, Juicebox_Banny, 66, , , , , , 
-Happy, Face, Juicebox_Banny_Cannibal, 67, , , , , , 
-Juicebox, Right_Hand, Juicebox_Banny_Cannibal, 67, , , , , , 
-Kiss_Musician, Headgear, Kiss, 69, , , , , , 
-Triangle_guitar, Right_Hand, Kiss, 69, , , , , , 
-Hat_and_Beard, Headgear, Leprechaun, 70, , , , , , 
-Chibuxi, Left_Hand, Leprechaun, 70, , , , , , 
-Suit, Outfit, Leprechaun, 70, , , , , , 
-Mummy, Headgear, Mummy, 71, , , , , , 
-Orange, Body, Orange_Banny, 72, , , , , , 
-Panda, Headgear, Panda, 73, , , , , , 
-Purple-samurai, Headgear, Purple_Samurai, 74, , , , , , 
-Samurai_Dagger, Left_Hand, Purple_Samurai, 74, , , , , , 
-Purple_Samurai, Outfit, Purple_Samurai, 74, , , , , , 
-Rick_Astley, Face, Rick_Astley, 75, , , , , , 
-Rick_Astley_Boots, Lower_Accessory, Rick_Astley, 75, , , , , , 
-Ducttape, Outfit, Tape_Banny, 76, , , , , , 
+Yellow_Body, Body, Nammu, 1, 5, 0, 0, 4, 0, 5
+Nothing_Both_Hands, Both_Hands, Nammu, 1, 5, 0, 0, 4, 0, 5
+Choker_Choker, Choker, Nammu, 1, 5, 0, 0, 4, 0, 5
+Eye_Mouth_Face, Face, Nammu, 1, 5, 0, 0, 4, 0, 5
+No_Hat_Headgear, Headgear, Nammu, 1, 5, 0, 0, 4, 0, 5
+Nothing_Left_Hand, Left_Hand, Nammu, 1, 5, 0, 0, 4, 0, 5
+Black_Shoes_Lower_Accessory, Lower_Accessory, Nammu, 1, 5, 0, 0, 4, 0, 5
+Nothing_Oral_Fixation, Oral_Fixation, Nammu, 1, 5, 0, 0, 4, 0, 5
+No_Outfit_Outfit, Outfit, Nammu, 1, 5, 0, 0, 4, 0, 5
+Nothing_Right_Hand, Right_Hand, Nammu, 1, 5, 0, 0, 4, 0, 5
+Farceur_Headgear, Headgear, Farceur, 2, 2, 4, 1, 2, 1, 0
+Lollipop_Right_Hand, Right_Hand, Farceur, 2, 2, 4, 1, 2, 1, 0
+Bronson_Hat_Headgear, Headgear, Bronson, 3, 0, 4, 4, 2, 3, 0
+Bronson_Outfit, Outfit, Bronson, 3, 0, 4, 4, 2, 3, 0
+Butcher_Knife_Right_Hand, Right_Hand, Bronson, 3, 0, 4, 4, 2, 3, 0
+Surf_Board_Left_Hand, Left_Hand, Johnny_Utah, 4, 0, 3, 4, 1, 0, 0
+Sandals_Lower_Accessory, Lower_Accessory, Johnny_Utah, 4, 0, 3, 4, 1, 0, 0
+Johnny_Utah_T-shirt_Outfit, Outfit, Johnny_Utah, 4, 0, 3, 4, 1, 0, 0
+Musa_Headgear, Headgear, Musa, 5, 0, 2, 5, 2, 4, 1
+Mouthstraw_Oral_Fixation, Oral_Fixation, Musa, 5, 0, 2, 5, 2, 4, 1
+Musa_Outfit, Outfit, Musa, 5, 0, 2, 5, 2, 4, 1
+Pink_Body, Body, Primrose, 6, 1, 4, 2, 4, 1, 0
+Brown_Hair_Headgear, Headgear, Primrose, 6, 1, 4, 2, 4, 1, 0
+Primrose_Outfit, Outfit, Primrose, 6, 1, 4, 2, 4, 1, 0
+Princess_Peach_Toadstool_Face_Face, Face, Princess_Peach_Toadstool, 7, 1, 5, 3, 3, 2, 0
+Princess_Peach_Toadstool_Headgear, Headgear, Princess_Peach_Toadstool, 7, 1, 5, 3, 3, 2, 0
+Princess_Peach_Toadstool_Outfit, Outfit, Princess_Peach_Toadstool, 7, 1, 5, 3, 3, 2, 0
+Rose_Bertin_Hat_Headgear, Headgear, Rose_Bertin, 8, 0, 4, 4, 2, 2, 0
+Rose_Bertin_Dress_Outfit, Outfit, Rose_Bertin, 8, 0, 4, 4, 2, 2, 0
+Green_Body, Body, Banmora, 9, 4, 4, 3, 2, 4, 4
+Red_Hair_Headgear, Headgear, Banmora, 9, 4, 4, 3, 2, 4, 4
+Banmora_Outfit, Outfit, Banmora, 9, 4, 4, 3, 2, 4, 4
+Banny_Ipkiss_Headgear, Headgear, Banny_Ipkiss, 10, 4, 4, 2, 1, 2, 0
+Banny_Ipkiss_Outfit, Outfit, Banny_Ipkiss, 10, 4, 4, 2, 1, 2, 0
+John_Row_Headgear, Headgear, John_Row, 11, 0, 1, 4, 4, 3, 1
+John_Row_Vest_Outfit, Outfit, John_Row, 11, 0, 1, 4, 4, 3, 1
+Fishing_Pole_Right_Hand, Right_Hand, John_Row, 11, 0, 1, 4, 4, 3, 1
+Dotty_Gale_Headgear, Headgear, Dotty_Gale, 12, 1, 3, 3, 2, 2, 2
+Dotty_Gale_Outfit, Outfit, Dotty_Gale, 12, 1, 3, 3, 2, 2, 2
+Basket_Right_Hand, Right_Hand, Dotty_Gale, 12, 1, 3, 3, 2, 2, 2
+Baobhan_Sith_Face, Face, Baobhan_Sith, 13, 4, 2, 3, 4, 2, 4
+Baobhan_Sith_Headgear, Headgear, Baobhan_Sith, 13, 4, 2, 3, 4, 2, 4
+Baobhan_Sith_Outfit, Outfit, Baobhan_Sith, 13, 4, 2, 3, 4, 2, 4
+Piers_Plowman_Hat_Headgear, Headgear, Piers_Plowman, 14, 2, 5, 3, 2, 2, 4
+Piers_Plowman_Boots_Lower_Accessory, Lower_Accessory, Piers_Plowman, 14, 2, 5, 3, 2, 2, 4
+Piers_Plowman_Outfit, Outfit, Piers_Plowman, 14, 2, 5, 3, 2, 2, 4
+Piers_Plowman_Dagger_Right_Hand, Right_Hand, Piers_Plowman, 14, 2, 5, 3, 2, 2, 4
+Ivar_the_Boneless_Headgear, Headgear, Ivar_the_Boneless, 15, 1, 0, 5, 4, 4, 2
+Ivar_the_Boneless_Shield_Left_Hand, Left_Hand, Ivar_the_Boneless, 15, 1, 0, 5, 4, 4, 2
+Ivar_the_Boneless_Axe_Right_Hand, Right_Hand, Ivar_the_Boneless, 15, 1, 0, 5, 4, 4, 2
+Headphones_Headgear, Headgear, Johnny_Rotten, 16, 2, 3, 4, 2, 2, 1
+Johnny_Rotten_Outfit, Outfit, Johnny_Rotten, 16, 2, 3, 4, 2, 2, 1
+Sakura_Haruno_Headgear, Headgear, Sakura_Haruno, 17, 0, 2, 3, 4, 4, 3
+Sakura_Haruno_Outfit, Outfit, Sakura_Haruno, 17, 0, 2, 3, 4, 4, 3
+Green_Cap_Headgear, Headgear, Smalls, 18, 1, 3, 2, 4, 1, 3
+Smalls_Outfit, Outfit, Smalls, 18, 1, 3, 2, 4, 1, 3
+Tafari_Makonnen_Headgear, Headgear, Tafari_Makonnen, 19, 1, 3, 2, 5, 3, 2
+Tafari_Makonnen_Outfit, Outfit, Tafari_Makonnen, 19, 1, 3, 2, 5, 3, 2
+Mick_Mulligan_Glasses_Headgear, Headgear, Mick_Mulligan, 20, 2, 4, 3, 3, 1, 3
+Mick_Mulligan_Outfit, Outfit, Mick_Mulligan, 20, 2, 4, 3, 3, 1, 3
+Bannible_Lector_Headgear, Headgear, Bannible_Lector, 21, 0, 0, 4, 2, 3, 2
+Bannible_Lector_Outfit, Outfit, Bannible_Lector, 21, 0, 0, 4, 2, 3, 2
+No_Choker_Choker, Choker, Wade, 22, 2, 4, 3, 3, 3, 3
+Wade_Headgear, Headgear, Wade, 22, 2, 4, 3, 3, 3, 3
+Wade_Outfit, Outfit, Wade, 22, 2, 4, 3, 3, 3, 3
+Tamar_of_Georgia_Outfit, Outfit, Tamar_of_Georgia, 23, 2, 4, 4, 3, 2, 0
+Dagger_Right_Hand, Right_Hand, Tamar_of_Georgia, 23, 2, 4, 4, 3, 2, 0
+Dr_Harleen_Quinzel_Face, Face, Dolly_Parton, 24, 3, 5, 5, 2, 2, 3
+Dolly_Parton_Headgear, Headgear, Dolly_Parton, 24, 3, 5, 5, 2, 2, 3
+Dolly_Parton_Outfit, Outfit, Dolly_Parton, 24, 3, 5, 5, 2, 2, 3
+Baker_Helmet_Headgear, Headgear, Baker, 25, 1, 2, 2, 5, 3, 2
+Baker_Outfit, Outfit, Baker, 25, 1, 2, 2, 5, 3, 2
+Feather_Hat_Headgear, Headgear, Athos, 26, 3, 4, 3, 3, 3, 3
+Athos_Outfit, Outfit, Athos, 26, 3, 4, 3, 3, 3, 3
+Athos_Rapier_Right_Hand, Right_Hand, Athos, 26, 3, 4, 3, 3, 3, 3
+The_Witch_of_Endor_Headgear, Headgear, The_Witch_of_Endor, 27, 4, 4, 4, 3, 3, 4
+The_Witch_of_Endor_Belt_Outfit, Outfit, The_Witch_of_Endor, 27, 4, 4, 4, 3, 3, 4
+The_Witch_of_Endor_Broom_Right_Hand, Right_Hand, The_Witch_of_Endor, 27, 4, 4, 4, 3, 3, 4
+Desmond_Miles_Headgear, Headgear, Desmond_Miles, 28, 3, 2, 5, 4, 3, 5
+Desmond_Miles_Outfit, Outfit, Desmond_Miles, 28, 3, 2, 5, 4, 3, 5
+Banhovah_Headgear, Headgear, Banhovah, 29, 5, 2, 2, 5, 5, 2
+Holy_Wine_Left_Hand, Left_Hand, Banhovah, 29, 5, 2, 2, 5, 5, 2
+Banhovah_Outfit, Outfit, Banhovah, 29, 5, 2, 2, 5, 5, 2
+Edward_Teach_Headgear, Headgear, Edward_Teach, 31, 1, 4, 4, 4, 3, 4
+Edward_Teach_Sword_Left_Hand, Left_Hand, Edward_Teach, 31, 1, 4, 4, 4, 3, 4
+Edward_Teach_Outfit, Outfit, Edward_Teach, 31, 1, 4, 4, 4, 3, 4
+Christmas_Lights_Choker, Choker, Legolas, 32, 5, 2, 3, 4, 2, 4
+Legolas_Hat_Headgear, Headgear, Legolas, 32, 5, 2, 3, 4, 2, 4
+Legolas_Boots_Lower_Accessory, Lower_Accessory, Legolas, 32, 5, 2, 3, 4, 2, 4
+Legolas_Outfit, Outfit, Legolas, 32, 5, 2, 3, 4, 2, 4
+Naruto_Headgear, Headgear, Naruto, 33, 3, 4, 4, 4, 4, 0
+Naruto_Outfit, Outfit, Naruto, 33, 3, 4, 4, 4, 4, 0
+Pharaoh_King_Banatut_Headgear, Headgear, Pharaoh_King_Banatut, 34, 4, 3, 4, 5, 3, 2
+Pharaoh_King_Banatut_Outfit, Outfit, Pharaoh_King_Banatut, 34, 4, 3, 4, 5, 3, 2
+Anch_Right_Hand, Right_Hand, Pharaoh_King_Banatut, 34, 4, 3, 4, 5, 3, 2
+Sunglasses_Headgear, Headgear, Agent_J, 35, 3, 5, 3, 4, 3, 3
+Smoking_Outfit, Outfit, Agent_J, 35, 3, 5, 3, 4, 3, 3
+Batbanny_Headgear, Headgear, Batbanny, 36, 3, 2, 4, 4, 4, 4
+Batbanny_Outfit, Outfit, Batbanny, 36, 3, 2, 4, 4, 4, 4
+Mario_Headgear, Headgear, Mario, 37, 3, 4, 3, 2, 5, 3
+Mario_Outfit, Outfit, Mario, 37, 3, 4, 3, 2, 5, 3
+Masako_Tanaka_Headgear, Headgear, Masako_Tanaka, 38, 2, 5, 2, 4, 3, 2
+Masako_Tanaka_Outfit, Outfit, Masako_Tanaka, 38, 2, 5, 2, 4, 3, 2
+Wagasa_Right_Hand, Right_Hand, Masako_Tanaka, 38, 2, 5, 2, 4, 3, 2
+Jango_Fett_Headgear, Headgear, Jango_Fett, 39, 3, 2, 5, 3, 3, 5
+Jango_Fett_Outfit, Outfit, Jango_Fett, 39, 3, 2, 5, 3, 3, 5
+Tinkerbanny_Headgear, Headgear, Tinkerbanny, 40, 5, 3, 3, 3, 3, 3
+Tinkerbanny_Outfit, Outfit, Tinkerbanny, 40, 5, 3, 3, 3, 3, 3
+Banny_Stark_Headgear, Headgear, Banny_Stark, 41, 3, 4, 4, 3, 5, 3
+Banny_Stark_Outfit, Outfit, Banny_Stark, 41, 3, 4, 4, 3, 5, 3
+Emmett_Doc_Brown_Headgear, Headgear, Emmett_Doc_Brown, 42, 4, 3, 4, 4, 2, 2
+Emmett_Doc_Brown_Outfit, Outfit, Emmett_Doc_Brown, 42, 4, 3, 4, 4, 2, 2
+Beatrix_Kiddo_Headgear, Headgear, Beatrix_Kiddo, 43, 3, 2, 4, 5, 3, 5
+Beatrix_Kiddo_Outfit, Outfit, Beatrix_Kiddo, 43, 3, 2, 4, 5, 3, 5
+Katana_Right_Hand, Right_Hand, Beatrix_Kiddo, 43, 3, 2, 4, 5, 3, 5
+Louise_Burns_Headgear, Headgear, Louise_Burns, 44, 5, 2, 3, 3, 4, 5
+Louise_Burns_Outfit, Outfit, Louise_Burns, 44, 5, 2, 3, 3, 4, 5
+Miyamoto_Musashi_Ribbon_Headgear, Headgear, Miyamoto_Musashi, 45, 2, 5, 5, 5, 5, 5
+Katana_Left_Hand, Left_Hand, Miyamoto_Musashi, 45, 2, 5, 5, 5, 5, 5
+Miyamoto_Musashi_Outfit, Outfit, Miyamoto_Musashi, 45, 2, 5, 5, 5, 5, 5
+Obiwan_Kenobanana_Headgear, Headgear, Obiwan_Kenobanana, 46, 5, 5, 4, 5, 5, 4
+Obiwan_Kenobanana_Outfit, Outfit, Obiwan_Kenobanana, 46, 5, 5, 4, 5, 5, 4
+Lightsaber_Right_Hand, Right_Hand, Obiwan_Kenobanana, 46, 5, 5, 4, 5, 5, 4
+Enlil_Face, Face, Enlil, 47, 4, 2, 2, 4, 4, 5
+Spock_Headgear, Headgear, Spock, 48, 3, 3, 4, 4, 3, 5
+Spock_Outfit, Outfit, Spock, 48, 3, 3, 4, 4, 3, 5
+Harleen_Quinzel_Face, Face, Dr_Harleen_Quinzel, 49, 4, 4, 4, 3, 5, 3
+Dr_Harleen_Quinzel_Headgear, Headgear, Dr_Harleen_Quinzel, 49, 4, 4, 4, 3, 5, 3
+Dr_Harleen_Quinzel_Outfit, Outfit, Dr_Harleen_Quinzel, 49, 4, 4, 4, 3, 5, 3
+Dr_Harleen_Quinzel_Right_Hand, Right_Hand, Dr_Harleen_Quinzel, 49, 4, 4, 4, 3, 5, 3
+Bunny_Eyes_Face, Face, Pamela_Anderson, 50, 3, 5, 5, 3, 3, 3
+Pamela_Anderson_Headgear, Headgear, Pamela_Anderson, 50, 3, 5, 5, 3, 3, 3
+Pamela_Anderson_Outfit, Outfit, Pamela_Anderson, 50, 3, 5, 5, 3, 3, 3
+Princess_Leia_Headgear, Headgear, Princess_Leia, 51, 3, 4, 3, 5, 3, 3
+Princess_Leia_Outfit, Outfit, Princess_Leia, 51, 3, 4, 3, 5, 3, 3
+Lestat_The_Undead_Headgear, Headgear, Lestat_The_Undead, 52, 5, 5, 4, 5, 5, 5
+Lestat_The_Undead_Outfit, Outfit, Lestat_The_Undead, 52, 5, 5, 4, 5, 5, 5
+Jinx_Hair_Headgear, Headgear, Jinx, 53, 4, 4, 5, 4, 5, 4
+Shark_v2_Left_Hand, Left_Hand, Jinx, 53, 4, 4, 5, 4, 5, 4
+Jinx_Outfit, Outfit, Jinx, 53, 4, 4, 5, 4, 5, 4
+Spider_Jerusalem_Glasses_Headgear, Headgear, Spider_Jerusalem, 54, 4, 4, 3, 4, 5, 3
+Spider_Jerusalem_Weapon_Left_Hand, Left_Hand, Spider_Jerusalem, 54, 4, 4, 3, 4, 5, 3
+Spider_Jerusalem_Outfit, Outfit, Spider_Jerusalem, 54, 4, 4, 3, 4, 5, 3
+Diana_Banana_Face, Face, Diana_Banana, 55, 5, 4, 5, 4, 5, 4
+Diana_Banana_Headgear, Headgear, Diana_Banana, 55, 5, 4, 5, 4, 5, 4
+Diana_Banana_Shoes_Lower_Accessory, Lower_Accessory, Diana_Banana, 55, 5, 4, 5, 4, 5, 4
+Diana_Banana_Dress_Outfit, Outfit, Diana_Banana, 55, 5, 4, 5, 4, 5, 4
+Diana_Banana_Right_Hand, Right_Hand, Diana_Banana, 55, 5, 4, 5, 4, 5, 4
+Banny_Potter_Headgear, Headgear, Banny_Potter, 56, 5, 4, 3, 4, 5, 4
+Banny_Potter_Outfit, Outfit, Banny_Potter, 56, 5, 4, 3, 4, 5, 4
+Red_Body, Body, Prince_of_Darkness, 57, 5, 5, 5, 4, 4, 5
+Pitchfork_Left_Hand, Left_Hand, Prince_of_Darkness, 57, 5, 5, 5, 4, 4, 5
+Prince_of_Darkness_Outfit, Outfit, Prince_of_Darkness, 57, 5, 5, 5, 4, 4, 5
+Blondie_Hat_Headgear, Headgear, Blondie, 58, 4, 5, 5, 5, 5, 4
+Blondie_Outfit, Outfit, Blondie, 58, 4, 5, 5, 5, 5, 4
+Pistol_Right_Hand, Right_Hand, Blondie, 58, 4, 5, 5, 5, 5, 4
+Dr_Jonathan_Osterman_Headgear, Headgear, Dr_Jonathan_Osterman, 59, 5, 5, 4, 5, 5, 4
+Dr_Jonathan_Osterman_Lower_Accessory, Lower_Accessory, Dr_Jonathan_Osterman, 59, 5, 5, 4, 5, 5, 4
+Dr_Jonathan_Osterman_Outfit, Outfit, Dr_Jonathan_Osterman, 59, 5, 5, 4, 5, 5, 4
+Gautama_Buddha_Face, Face, Gautama_Buddha, 60, 5, 5, 5, 5, 5, 5
+Gautama_Buddha_Outfit, Outfit, Gautama_Buddha, 60, 5, 5, 5, 5, 5, 5
+Angry_Face, Face, OTHER, 77
+Blue_Glasses_Headgear, Headgear, Blue_Glasses, 62, , , , , , 
+Blue_T-Shirt_Outfit, Outfit, Blue_Glasses, 62, , , , , , 
+Firefighter_Helmet_Headgear, Headgear, Firefighter, 63, , , , , , 
+Firefighter_Outfit, Outfit, Firefighter, 63, , , , , , 
+Firefighter_Right_Hand, Right_Hand, Firefighter, 63, , , , , , 
+Flash_Headgear, Headgear, Flash, 64, , , , , , 
+Flash_Outfit, Outfit, Flash, 64, , , , , , 
+Hawaiian_Choker, Choker, Hawaii, 65, , , , , , 
+Hawaiian_Outfit, Outfit, Hawaii, 65, , , , , , 
+Sakura_Face, Face, OTHER, 77
+JuiceBox_Bunny_Outfit, Outfit, Juicebox_Banny, 66, , , , , , 
+Happy_Face, Face, OTHER, 77
+Juicebox_Right_Hand, Right_Hand, Juicebox_Banny_Cannibal, 67, , , , , , 
+Kiss_Musician_Headgear, Headgear, Kiss, 69, , , , , , 
+Triangle_guitar_Right_Hand, Right_Hand, OTHER, 77
+Hat_and_Beard_Headgear, Headgear, Leprechaun, 70, , , , , , 
+Chibuxi_Left_Hand, Left_Hand, Leprechaun, 70, , , , , , 
+Suit_Outfit, Outfit, Leprechaun, 70, , , , , , 
+Mummy_Headgear, Headgear, Mummy, 71, , , , , , 
+Mummy_Outfit, Outfit, Mummy, 71, , , , , , 
+Orange_Body, Body, Orange_Banny, 72, , , , , , 
+Panda_Headgear, Headgear, Panda, 73, , , , , , 
+Panda_Outfit, Outfit, Panda, 73, , , , , , 
+Purple-samurai_Headgear, Headgear, Purple_Samurai, 74, , , , , , 
+Samurai_Dagger_Left_Hand, Left_Hand, Purple_Samurai, 74, , , , , , 
+Purple_Samurai_Outfit, Outfit, Purple_Samurai, 74, , , , , , 
+Rick_Astley_Face, Face, OTHER, 77
+Rick_Astley_Headgear, Headgear, Rick_Astley, 75, , , , , , 
+Rick_Astley_Boots_Lower_Accessory, Lower_Accessory, Rick_Astley, 75, , , , , , 
+Rick_Astley_Outfit, Outfit, Rick_Astley, 75, , , , , , 
+Ducttape_Outfit, Outfit, Tape_Banny, 76, , , , , , 
+AK-47_Both_Hands, Both_Hands, OTHER, 77
+Blue_Paint_Both_Hands, Both_Hands, OTHER, 77
+M4_Both_Hands, Both_Hands, OTHER, 77
+Sword_Shield_Both_Hands, Both_Hands, OTHER, 77
+Blockchain_Necklace_Choker, Choker, OTHER, 77
+Panda_Eyes_Face, Face, OTHER, 77
+Rose_Face, Face, OTHER, 77
+Smile_Face, Face, OTHER, 77
+Surprised_Face, Face, OTHER, 77
+Bruce_Lee_Hair_Headgear, Headgear, OTHER, 77
+Discoball_Headgear, Headgear, OTHER, 77
+Ironman_Headgear_Headgear, Headgear, OTHER, 77
+Mowhawk_Headgear, Headgear, OTHER, 77
+Mushroom_Hat_Headgear, Headgear, OTHER, 77
+Nerd_Glasses_Headgear, Headgear, OTHER, 77
+Queen_Crown_Headgear, Headgear, OTHER, 77
+BOOBS_calc_Left_Hand, Left_Hand, OTHER, 77
+Computer_Left_Hand, Left_Hand, OTHER, 77
+Flamings_Left_Hand, Left_Hand, OTHER, 77
+Lord_of_the_Banana's_Gandolph_Staff_Left_Hand, Left_Hand, OTHER, 77
+Magical_Staff_Left_Hand, Left_Hand, OTHER, 77
+Nunchucks_Left_Hand, Left_Hand, OTHER, 77
+Shovel_Left_Hand, Left_Hand, OTHER, 77
+Blunt_1k_Oral_Fixation, Oral_Fixation, OTHER, 77
+Wings_Outfit, Outfit, OTHER, 77
+Axe_Right_Hand, Right_Hand, OTHER, 77
+Beer_Right_Hand, Right_Hand, OTHER, 77
+Bow_and_Arrow_Right_Hand, Right_Hand, OTHER, 77
+Bread_Right_Hand, Right_Hand, OTHER, 77
+Fans_Right_Hand, Right_Hand, OTHER, 77
+Fly_Swatter_Right_Hand, Right_Hand, OTHER, 77
+Frying_Pan_Right_Hand, Right_Hand, OTHER, 77
+Guitar_Right_Hand, Right_Hand, OTHER, 77
+Hammer_Right_Hand, Right_Hand, OTHER, 77
+Mace_Right_Hand, Right_Hand, OTHER, 77
+Mini_Axe_Right_Hand, Right_Hand, OTHER, 77
+Shark_Right_Hand, Right_Hand, OTHER, 77
+Sword_Right_Hand, Right_Hand, OTHER, 77
+Thanos_Glove_Right_Hand, Right_Hand, OTHER, 77
+Wakanda_Right_Hand, Right_Hand, OTHER, 77
