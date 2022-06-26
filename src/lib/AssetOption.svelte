@@ -5,22 +5,23 @@
 <script lang="ts">
 	import Ethereum from './Ethereum.svelte';
 
-	export let alt;
-	export let scale;
-	export let src;
-	export let translateY;
-	export let translateX;
-	export let active;
-	export let disabled;
+	export let alt: string;
+	export let scale: number;
+	export let src: string;
+	export let translateY: number;
+	export let translateX: number;
+	export let active: boolean;
+	export let disabled: boolean;
 	export let price: string | number = 0.1;
+	export let size: number = 92;
 </script>
 
 <!-- NOTE the svg is the background svg for an item -->
 <div class="container" class:disabled>
 	<svg
 		class:active
-		width="92"
-		height="92"
+		width={size}
+		height={size}
 		viewBox="0 0 92 92"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
@@ -70,8 +71,8 @@
 		</defs>
 	</svg>
 	<img
-		width="90"
-		height="90"
+		width={size - 2}
+		height={size - 2}
 		{alt}
 		{src}
 		on:click
@@ -79,13 +80,13 @@
 			translateX || 0
 		}px);`}
 	/>
-	<div class="description">
-			{#if price !== NO_PRICE}
+	<div class="description" style="width: {size-20}px; font-size: {size/90}em;">
+		{#if price !== NO_PRICE}
 			<span>{price}<Ethereum /></span>
-			{:else}
+		{:else}
 			<span>{NO_PRICE}</span>
-			{/if}
-		</div>
+		{/if}
+	</div>
 
 	<!-- <img class="background" src="/composer/Back_for_character_2.svg" /> -->
 </div>
@@ -102,7 +103,6 @@
 		position: absolute;
 		bottom: 7px;
 		left: 10px;
-		width: 70px;
 		background: rgba(255, 249, 242, 0.8);
 	}
 

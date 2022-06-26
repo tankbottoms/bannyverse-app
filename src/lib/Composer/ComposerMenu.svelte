@@ -5,6 +5,7 @@
 	import characters from '$data/characters.json';
 	import layers from '$data/layerOptions.json';
 	import assetsMetadata from '$data/assetsMetadata.json';
+	import { getPrice, MenuButtons } from './utils';
 
 	let currentBanny = getContext('currentBanny') as any;
 	let values = currentBanny.layers;
@@ -12,51 +13,6 @@
 	let characterIndex = currentBanny.characterIndex;
 	let mods = currentBanny.mods;
 	let open = true;
-
-	const MenuButtons = [
-		{
-			path: 'banny',
-			assetPath: ['Body'],
-			scale: 1
-		},
-		{
-			path: 'head-gear',
-			assetPath: ['Headgear'],
-			scale: 1.5,
-			translateY: 10
-		},
-		{
-			path: 'face',
-			assetPath: ['Face'],
-			scale: 2.5,
-			translateY: 10
-		},
-		{
-			label: 'necklace',
-			path: 'chocker',
-			assetPath: ['Choker'],
-			scale: 1.5
-		},
-		{
-			path: 'outfit',
-			assetPath: ['Outfit'],
-			scale: 1.2,
-			translateY: -5
-		},
-		{
-			label: 'objects',
-			path: 'accessory',
-			assetPath: ['Left_Hand', 'Right_Hand', 'Both_Hands'],
-			scale: 1.2,
-			translateX: -10
-		},
-		{
-			path: 'feet',
-			assetPath: ['Lower_Accessory'],
-			scale: 2,
-			translateY: -30
-		}
-	];
 
 	let currentPanel = MenuButtons[0];
 
@@ -108,8 +64,8 @@
 	}
 
 	function changeMods(layer: string, value: string, oldValue: string) {
-		let assetMetadata = assetsMetadata[layer][value];
-		let oldAssetMetadata = assetsMetadata[layer][oldValue];
+		let assetMetadata = { ...assetsMetadata[layer][value] };
+		let oldAssetMetadata = { ...assetsMetadata[layer][oldValue] };
 
 		if (oldAssetMetadata) {
 			delete oldAssetMetadata['character_index'];
@@ -143,7 +99,7 @@
 			oldValue = $values[layer];
 			values.update((state) => ({
 				...state,
-				[layer]: 'Nothing'
+				[layer]: characters[$characterIndex]['layers'][layer]
 			}));
 			changeMods(layer, '', oldValue);
 		} else {
@@ -155,36 +111,6 @@
 				[layer]: value
 			}));
 			changeMods(layer, value, oldValue);
-		}
-	}
-
-	// The sigmoid function
-	function sigmoid(x: number) {
-		let sig = 1 / (1 + Math.exp(-x));
-		// Move sig to start at ca 0.05
-		sig -= 0.45;
-		// Round to 4 decimals
-		sig = Math.round(sig * 10000) / 10000;
-		return sig;
-	}
-
-	function getPrice(layer, value) {
-		const assetMetadata = assetsMetadata[layer][value];
-		if (!assetMetadata) {
-			return;
-		}
-		const assetCharacterIndex = assetMetadata['character_index'];
-		// If the asset is "higher" power than the current chosen Banny,
-		// the price is calculated by a sigmoid function of the difference between the two.
-		if ($characterIndex < assetCharacterIndex) {
-			const difference = assetCharacterIndex - $characterIndex;
-			// Normalize difference to be between 0 and 1
-			const normalizedDifference = difference / 60;
-			// Calculate price from sigmoid function of difference between character index and asset character index
-			return sigmoid(normalizedDifference);
-		} else {
-			// Otherwise, the price is 0 and the cost is merely the gas
-			return NO_PRICE;
 		}
 	}
 
@@ -215,6 +141,8 @@
 					{/each}
 				{:else}
 					{#each currentPanel.assetPath as src}
+						<!-- TODO: objects assetPath has left/right/both hands, as we go through them 
+						incrementally, the prices will come out of order -->
 						{#each layers[src] as option}
 							{#if option !== 'Nothing'}
 								<AssetOption
@@ -225,7 +153,7 @@
 									disabled={disabled[src]}
 									translateY={currentPanel.translateY}
 									translateX={currentPanel.translateX}
-									price={getPrice(src, option) || 0.5}
+									price={getPrice($characterIndex, src, option) || 0.5}
 									on:click={() => {
 										changeAsset(src, option);
 									}}

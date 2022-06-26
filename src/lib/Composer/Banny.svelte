@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { getContext, onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import type Store from '$utils/Store';
 	import { getSvgForKey } from '$lib/getSvg';
 	import Button from '$lib/Components/Button.svelte';
 	import Popover from '$lib/Components/Popover.svelte';
 
 	import backgrounds from '$data/backgroundGifs.json';
 	import BananaArrow from '$lib/Components/BananaArrow.svelte';
+	import ChangedFooter from './ChangedFooter.svelte';
 
 	let currentBanny = getContext('currentBanny') as any;
 	let values = currentBanny.layers;
@@ -29,11 +29,11 @@
 	function resize() {
 		if (window.innerWidth < 768) {
 			width = 250;
-			bannyStyles = `width: ${width * 3}px; bottom: -78px`;
+			bannyStyles = `width: ${width * 3}px; bottom: -28px`;
 			isSmallScreen = true;
 		} else if (window.innerWidth > 768) {
 			width = 280;
-			bannyStyles = `width: ${width * 3}px; bottom: -40px`;
+			bannyStyles = `width: ${width * 3}px; bottom: -10px`;
 			isSmallScreen = false;
 		}
 		placeholderStyles = `width: ${width / 1.08}px; margin-left: 65px`;
@@ -118,13 +118,14 @@
 		</div>
 	{/if}
 	<div class="overview">
-		<!-- TODO chosen items -->
 		<!-- TODO total -->
-		<div>...</div>
-		<Popover message="Coming soon" placement="top">
-			<img width="100" slot="content" src="/composer/great.png" alt="Thumbs up Banny" />
-			<Button disabled type="light" size="small">Mint Banny</Button>
-		</Popover>
+		<ChangedFooter />
+		<div class="mintButton">
+			<Popover message="Coming soon" placement="top">
+				<img width="100" slot="content" src="/composer/great.png" alt="Thumbs up Banny" />
+				<Button disabled type="light" size="small">Mint Banny</Button>
+			</Popover>
+		</div>
 	</div>
 </div>
 
@@ -176,10 +177,16 @@
 		display: flex;
 		justify-content: space-between;
 		background: var(--background-l2);
-		height: 50px;
+		height: 80px;
 		width: 100%;
 		position: absolute;
 		padding: 5px;
+		overflow: scroll;
+		scroll-behavior: smooth;
+	}
+
+	.mintButton {
+		align-self: center;
 	}
 
 	.unknown {
@@ -193,6 +200,10 @@
 	@media (max-width: 768px) {
 		.arrow {
 			height: 75px;
+		}
+
+		.overview {
+			direction: rtl;
 		}
 	}
 </style>
