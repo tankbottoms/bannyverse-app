@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getContext } from 'svelte';
-	import AssetOption from '$lib/AssetOption.svelte';
+	import AssetOption, { NO_PRICE } from '$lib/AssetOption.svelte';
 
 	import characters from '$data/characters.json';
 	import layers from '$data/layerOptions.json';
@@ -158,8 +158,34 @@
 		}
 	}
 
-	$: {
-		console.log($mods)
+	// The sigmoid function
+	function sigmoid(x: number) {
+		let sig = 1 / (1 + Math.exp(-x));
+		// Move sig to start at ca 0.05
+		sig -= 0.45;
+		// Round to 4 decimals
+		sig = Math.round(sig * 10000) / 10000;
+		return sig;
+	}
+
+	function getPrice(layer, value) {
+		const assetMetadata = assetsMetadata[layer][value];
+		if (!assetMetadata) {
+			return;
+		}
+		const assetCharacterIndex = assetMetadata['character_index'];
+		// If the asset is "higher" power than the current chosen Banny,
+		// the price is calculated by a sigmoid function of the difference between the two.
+		if ($characterIndex < assetCharacterIndex) {
+			const difference = assetCharacterIndex - $characterIndex;
+			// Normalize difference to be between 0 and 1
+			const normalizedDifference = difference / 60;
+			// Calculate price from sigmoid function of difference between character index and asset character index
+			return sigmoid(normalizedDifference);
+		} else {
+			// Otherwise, the price is 0 and the cost is merely the gas
+			return NO_PRICE;
+		}
 	}
 
 	$: disabled = {
@@ -199,6 +225,7 @@
 									disabled={disabled[src]}
 									translateY={currentPanel.translateY}
 									translateX={currentPanel.translateX}
+									price={getPrice(src, option) || 0.5}
 									on:click={() => {
 										changeAsset(src, option);
 									}}

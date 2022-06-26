@@ -1,4 +1,8 @@
-<script>
+<script lang="ts" context="module">
+	export const NO_PRICE = '-';
+</script>
+
+<script lang="ts">
 	import Ethereum from './Ethereum.svelte';
 
 	export let alt;
@@ -8,6 +12,7 @@
 	export let translateX;
 	export let active;
 	export let disabled;
+	export let price: string | number = 0.1;
 </script>
 
 <!-- NOTE the svg is the background svg for an item -->
@@ -75,8 +80,12 @@
 		}px);`}
 	/>
 	<div class="description">
-		<span>0.1<Ethereum /></span>
-	</div>
+			{#if price !== NO_PRICE}
+			<span>{price}<Ethereum /></span>
+			{:else}
+			<span>{NO_PRICE}</span>
+			{/if}
+		</div>
 
 	<!-- <img class="background" src="/composer/Back_for_character_2.svg" /> -->
 </div>
